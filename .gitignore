@@ -1,0 +1,4 @@
+venv/
+backend/venv/
+node_modules/
+.env
