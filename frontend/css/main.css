@@ -1,0 +1,51 @@
+header {
+  margin-bottom: 10px;
+}
+
+.discount-banner {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #FFE600 0%, #FFD600 30%, #FFB703 60%, #3483FA 100%);
+  color: #111;
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: fadeInDown 0.6s ease-out forwards;
+  opacity: 0;
+}
+.discount-banner .title {
+  letter-spacing: 0.6px;
+}
+.discount-banner .emoji {
+  font-size: 22px;
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  .discount-banner {
+    font-size: 15px;
+    padding: 12px;
+  }
+  .discount-banner .emoji {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=main.css.map */

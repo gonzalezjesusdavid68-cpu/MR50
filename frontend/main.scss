@@ -1,0 +1,89 @@
+header { 
+  margin-bottom: 10px;
+}
+
+// 🎯 Banner estilo Mercado Libre — atractivo pero profesional
+.discount-banner{
+  position: sticky;
+  top:0;
+  z-index: 9999;
+
+  // Fondo tipo Mercado Libre
+  background: linear-gradient(
+    135deg,
+    #FFE600 0%,
+    #FFD600 30%,
+    #FFB703 60%,
+    #3483FA 100%
+  );
+
+  color:#111;
+
+  padding:14px 18px;
+  text-align:center;
+  font-size:18px;
+  font-weight:800;
+
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  align-items:center;
+
+  border-bottom:2px solid rgba(0,0,0,.12);
+
+  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+
+  // glass suave
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  animation: fadeInDown .6s ease-out forwards;
+  opacity:0;
+
+  .title{
+    letter-spacing:.6px;
+  }
+
+  .emoji{
+    font-size:22px;
+  }
+}
+
+// 🔥 Animación
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// 📱 Responsive
+@media(max-width: 768px){
+  .discount-banner{
+    font-size: 15px;
+    padding: 12px;
+    .emoji{ font-size:18px; }
+  }
+}
+.navbar-menu a{
+  position:relative;
+}
+
+.navbar-menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:#6366f1;
+  transition:.3s;
+}
+
+.navbar-menu a:hover::after{
+  width:100%;
+}

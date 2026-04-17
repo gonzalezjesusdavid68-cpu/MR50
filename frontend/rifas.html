@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rifa Kit Motero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      :root {
+        --primary: #2563eb;
+        --success: #16a34a;
+        --danger: #dc2626;
+        --bg: #f8fafc;
+        --mensaje-pago-bg: #ecfeff;
+        --mensaje-pago-border: #22d3ee;
+        --mensaje-pago-suerte: #16a34a;
+      }
+
+      body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg,#0b0b0b,#1a1a1a);
+      color:white;
+      margin:0;
+      }
+
+      /* HEADER */
+      .header-rifa{
+      background:#000;
+      padding:20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:3px solid #e11d48;
+      }
+
+      .logo-rifa{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      }
+
+      .logo-rifa img{
+      height:60px;
+      }
+
+      .logo-rifa h1{
+      font-size:26px;
+      font-weight:700;
+      color:white;
+      margin:0;
+      }
+
+      .menu-rifa a{
+      color:white;
+      margin-left:20px;
+      text-decoration:none;
+      font-weight:600;
+      }
+
+      .menu-rifa a:hover{
+      color:#e11d48;
+      }
+
+      /* BANNER */
+      .banner-rifa{
+      background:linear-gradient(90deg,#7f1d1d,#e11d48);
+      padding:30px;
+      text-align:center;
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:1px;
+      }
+
+      /* CONTENEDOR */
+      .container{
+      max-width:1200px;
+      margin:auto;
+      padding:30px 20px;
+      }
+
+      /* TARJETAS */
+      .card{
+      background:#111;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 0 20px rgba(0,0,0,.5);
+      }
+
+      /* NUMEROS */
+      .number{
+      background:#16a34a;
+      color:white;
+      font-weight:700;
+      }
+
+      .number.sold{
+      background:#ef4444;
+      }
+
+      .number.selected{
+      background:#e11d48;
+      }
+
+      /* TITULOS */
+      h2{
+      text-align:center;
+      font-size:28px;
+      margin-bottom:20px;
+      }
+
+      /* FOOTER */
+      .footer{
+      background:#000;
+      color:#ccc;
+      padding:50px 20px 20px;
+      }
+
+      .footer-container{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:40px;
+      }
+
+      .footer-logo img{
+      height:45px;
+      margin-bottom:10px;
+      }
+
+      .footer h4{
+      color:white;
+      margin-bottom:15px;
+      font-size:16px;
+      }
+
+      .footer ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      }
+
+      .footer li{
+      margin-bottom:8px;
+      font-size:14px;
+      }
+
+      .footer a{
+      color:#ccc;
+      text-decoration:none;
+      }
+
+      .footer a:hover{
+      color:#e11d48;
+      }
+
+      /* redes */
+      .footer-social{
+      display:flex;
+      gap:12px;
+      margin-top:10px;
+      }
+
+      .footer-social i{
+      font-size:18px;
+      }
+
+      /* pagos */
+      .footer-pagos{
+      border-top:1px solid #222;
+      margin-top:30px;
+      padding-top:20px;
+      text-align:center;
+      }
+
+      .footer-pagos img{
+      height:28px;
+      margin:0 8px;
+      }
+
+      /* responsive */
+      @media(max-width:900px){
+      .footer-container{
+      grid-template-columns:1fr 1fr;
+      }
+      }
+
+      @media(max-width:600px){
+      .footer-container{
+      grid-template-columns:1fr;
+      }
+      }
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: white;
+        color: #111; /* ✅ TEXTO NEGRO */
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .numbers {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .numero {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .numero:hover {
+        background: #4caf50;
+        color: white;
+      }
+
+      .pendiente {
+        background: orange;
+        color: white;
+        cursor: not-allowed;
+      }
+
+      .aprobado {
+        background: red;
+        color: white;
+        cursor: not-allowed;
+      }
+
+      .available {
+        background: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      .selected {
+        background: var(--primary);
+        color: white;
+      }
+
+      .sold {
+        background: #ccc;
+        color: #666;
+        cursor: not-allowed;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .btn-select {
+        background: var(--success);
+        color: white;
+      }
+
+      .btn-send {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-nequi {
+        display: block;
+        margin-top: 10px;
+        background: #8b5cf6;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      form input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+
+      .info {
+        margin-top: 12px;
+        font-weight: bold;
+      }
+
+      .mensaje-pago {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .mensaje-pago-card {
+        background: var(--mensaje-pago-bg);
+        border: 2px solid var(--mensaje-pago-border);
+      }
+
+      .mensaje-pago-suerte {
+        font-weight: bold;
+        color: var(--mensaje-pago-suerte);
+      }
+      .no-disponible {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .no-disponible span {
+        color: red;
+        font-weight: bold;
+      }
+      .badge-rifa{
+      background:#e11d48;
+      color:white;
+      font-size:12px;
+      padding:3px 7px;
+      border-radius:20px;
+      margin-left:5px;
+      }
+    </style>
+  </head>
+  <header class="header-rifa">
+
+  <div class="logo-rifa">
+  <img src="assets/logomotoruta50.png" alt="Logo Moto Ruta 50" />
+  <h1>Moto Ruta 50</h1>
+  </div>
+
+  <nav class="menu-rifa">
+  <a href="index.html">Inicio</a>
+  <a href="index.html#productos">Tienda</a>
+ <a href="rifas.html" class="menu-rifa-link active">
+    Participa 
+    <span id="contadorRifas" class="badge-rifa">0</span>
+  </a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+  </nav>
+
+  </header>
+
+  <div class="banner-rifa">
+  🏍️ Participa en nuestras Rifas Oficiales
+  </div>
+  <body>
+    <div class="container">
+      <!-- SELECCIÓN DE NÚMERO -->
+      <div class="card">
+        <h2>1️⃣ Selecciona tu número</h2>
+        <div class="numbers" id="numbers"></div>
+        <label class="numero">
+        </label>
+
+        <button class="btn-select" id="btnSelect">
+          Confirmar número seleccionado
+        </button>
+        <a
+          href="https://recarga.nequi.com.co/bdigitalpsl/#!/"
+          target="_blank"
+          rel="noopener"
+          class="btn-nequi"
+        >
+          💳 Pagar con Nequi
+        </a>
+
+        <p class="info" id="selectedInfo"></p>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="card">
+        <h2>2️⃣Datos del participante</h2>
+
+        <form id="formulario">
+          <input type="text" id="name" placeholder="Nombre completo" required />
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Teléfono / WhatsApp"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Correo electrónico"
+            required
+          />
+          <input type="hidden" id="numeroSeleccionado" />
+
+          <label for="comprobante">3️⃣Comprobante de pago (imagen):</label>
+          <input type="file" id="comprobante" accept="image/*" required />
+
+          <button class="btn-send" type="submit">Enviar información</button>
+
+          <button type="button" onclick="confirmarPago()">
+            Confirmar pago
+          </button>
+        </form>
+
+        <p class="info" id="result"></p>
+        <!-- ✅ MENSAJE POST-PAGO -->
+        <div id="mensajePago" class="mensaje-pago">
+          <div class="card mensaje-pago-card">
+            <h3>🎉 ¡Pago recibido!</h3>
+            <p>
+              Gracias por participar en nuestra rifa 🙌<br />
+              Tu número ha sido <strong>confirmado correctamente</strong>.
+            </p>
+            <p>
+              📲 En breve recibirás un mensaje por WhatsApp con la confirmación.
+            </p>
+            <p class="mensaje-pago-suerte">🍀 ¡Mucha suerte!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    
+    <script type="module">
+      // 1. Importar Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getStorage,
+        ref,
+        uploadBytes,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+      import {
+        getFirestore,
+        doc as firestoreDoc,
+        getDoc,
+        setDoc,
+        updateDoc,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+      import {
+        collection,
+        getDocs,
+        onSnapshot,
+        query, 
+        where,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+      // 2. Configuración (PEGA LA TUYA AQUÍ)
+      const firebaseConfig = {
+        apiKey: "AIzaSyCGPv5ciPmClCyfEK3qK_vYuo5ijxOJVZo",
+        authDomain: "rifa-digital-mr50.firebaseapp.com",
+        projectId: "rifa-digital-mr50",
+        storageBucket: "rifa-digital-mr50.firebasestorage.app",
+        messagingSenderId: "1032251067096",
+        appId: "1:1032251067096:web:c05997ebd0b7563c7525ad",
+        measurementId: "G-KVKV9LG6JY",
+      };
+
+      // 3. Inicializar
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+
+      //3.FIREBASE HELPERS
+      async function numeroVendido(numero) {
+        const ref = firestoreDoc(db, "rifas", numero);
+        const snap = await getDoc(ref);
+        return snap.exists();
+      }
+
+      async function guardarRifa(numero, datos) {
+        const ref = firestoreDoc(db, "rifas", numero);
+        const snap = await getDoc(ref);
+
+        if (snap.exists()) {
+          alert("❌ Este número ya fue tomado");
+          return false;
+        }
+
+        await setDoc(ref, {
+          estado: "vendido",
+          ...datos,
+          fecha: new Date().toISOString(),
+        });
+
+        return true;
+      }
+
+      const numbersContainer = document.getElementById("numbers");
+      const selectedInfo = document.getElementById("selectedInfo");
+      const result = document.getElementById("result");
+      const btnSelect = document.getElementById("btnSelect");
+      const form = document.getElementById("formulario");
+
+      let tempSelected = null;
+      let finalSelected = null;
+
+      /* =========================
+           CREAR NÚMEROS 01–99
+        ========================== */
+      for (let i = 1; i <= 99; i++) {
+        const num = i.toString().padStart(2, "0");
+        const div = document.createElement("div");
+        div.textContent = num;
+        div.className = "number available";
+        div.onclick = () => selectTemp(div, num);
+        numbersContainer.appendChild(div);
+      }
+
+      function selectTemp(element, num) {
+        document
+          .querySelectorAll(".number")
+          .forEach((n) => n.classList.remove("selected"));
+
+        element.classList.add("selected");
+        tempSelected = num;
+        selectedInfo.textContent = `Número elegido: ${num}`;
+      }
+
+      btnSelect.onclick = () => {
+        if (!tempSelected) {
+          alert("Selecciona un número primero");
+          return;
+        }
+        finalSelected = tempSelected;
+        selectedInfo.textContent = `✅ Número confirmado: ${finalSelected}`;
+        document.getElementById("numeroSeleccionado").value = finalSelected;
+      };
+
+      /* =========================
+           RESERVAR NÚMERO (ANTI-FRAUDE)
+        ========================== */
+      async function reservarNumero(numero, datos) {
+        const res = await fetch(
+          "https://us-central1-rifa-digital-mr50.cloudfunctions.net/reservarNumero",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ numero, ...datos }),
+          },
+        );
+
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error);
+      }
+
+      /* =========================
+           GUARDAR EN SHEETS
+        ========================== */
+      async function guardarEnSheets(datos) {
+        const res = await fetch(
+          "https://us-central1-rifa-digital-mr50.cloudfunctions.net/guardarEnSheets",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datos),
+          },
+        );
+
+        const data = await res.json();
+        if (!data.success) throw new Error("Error Sheets");
+      }
+
+      /* =========================
+           CONFIRMAR PAGO (MANUAL)
+        ========================== */
+      window.confirmarPago = () => {
+        if (!finalSelected) {
+          alert("Primero reserva un número");
+          return;
+        }
+
+        alert(
+          `💳 PAGO MANUAL\n\n` +
+            `Nequi / Daviplata\n` +
+            `📱 3001234567\n` +
+            `💰 Valor: $15.000\n\n` +
+            `Referencia: RIFA-${finalSelected}`,
+        );
+      };
+
+      /* =========================
+           SUBIR COMPROBANTE
+        ========================== */
+      async function subirComprobante(numero) {
+        const file = document.getElementById("comprobante").files[0];
+        if (!file) {
+          alert("Debes subir el comprobante");
+          return;
+        }
+
+        const storageRef = ref(
+          storage,
+          `comprobantes/${numero}_${Date.now()}.jpg`,
+        );
+        await uploadBytes(storageRef, file);
+        return await getDownloadURL(storageRef);
+      }
+
+      /* =========================
+           SUBMIT FORM
+        ========================== */
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (!finalSelected) {
+          alert("Confirma un número primero");
+          return;
+        }
+
+        const nombre = document.getElementById("name").value.trim();
+        const telefono = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const file = document.getElementById("comprobante").files[0];
+
+        if (!nombre || !telefono || !email || !file) {
+          alert("Completa todos los datos");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async () => {
+          const base64 = reader.result.split(",")[1];
+
+          try {
+            result.textContent = "⏳ Enviando comprobante...";
+
+            const res = await fetch(
+              "https://us-central1-rifa-digital-mr50.cloudfunctions.net/crearRifaConComprobante",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  numero: finalSelected,
+                  nombre,
+                  telefono,
+                  email,
+                  imagenBase64: base64,
+                }),
+              },
+            );
+
+            const data = await res.json();
+            if (!data.success) throw new Error(data.error);
+
+            document.getElementById("mensajePago").style.display = "block";
+            result.textContent = "✅ Pago enviado, esperando aprobación";
+            form.reset();
+          } catch (err) {
+            result.textContent = "❌ " + err.message;
+          }
+        };
+
+        reader.readAsDataURL(file);
+      });
+      
+      // Import and function moved outside event handler and catch block
+      function escucharNumeros() {
+        if (!sorteoActualId) return;
+        onSnapshot(
+          collection(db, "sorteos", sorteoActualId, "participantes"),
+          (snapshot) => {
+            const numerosOcupados = {};
+
+            snapshot.forEach((docSnap) => {
+              numerosOcupados[docSnap.id] = docSnap.data().estado;
+            });
+
+            document.querySelectorAll(".number").forEach((div) => {
+              const numero = div.textContent.trim();
+
+              if (numerosOcupados[numero]) {
+                div.classList.remove("available");
+                div.classList.add("sold");
+                div.style.pointerEvents = "none";
+              } else {
+                div.classList.remove("sold");
+                div.classList.add("available");
+                div.style.pointerEvents = "auto";
+              }
+            });
+          },
+        );
+      }
+
+      async function cargarSorteoActivo() {
+      const q = query(
+        collection(db, "sorteos"),
+        where("activo", "==", true)
+      );
+
+      const snapshot = await getDocs(q);
+
+      snapshot.forEach((docSnap) => {
+        sorteoActualId = docSnap.id;
+      });
+
+      escucharNumeros();
+    }
+    async function contarRifas(){
+      const snapshot = await db.collection("sorteos")
+      .where("estado","==","activo")
+      .get()
+
+      document.getElementById("contadorRifas").textContent = snapshot.size
+      }
+
+      contarRifas()
+    </script>
+    <section id="nosotros" class="container">
+    <div class="card">
+    <h2>Nosotros</h2>
+    <p>Moto Ruta 50 es tu tienda de confianza para cascos y accesorios...</p>
+    </div>
+    </section>
+    <footer id="contacto" class="footer">
+    <div class="footer-container">
+    <!-- LOGO -->
+    <div class="footer-logo">
+    <img src="assets/logomotoruta50.png" alt="Logo Moto Ruta 50">
+    <p>Cascos y repuestos premium para tu moto.</p>
+
+    <div class="footer-social">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-tiktok"></i>
+    <i class="fab fa-whatsapp"></i>
+    </div>
+    </div>
+
+    <!-- INFO -->
+    <div>
+    <h4>+ Información</h4>
+    <ul>
+    <li><a href="#">Mi cuenta</a></li>
+    <li><a href="#">Promociones</a></li>
+    <li><a href="#">Rifas activas</a></li>
+    <li><a href="#">Ganadores</a></li>
+    <li><a href="#">Certificados</a></li>
+    </ul>
+    </div>
+
+    <!-- NOSOTROS -->
+    <div>
+    <h4>Nosotros</h4>
+    <ul>
+    <li>Sobre Moto Ruta 50</li>
+    <li>Nuestras rifas</li>
+    <li>Envíos nacionales</li>
+    <li>Pagos seguros</li>
+    <li>Contacto WhatsApp</li>
+    </ul>
+    </div>
+
+    <!-- CONTACTO -->
+    <div>
+    <h4>Contacto</h4>
+    <p>Colombia</p>
+    <p>WhatsApp: +57 310 764 3039</p>
+    <p>Lun - Sab 8am - 8pm</p>
+    </div>
+
+    </div>
+
+    <div class="footer-pagos">
+    <p>Medios de pago</p>
+    <div class="footer-pagos-logos">
+    <img src="assets/logovisa.png " alt="Visa">
+    <img src="assets/logomastercard.png" alt="Mastercard">
+    <img src="assets/logonequi.png" alt="Nequi">
+    <img src="assets/logobre-b-forma.png" alt="Bre-B">
+    <img src="assets/logopse-1.png" alt="PSE">
+    <p style="margin-top:15px;font-size:12px">
+    © 2026 Moto Ruta 50 - Todos los derechos reservados
+    </p>
+    </div>
+    </footer>
+  </body>
+</html>
