@@ -1,0 +1,27 @@
+services:
+  backend:
+    image: davidgonzalez466/moto_backend:latest
+    container_name: moto_backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_ENV=developmentt
+    volumes:
+      - ./backend:/app
+    restart: always
+  frontend:
+    image: davidgonzalez466/moto_frontend:latest
+    container_name: moto_frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: always
