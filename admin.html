@@ -143,7 +143,7 @@
     <h2>🏆 Historial de Ganadores</h2>
     <div id="historialGanadores"></div>
     <script type="module">
-      let sorteoActualId = null;
+      
       // 🔥 Firebase imports
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import {
@@ -750,6 +750,19 @@
         const url =
         `https://wa.me/57${data.telefono}?text=${encodeURIComponent(mensaje)}`;
         window.open(url,"_blank");
+        }
+        async function aprobarNumero(numero) {
+          const ref = firestoreDoc(
+            db,
+            "sorteos",
+            sorteoActualId,
+            "participantes",
+            numero
+          );
+
+          await updateDoc(ref, {
+            estado: "aprobado"
+          });
         }
     </script>
   </body>

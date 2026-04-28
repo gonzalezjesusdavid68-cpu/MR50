@@ -16,9 +16,9 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Bienvenido a Moto Ruta 50, donde encontrarás las mejores rutas y consejos para motociclistas. Explora nuestro contenido y disfruta de la aventura sobre dos ruedas.">
     <title>Moto Ruta 50 🏍️— Cascos & Repuestos</title>
 
    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@
       grid-template-columns:repeat(4,1fr);
       gap:40px;
       }
-    
+  
       .mega-container h4{
       font-size:20px;
       font-weight:700;
@@ -91,9 +91,6 @@
       .mega-menu .grid{
       max-width:1200px;
       margin:auto;
-      }
-      .mega:hover .mega-menu{
-      display:grid;
       }
       .mega-menu h4{
       font-size:22px;
@@ -300,6 +297,12 @@
       color:white;
       }
 
+      section {
+      color: black;
+      }
+      .absolute.inset-0 {
+        pointer-events: none;
+      }
       /* responsive */
       @media(max-width:900px){
       .footer-container{
@@ -311,6 +314,282 @@
       grid-template-columns:1fr;
       }
       }
+      .promo-rifa{
+      position: relative;
+      background: url('assets/POSTER RIFA MR50 COMO PARTICIPAR.png') center/cover no-repeat;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .promo-overlay{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: linear-gradient(135deg, rgba(0,0,0,.6), rgba(0,0,0,.95));
+    }
+
+    .promo-content{
+      position: relative;
+      z-index:2;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .promo-title{
+      font-size:48px;
+      font-weight:900;
+      letter-spacing:2px;
+    }
+
+    .promo-title span{
+      color:#facc15;
+    }
+
+    .promo-sub{
+      margin:15px 0 40px;
+      font-size:18px;
+      color:#ddd;
+    }
+
+    /* STEPS */
+    .promo-steps{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:20px;
+      margin-bottom:40px;
+    }
+
+    .step{
+      background: rgba(255,255,255,0.05);
+      border-radius:12px;
+      padding:20px;
+      transition:.3s;
+    }
+
+    .step:hover{
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .step span{
+      display:inline-block;
+      background:#e11d48;
+      width:35px;
+      height:35px;
+      line-height:35px;
+      border-radius:50%;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+
+    .step h4{
+      margin:10px 0;
+    }
+
+    /* BOTÓN */
+    .btn-rifa{
+      display:inline-block;
+      background: linear-gradient(90deg,#e11d48,#facc15);
+      padding:15px 35px;
+      border-radius:10px;
+      font-weight:bold;
+      color:black;
+      text-decoration:none;
+      transition:.3s;
+    }
+
+    .btn-rifa:hover{
+      transform: scale(1.05);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .promo-steps{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .promo-title{
+        font-size:32px;
+      }
+    }
+
+    @media(max-width:500px){
+      .promo-steps{
+        grid-template-columns:1fr;
+      }
+    }
+      /* SLIDER CONTENEDOR */
+      .rifa-slider-premium {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* SLIDES */
+      .rifa-slide {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+      }
+
+      .rifa-slide.active {
+        position: relative;
+        opacity: 1;
+      }
+
+      /* BANNER FULL */
+      .rifa-banner-full {
+        position: relative;
+        width: 100%;
+      }
+
+      .rifa-banner-full img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+
+      /* OVERLAY BOTÓN */
+      .rifa-banner-overlay {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* BOTÓN GRANDE */
+      .btn-rifa.grande {
+        background: linear-gradient(135deg, #e11d48, #ff9800);
+        padding: 14px 28px;
+        font-size: 18px;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 10px 25px rgba(0,0,0,.4);
+        transition: 0.3s;
+      }
+
+      .btn-rifa.grande:hover {
+        transform: scale(1.08);
+      }
+
+      /* INDICADORES */
+      .rifa-indicators {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .rifa-indicators .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+        background: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .rifa-indicators .dot.active {
+        background: #e11d48;
+      }
+      /* SLIDER */
+        .hero-slider {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+      .hero-slide {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 1s ease;
+        }
+        .hero-slide.active {
+          opacity: 1;
+          z-index: 1;
+        }
+        /* OVERLAY */
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to right, black, rgba(0,0,0,0.5));
+        }
+        /* CONTENT */
+        .hero-content {
+          position: relative;
+          z-index: 2;
+          max-width: 1200px;
+          margin: auto;
+          padding: 60px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .hero-content.center {
+          flex-direction: column;
+          text-align: center;
+        }
+        /* BOTONES */
+        .btn-main {
+          background: white;
+          color: black;
+          padding: 12px 25px;
+          border-radius: 10px;
+          font-weight: bold;
+        }
+        /* TARJETA */
+        .card-oferta {
+          background: white;
+          padding: 20px;
+          border-radius: 20px;
+          width: 280px;
+        }
+        .tag {
+          font-size: 12px;
+          color: gray;
+        }
+        .countdown {
+          background: red;
+          color: white;
+          padding: 5px;
+          border-radius: 8px;
+          margin-bottom: 10px;
+        }
+        .img-card {
+          width: 70px;
+          height: 70px;
+          border-radius: 10px;
+        }
+        .price {
+          color: #2563eb;
+          font-weight: bold;
+        }
+        .btn-buy {
+          background: #22c55e;
+          color: white;
+          width: 100%;
+          padding: 10px;
+          border-radius: 10px;
+          margin-top: 10px;
+        }
+        .promo-steps {
+          display: flex;
+          gap: 20px;
+          margin-top: 20px;
+        }
+        .step {
+          background: rgba(255,255,255,0.1);
+          padding: 15px;
+          border-radius: 10px;
+        }
     </style>
   </head>
 
@@ -373,23 +652,23 @@
             <!-- MEGA MENU CASCOS -->
       <div id="menuCascos"
         class="mega-menu hidden absolute left-0 top-full w-full bg-white shadow-xl py-10">
-          <div class="max-w-4xl mx-auto flex justify-center">
-            <div class="w-full">
+        <div class="max-w-4xl mx-auto flex justify-center">
+          <div class="w-full">
         <!-- COLUMNA 1 -->
           <h4 class="font-bold text-lg mb-4">Moto-Marcas</h4>
           <ul class="flex flex-col gap-3 text-gray-600 text-center">
-          <li><button onclick="setBrand('XECURO')" class="hover:text-blue-600">XECURO</button></li>
-          <li><button onclick="setBrand('FIBRA')" class="hover:text-blue-600">FIBRA</button></li>
-          <li><button onclick="setBrand('NZI')" class="hover:text-blue-600">NZI</button></li>
-          <li><button onclick="setBrand('PRORIDER')" class="hover:text-blue-600">PRORIDER</button></li>
-          <li><button onclick="setBrand('ICH')" class="hover:text-blue-600">ICH</button></li>
+          <li><button data-brand="XECURO" class="hover:text-blue-600">XECURO</button></li>
+          <li><button data-brand="FIBRA" class="hover:text-blue-600">FIBRA</button></li>
+          <li><button data-brand="NZI" class="hover:text-blue-600">NZI</button></li>
+          <li><button data-brand="PRORIDER" class="hover:text-blue-600">PRORIDER</button></li>
+          <li><button data-brand="NTF" class="hover:text-blue-600">NTF</button></li>
           </ul>
-        </div>
+          </div>
         <!-- COLUMNA 2 -->
             <div class="w-full">
             <h4 class="font-bold text-xl mb-4 text-[#660B05]">Bici-Marcas</h4>
             <ul class="flex flex-col gap-3 text-[#660B05] font-medium">
-            <li><button onclick="setBrand('xgp')" class="hover:text-red-600">XGP</button></li>
+            <li><button data-brand="XGP" class="hover:text-blue-600">XGP</button></li>
             </ul>
             </div>
         <!-- IMAGEN -->
@@ -401,41 +680,41 @@
       <!-- ACCESORIOS -->
       <div id="menuAccesorios"
         class="mega-menu hidden absolute left-0 top-full w-full bg-white shadow-xl py-10 z-50">
-            <div class="max-w-4xl mx-auto flex justify-center">
+          <div class="max-w-4xl mx-auto flex justify-center">
             <div class="w-full">
             <!-- COLUMNA 1 -->
             <h4 class="font-bold text-xl mb-4 text-[#660B05]">Accesorios</h4>
             <ul class="flex flex-col gap-3 text-[#660B05] font-medium">
-            <li><button onclick="setType('tapaclutch')" class="hover:text-red-600">Tapa clutch</button></li>
-            <li><button onclick="setType('soportes')" class="hover:text-red-600">Soportes celular</button></li>
-            <li><button onclick="setType('gafas')" class="hover:text-red-600">Gafas cross</button></li>
-            <li><button onclick="setType('protectordisco')" class="hover:text-red-600">Protector Disco Freno</button></li>
-            <li><button onclick="setType('espejoslujo')" class="hover:text-red-600">Espejos de Lujo</button></li>
-            <li><button onclick="setType('piecitosfreno')" class="hover:text-red-600">Piecitos Freno Lujo</button></li>
-            <li><button onclick="setType('manilares')" class="hover:text-red-600">Manilares Lujo</button></li>
-            <li><button onclick="setType('clevis')" class="hover:text-red-600">Clevis de Lujo</button></li>
-            <li><button onclick="setType('levas')" class="hover:text-red-600">Levas de freno Lujo</button></li>
-            <li><button onclick="setType('sliders')" class="hover:text-red-600">Sliders de Rueda</button></li>
-            <li><button onclick="setType('patas')" class="hover:text-red-600">Patas Laterales Lujo</button></li>
+            <li><button data-type="tapaclutch" class="hover:text-red-600">Tapa clutch</button></li>
+            <li><button data-type="soportes" class="hover:text-red-600">Soportes</button></li>
+            <li><button data-type="gafas" class="hover:text-red-600">Gafas cross</button></li>
+            <li><button data-type="protectordisco" class="hover:text-red-600">Protector Disco Freno</button></li>
+            <li><button data-type="espejoslujo" class="hover:text-red-600">Espejos de Lujo</button></li>
+            <li><button data-type="piecitosfreno" class="hover:text-red-600">Piecitos Freno Lujo</button></li>
+            <li><button data-type="manilares" class="hover:text-red-600">Manilares Lujo</button></li>
+            <li><button data-type="clevis" class="hover:text-red-600">Clevis de Lujo</button></li>
+            <li><button data-type="levas" class="hover:text-red-600">Levas de freno Lujo</button></li>
+            <li><button data-type="sliders" class="hover:text-red-600">Sliders de Rueda</button></li>
+            <li><button data-type="patas" class="hover:text-red-600">Patas Laterales Lujo</button></li>
             </ul>
             </div>
             <!-- COLUMNA 2 -->
             <div class="w-full">
             <h4 class="font-bold text-xl mb-4 text-[#660B05]">Tecnología</h4>
             <ul class="flex flex-col gap-3 text-[#660B05] font-medium">
-            <li><button onclick="setType('intercom')" class="hover:text-red-600">Intercomunicadores</button></li>
-            <li><button onclick="setType('camaras')" class="hover:text-red-600">Cámaras</button></li>
-            <li><button onclick="setType('candados')" class="hover:text-red-600">Candados</button></li>
+            <li><button data-type="intercom" class="hover:text-red-600">Intercomunicadores</button></li>
+            <li><button data-type="camaras" class="hover:text-red-600">Cámaras</button></li>
+            <li><button data-type="candados" class="hover:text-red-600">Candados</button></li>
             </ul>
             </div>
             <div class="w-full">
             <h4 class="font-bold text-xl mb-4 text-[#660B05]">Carroceria y Plasticos</h4>
             <ul class="flex flex-col gap-3 text-[#660B05] font-medium">
-            <li><button onclick="setType('tanques')" class="hover:text-red-600">Tanque Gasolina</button></li>
-            <li><button onclick="setType('tapas')" class="hover:text-red-600">Tapas Laterales</button></li>
-            <li><button onclick="setType('guardabarrostraseros')" class="hover:text-red-600">Guardabarros Traseros</button></li>
-            <li><button onclick="setType('guardabarrosdelanteros')" class="hover:text-red-600">Guardabarros Delanteros</button></li>
-            <li><button onclick="setType('carenajes')" class="hover:text-red-600">Carenajes</button></li>
+            <li><button data-type="tanques" class="hover:text-red-600">Tanque Gasolina</button></li>
+            <li><button data-type="tapas" class="hover:text-red-600">Tapas Laterales</button></li>
+            <li><button data-type="guardabarrostraseros" class="hover:text-red-600">Guardabarros Traseros</button></li>
+            <li><button data-type="guardabarrosdelanteros" class="hover:text-red-600">Guardabarros Delanteros</button></li>
+            <li><button data-type="carenajes" class="hover:text-red-600">Carenajes</button></li>
             </ul>
             </div>
             <!-- IMAGEN -->
@@ -454,26 +733,26 @@
             <div class="w-full">
               <h4 class="font-bold text-lg mb-4">Iluminación</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button onclick="setType('direccionales')" class="hover:text-red-600">Direccionales LED</button></li>
-                <li><button onclick="setType('bombillosled')" class="hover:text-blue-600 transition w-full">Bombillos LED</button></li>
-                <li><button onclick="setType('farolasled')"class="hover:text-blue-600 transition w-full">Farolas LED</button></li>
-                <li><button onclick="setType('stopled')"class="hover:text-blue-600 transition w-full">Stop LED</button></li>
-                <li><button onclick="setType('exploradoras')"class="hover:text-blue-600 transition w-full">Exploradoras</button></li>
+                <li><button data-type="direccionales" class="hover:text-red-600">Direccionales LED</button></li>
+                <li><button data-type="bombillosled" class="hover:text-blue-600 transition w-full">Bombillos LED</button></li>
+                <li><button data-type="farolasled" class="hover:text-blue-600 transition w-full">Farolas LED</button></li>
+                <li><button data-type="stopled" class="hover:text-blue-600 transition w-full">Stop LED</button></li>
+                <li><button data-type="exploradoras" class="hover:text-blue-600 transition w-full">Exploradoras</button></li>
               </ul>
             </div>
             <div class="w-full">
               <h4 class="font-bold text-lg mb-4">Energía</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button onclick="setType('baterias')" class="hover:text-blue-600 transition w-full">Baterías</button></li>
-                <li><button onclick="setType('reguladores')" class="hover:text-blue-600 transition w-full">Reguladores</button></li>
-                <li><button onclick="setType('cablealta')" class="hover:text-blue-600 transition w-full">Cable alta NGK</button></li>
+                <li><button data-type="baterias" class="hover:text-blue-600 transition w-full">Baterías</button></li>
+                <li><button data-type="reguladores" class="hover:text-blue-600 transition w-full">Reguladores</button></li>
+                <li><button data-type="cablealta" class="hover:text-blue-600 transition w-full">Cable alta NGK</button></li>
               </ul>
             </div>
               <div class="w-full">
               <h4 class="font-bold text-lg mb-4">Accesorios</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button onclick="setType('cables')" class="hover:text-blue-600 transition w-full">Cables</button></li>
-                <li><button onclick="setType('interruptores')" class="hover:text-blue-600 transition w-full">Interruptores</button></li>
+                <li><button data-type="cables" class="hover:text-blue-600 transition w-full">Cables</button></li>
+                <li><button data-type="interruptores" class="hover:text-blue-600 transition w-full">Interruptores</button></li>
               </ul>
             </div>
             <div>
@@ -488,23 +767,23 @@
     <div class="w-full">
     <h4 class="font-bold text-lg mb-4">Ropa Moto</h4>
     <ul class="flex flex-col gap-3 text-gray-600">
-    <li><button onclick="setType('guantes')" class="hover:text-blue-600">Guantes</button></li>
-    <li><button onclick="setType('chaquetas')" class="hover:text-blue-600">Chaquetas</button></li>
-    <li><button onclick="setType('jerseys')" class="hover:text-blue-600">Jerseys</button></li>
+    <li><button data-type="guantes" class="hover:text-blue-600">Guantes</button></li>
+    <li><button data-type="chaquetas" class="hover:text-blue-600">Chaquetas</button></li>
+    <li><button data-type="jerseys" class="hover:text-blue-600">Jerseys</button></li>
     </ul>
     </div>
     <div class="w-full">
       <h4 class="font-bold text-lg mb-4">Protección</h4>
       <ul class="flex flex-col gap-3 text-gray-600 text-center">
-        <li><button onclick="setType('rodilleras')" class="hover:text-blue-600">Rodilleras</button></li>
-        <li><button onclick="setType('coderas')" class="hover:text-blue-600">Coderas</button></li>
+        <li><button data-type="rodilleras" class="hover:text-blue-600">Rodilleras</button></li>
+        <li><button data-type="coderas" class="hover:text-blue-600">Coderas</button></li>
       </ul>
     </div>
     <div class="w-full">
       <h4 class="font-bold text-lg mb-4">Clima</h4>
       <ul class="flex flex-col gap-3 text-gray-600 text-center">
-        <li><button onclick="setType('impermeables')" class="hover:text-blue-600">Impermeables</button></li>
-        <li><button onclick="setType('cortavientos')" class="hover:text-blue-600">Cortavientos</button></li>
+        <li><button data-type="impermeables" class="hover:text-blue-600">Impermeables</button></li>
+        <li><button data-type="cortavientos" class="hover:text-blue-600">Cortavientos</button></li>
       </ul>
     </div>
   </div>
@@ -514,21 +793,21 @@
         class="mega-menu hidden absolute left-0 top-full w-full bg-white shadow-xl py-10">
           <div class="max-w-4xl mx-auto flex justify-center">
             <div class="w-full">
-              <h4 class="font-bold text-lg mb-4">Motor y Transmision<m/h4>
+              <h4 class="font-bold text-lg mb-4">Motor y Transmision</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button onclick="setType('kitarrastre')" class="hover:text-red-600">Kit Arrastre completo</button></li>
-                <li><button onclick="setType('kitcilindro')" class="hover:text-blue-600 transition w-full">Kit Cilindros Repotenciados</button></li>
-                <li><button onclick="setType('kitpiñones')"class="hover:text-blue-600 transition w-full">Kit Piñones</button></li>
-                <li><button onclick="setType('cadenas')"class="hover:text-blue-600 transition w-full">Cadenas</button></li>
-                <li><button onclick="setType('correa')"class="hover:text-blue-600 transition w-full">Correas Transmision</button></li>
+                <li><button data-type="kitarrastre" class="hover:text-red-600">Kit Arrastre completo</button></li>
+                <li><button data-type="kitcilindro" class="hover:text-blue-600 transition w-full">Kit Cilindros Repotenciados</button></li>
+                <li><button data-type="kitpiñones" class="hover:text-blue-600 transition w-full">Kit Piñones</button></li>
+                <li><button data-type="cadenas" class="hover:text-blue-600 transition w-full">Cadenas</button></li>
+                <li><button data-type="correa" class="hover:text-blue-600 transition w-full">Correas Transmision</button></li>
               </ul>
             </div>
             <div class="w-full">
               <h4 class="font-bold text-lg mb-4">Frenos y Suspension</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button onclick="setType('discofreno')" class="hover:text-blue-600 transition w-full">Discos De Freno</button></li>
-                <li><button onclick="setType('bombas')" class="hover:text-blue-600 transition w-full">Bombas de Freno</button></li>
-                <li><button onclick="setType('amortiguadores')" class="hover:text-blue-600 transition w-full">Amortiguadores</button></li>
+                <li><button data-type="discofreno" class="hover:text-blue-600 transition w-full">Discos De Freno</button></li>
+                <li><button data-type="bombas" class="hover:text-blue-600 transition w-full">Bombas de Freno</button></li>
+                <li><button data-type="amortiguadores" class="hover:text-blue-600 transition w-full">Amortiguadores</button></li>
               </ul>
             </div>
             <div>
@@ -551,31 +830,25 @@
         0
         </span>
       </button> 
+         <!-- BOTON MOBILE -->
+        <button id="menuBtn" class="md:hidden text-2xl">
+        ☰
+        </button>
+    </div>
       <!-- BOTONES DERECHA -->
-      <div class="flex items-center gap-4">
     <!-- BUSCADOR GRANDE -->
-    <div class="hidden md:flex flex-1 mx-8">
-      <!-- BOTON BUSCAR -->     
-      <button onclick="openSearch()" class="hidden md:block p-2 hover:bg-gray-100 rounded-full"
-      aria-label="Buscar productos">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z"/>
-      </svg>
-      </button>
+<div class="flex flex-1 mx-8">
       <!-- SEARCH MODAL -->
-    <div id="searchModal"
-        class="hidden fixed top-0 left-0 w-full h-full bg-black/30 backdrop-blur-sm z-50">
-      <div class="bg-white w-full max-w-3xl mx-auto mt-20 rounded-xl p-4 shadow-xl">
+  <div id="searchModal"
+    class="hidden fixed top-0 left-0 w-full h-full bg-black/30 backdrop-blur-sm z-50 items-center justify-center">
+    <div class="bg-white w-full max-w-3xl mx-auto mt-20 rounded-xl p-4 shadow-xl">
         <!-- BOTÓN CERRAR -->
         <button onclick="closeSearch()" class="absolute top-3 right-4 text-xl">
           ✕
         </button>
         <!-- HEADER -->
-      <div class="flex flex-col gap-3"></div>
-
         <!-- INPUT -->
-    <div class="flex">
+      <div class="flex">
       <input
         id="searchInputMain"
         type="text"
@@ -583,41 +856,156 @@
         oninput="searchMain()"
         class="w-full border rounded-l-lg px-4 py-3 outline-none"
       />
-
       <button
         class="bg-red-600 text-white px-6 rounded-r-lg"
         onclick="searchMain()">
         Buscar
       </button>
-    </div>
+      </div>
       <!-- Resultados -->
         <div id="searchResultsMain"
           class="mt-2 w-full bg-white border rounded-lg hidden max-h-80 overflow-y-auto">
-      </div>
+        </div>
     </div>
   </div>
-      <!-- BOTON MOBILE -->
-      <button id="menuBtn" class="md:hidden text-2xl">
-      ☰
-      </button>
-    </div>
-  </div>
-<!-- MENU MOBILE -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-md">
+</div>
+      <!-- MENU MOBILE -->
+      <div id="mobileMenu" 
+      class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex">
+        <!-- PANEL IZQUIERDO -->
+        <div class="w-full overflow-y-auto">
 
-      <a href="#inicio" class="block p-3 border-b">Inicio</a>
-      <a href="#integrales" class="block p-3 border-b">Cascos Integrales</a>
-      <a href="#abatibles" class="block p-3 border-b">Cascos Abatibles</a>
-      <a href="#cross" class="block p-3 border-b">Cascos Cross</a>
-      <a href="#guantes" class="block p-3 border-b">Guantes</a>
-      <a href="#intercom" class="block p-3 border-b">Intercomunicadores</a>
-      <a href="#soportes" class="block p-3 border-b">Soporte Celular</a>
-      <a href="#baterias" class="block p-3 border-b">Baterías</a>
-      <a href="#luces" class="block p-3 border-b">Luces LED</a>
-      <a href="#contacto" class="block p-3">Contacto</a>
-    </div>
-   </div> 
-  </nav> 
+          <!-- HEADER -->
+          <div class="flex justify-between items-center p-4 border-b">
+            <h2 class="font-bold text-lg">Menú</h2>
+            <button onclick="cerrarMenu()">✕</button>
+          </div>
+
+          <!-- CATEGORÍAS -->
+          <div class="p-4">
+
+            <button onclick="openSubmenu('cascosPanel')" class="block w-full text-left py-3 border-b">
+              Cascos →
+            </button>
+
+            <button onclick="openSubmenu('accesoriosPanel')" class="block w-full text-left py-3 border-b">
+              Accesorios →
+            </button>
+
+            <button onclick="openSubmenu('electricosPanel')" class="block w-full text-left py-3 border-b">
+              Eléctricos →
+            </button>
+
+            <button onclick="openSubmenu('textilesPanel')" class="block w-full text-left py-3 border-b">
+            Textiles →
+            </button>
+            
+            <button onclick="openSubmenu('repuestosPanel')" class="block w-full text-left py-3 border-b">
+             Repuestos →
+            </button>
+          </div>
+        </div>
+
+        <!-- PANEL DERECHO (SUBMENÚ) -->
+        <div id="submenuPanel" class="hidden w-full bg-gray-50 z-50 relative">
+        </div>
+        <!-- SUBMENUS OCULTOS -->
+      <div id="cascosPanel" class="hidden p-4">
+        <button onclick="goBack()">← Volver</button>
+
+        <h3 class="font-bold mt-3">Marcas</h3>
+
+        <button onclick="setBrand('XECURO')" class="block py-2">XECURO</button>
+        <button onclick="setBrand('FIBRA')" class="block py-2">FIBRA</button>
+        <button onclick="setBrand('NZI')" class="block py-2">NZI</button>
+        <button onclick="setBrand('NTF')" class="block py-2">NTF</button>
+        <button onclick="setBrand('XGP')" class="block py-2">XGP</button>
+      </div>
+
+      <div id="accesoriosPanel" class="hidden p-4">
+        <button onclick="goBack()">← Volver</button>
+
+        <h3 class="font-bold mt-3">Accesorios</h3>
+
+        <button onclick="filtrarTipo('soportes')" class="block py-2">Soportes</button>
+        <button onclick="filtrarTipo('intercom')" class="block py-2">Intercom</button>
+        <button onclick="filtrarTipo('tapaclutch')">Tapa clutch</button>
+        <button onclick="filtrarTipo('gafas')" class="block py-2">Gafas cross</button>
+        <button onclick="filtrarTipo('protectordisco')" class="block py-2">Protector Disco Freno</button>
+        <button onclick="filtrarTipo('espejoslujo')" class="block py-2">Espejos de Lujo</button>
+        <button onclick="filtrarTipo('piecitosfreno')" class="block py-2">Piecitos Freno Lujo</button>
+        <button onclick="filtrarTipo('manilares')" class="block py-2">Manilares Lujo</button>
+        <button onclick="filtrarTipo('clevis')" class="block py-2">Clevis de Lujo</button>
+        <button onclick="filtrarTipo('levas')" class="block py-2">Levas de freno Lujo</button>
+        <button onclick="filtrarTipo('sliders')" class="block py-2">Sliders de Rueda</button>
+        <button onclick="filtrarTipo('patas')" class="block py-2">Patas Laterales Lujo</button>
+
+        <h3 class="font-bold mt-3">Tecnología</h3>
+        <button onclick="filtrarTipo('intercom')" class="block py-2">Intercomunicadores</button>
+        <button onclick="filtrarTipo('camaras')" class="block py-2">Cámaras</button>
+        <button onclick="filtrarTipo('candados')" class="block py-2">Candados</button>
+            
+         <h3 class="font-bold mt-3">Carroceria y Plasticos</h3>
+        <button onclick="filtrarTipo('tanques')" class="block py-2">Tanque Gasolina</button>
+        <button onclick="filtrarTipo('tapas')" class="block py-2">Tapas Laterales</button>
+        <button onclick="filtrarTipo('guardabarrostraseros')" class="block py-2">Guardabarros Traseros</button>
+        <button onclick="filtrarTipo('guardabarrosdelanteros')" class="block py-2">Guardabarros Delanteros</button>
+        <button onclick="filtrarTipo('carenajes')" class="block py-2">Carenajes</button>
+      </div>
+
+      <div id="electricosPanel" class="hidden p-4">
+        <button onclick="goBack()">← Volver</button>
+
+        <h3 class="font-bold mt-3">Iluminación</h3>
+        <button onclick="filtrarTipo('direccionales')" class="block py-2">Direccionales LED</button>
+        <button onclick="filtrarTipo('bombillosled')" class="block py-2">Bombillos LED</button>
+        <button onclick="filtrarTipo('farolasled')" class="block py-2">Farolas LED</button>
+        <button onclick="filtrarTipo('stopled')" class="block py-2">Stop LED</button>
+        <button onclick="filtrarTipo('exploradoras')" class="block py-2">Exploradoras</button>
+
+        <h3 class="font-bold mt-3">Energía</h3>
+        <button onclick="filtrarTipo('baterias')" class="block py-2">Reguladores</button>
+        <button onclick="filtrarTipo('cablealta')" class="block py-2">Cable alta NGK</button>
+
+        <h3 class="font-bold mt-3">Accesorios</h3>
+        <button onclick="filtrarTipo('cables')" class="block py-2">Cables</button>
+        <button onclick="filtrarTipo('interruptores')" class="block py-2">Interruptores</button>
+      </div>
+
+      <div id="textilesPanel" class="hidden p-4">
+        <button onclick="goBack()">← Volver</button>
+
+        <h3 class="font-bold mt-3">Ropa Moto</h3>
+        <button onclick="filtrarTipo('guantes')" class="block py-2">Guantes</button>
+        <button onclick="filtrarTipo('chaquetas')" class="block py-2">Chaquetas</button>
+        <button onclick="filtrarTipo('jerseys')" class="block py-2">Jerseys</button>
+
+        <h3 class="font-bold mt-3">Protección</h3>
+        <button onclick="filtrarTipo('rodilleras')" class="block py-2">Rodilleras</button>
+        <button onclick="filtrarTipo('coderas')" class="block py-2">Coderas</button>
+
+        <h3 class="font-bold mt-3">Clima</h3>
+        <button onclick="filtrarTipo('impermeables')" class="block py-2">Impermeables</button>
+        <button onclick="filtrarTipo('cortavientos')" class="block py-2">Cortavientos</button>
+      </div>
+
+      <div id="repuestosPanel" class="hidden p-4">
+        <button onclick="goBack()">← Volver</button>
+
+        <h3 class="font-bold mt-3">Motor y Transmision</h3>
+        <button onclick="filtrarTipo('kitarrastre')" class="block py-2">kitarrastre</button>
+        <button onclick="filtrarTipo('kitcilindro')" class="block py-2">kitcilindro</button>
+        <button onclick="filtrarTipo('kitpiñones')" class="block py-2">kitpiñones</button>
+        <button onclick="filtrarTipo('cadenas')" class="block py-2">cadenas</button>
+        <button onclick="filtrarTipo('correa')" class="block py-2">correa</button>
+
+        <h3 class="font-bold mt-3">Frenos y Suspension</h3>
+        <button onclick="filtrarTipo('discofreno')" class="block py-2">Discos De Freno</button>
+        <button onclick="filtrarTipo('bombas')" class="block py-2">Bombas de Freno</button>
+        <button onclick="filtrarTipo('amortiguadores')" class="block py-2">Amortiguadores</button>
+      </div>
+  </div>        
+</nav> 
   
   <!-- PROMO TOP BAR -->
 <div id="promoTopBar" class="bg-red-600 text-white text-center py-2 text-sm font-semibold tracking-wide shadow-md">
@@ -642,65 +1030,100 @@ Participar ahora
 </div>
 
 <!-- ESPACIADOR (para que no tape contenido) -->
+<!-- ESPACIADOR -->
 <div id="promoSpacer" class="h-10"></div>
-  <div class="h-20"></div>
-    <!-- HERO -->
-        <main id="inicio">
-          <section class="relative h-[500px] flex items-center">
-            <div class="absolute inset-0">
-              <img src="./assets/logomotoruta50.png"
-                  alt="Moto ruta"
-                  class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-black/60"></div>
-            </div>
+<div class="h-20"></div>
 
-            <div class="relative max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center gap-10"
-            >
-              <div class="text-white max-w-xl">
-                <h1 class="text-5xl font-bold mb-4">
-                  Moto Ruta 50
-                </h1>
-                <p class="text-lg text-gray-200 mb-6">
-                  Los mejores cascos y repuestos para tu motocicleta. Calidad
-                  certificada, diseño y seguridad en cada pieza.
-                </p>
-                <div class="flex gap-4">
-                  <a href="#contacto"
-              class="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
-              Contáctanos
+<!-- HERO -->
+<main id="inicio">
+  <section class="relative h-[500px] flex items-center overflow-hidden">
+
+    <!-- SLIDER COMPLETO -->
+    <div class="hero-slider">
+
+      <!-- SLIDE 1 (TIENDA) -->
+      <div class="hero-slide active">
+        <div class="absolute inset-0">
+          <img src="./assets/logomotoruta50.png"
+               class="w-full h-full object-cover" alt="Banner Moto Ruta 50">
+          <div class="overlay"></div>
+        </div>
+
+        <div class="hero-content">
+          <div class="text-white max-w-xl">
+            <h1 class="text-5xl font-bold mb-4">
+              Moto Ruta 50
+            </h1>
+            <p class="text-lg text-gray-200 mb-6">
+              Cascos y repuestos premium para tu motocicleta.
+            </p>
+
+            <a href="#productos" class="btn-main">
+              🛒 Ver productos
             </a>
           </div>
-        </div>
-          <!-- Tarjeta derecha -->
-          <div class="bg-white rounded-2xl shadow-2xl p-6 w-[320px] hover:scale-105 transition">
-            <p class="text-gray-500 text-sm mb-2">🔥 Oferta del día</p>
-            <div class="bg-red-600 text-white text-center py-1 rounded-lg text-sm mb-3">
-            Termina en <span id="countdown"></span>
+
+          <!-- TARJETA -->
+          <div class="card-oferta">
+            <p class="tag">🔥 Oferta del día</p>
+            <div class="countdown">
+              Termina en <span id="countdown"></span>
             </div>
+
             <div class="flex gap-4 items-center">
-              <img src="./assets/cascoxecurom61.png"
-                    alt="Casco Xecuro M-61"
-                  class="w-20 h-20 object-cover rounded-lg">
+              <img src="./assets/stoplujoboxerctposter.png"
+                   class="img-card" alt="Stop led boxer ct">
               <div>
-                <h3 class="font-semibold">Casco Xecuro M-61</h3>
-                <p class="text-indigo-600 font-bold text-lg">$149.999</p>
+                <h3>Stop led boxer ct</h3>
+                <p class="price">$49.999</p>
               </div>
             </div>
-            <button class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition shadow-md">
+
+            <button onclick="window.open('https://wa.me/573107643039','_blank')"
+                    class="btn-buy">
               Comprar ahora
             </button>
           </div>
         </div>
-      </section>
-              <!-- Modal -->
-    <div id="imageModal" 
-        class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50"
-        onclick="closeModal()">
+      </div>
 
-      <img id="modalImage" 
-            alt="Imagen ampliada"
-          class="max-w-4xl max-h-[90vh] rounded-lg shadow-lg" />
-    </div>   
+      <!-- SLIDE 2 (RIFA) -->
+      <div class="hero-slide">
+        <div class="absolute inset-0">
+          <img src="assets/POSTER RIFA MR50 COMO PARTICIPAR.png"
+               class="w-full h-full object-cover" alt="Banner Rifa Moto Ruta 50">
+          <div class="overlay"></div>
+        </div>
+
+        <div class="hero-content center">
+          <h2 class="promo-title">
+            PARTICIPA EN LA <span>RIFA</span>
+          </h2>
+
+          <p class="promo-sub">
+            Por compras superiores a <strong>$50.000</strong> participas automáticamente
+          </p>
+
+          <div class="promo-steps">
+            <div class="step"><span>1</span><p>Compra</p></div>
+            <div class="step"><span>2</span><p>Síguenos</p></div>
+            <div class="step"><span>3</span><p>Accede</p></div>
+            <div class="step"><span>4</span><p>Participa</p></div>
+          </div>
+
+          <a href="rifas.html" class="btn-rifa">
+            🚀 PARTICIPAR AHORA
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+        <!-- INDICADORES -->
+        <div class="rifa-indicators">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </section> 
       <!-- SEARCH + FILTER -->
       <section class="max-w-7xl mx-auto px-6 py-8">
         <div
@@ -708,84 +1131,46 @@ Participar ahora
           >
           <div class="flex gap-2 flex-wrap">
             <!-- Todos -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('')">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="9"/>
-                </svg>
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: '' })">
                 Todos
               </button>
 
-              <!-- Cascos -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Cascos')">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 14a8 8 0 1 1 16 0H4z"/>
-                  <line x1="4" y1="14" x2="4" y2="18"/>
-                </svg>
-                Cascos
-              </button>
-
-              <!-- Accesorios -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Accesorios')">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2"/>
-                </svg>
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'accesorios' })">
                 Accesorios
               </button>
 
-              <!-- Motor -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Motor')">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="8" width="13" height="8" rx="2"/>
-                  <circle cx="18" cy="12" r="3"/>
-                </svg>
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'motor' })">
                 Motor
               </button>
 
-              <!-- Eléctricos -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Eléctricos')">
-                <svg class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="13 2 3 14 11 14 9 22 21 8 13 8"/>
-                </svg>
-                Eléctricos
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'electricos' })">
+                Electricos
               </button>
 
-              <!-- Llantas -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Llantas')">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="9"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'llantas' })">
                 Llantas
               </button>
 
-              <!-- Farolas -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Farolas')">
-                <svg class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="10" r="4"/>
-                  <line x1="12" y1="2" x2="12" y2="6" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                Farolas
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'textiles' })">
+                Textiles
               </button>
 
-              <!-- Stop Trasero -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Stop Trasero')">
-                <svg class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="4" y="8" width="16" height="8" rx="2"/>
-                </svg>
-                Stop Trasero
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'repuestos' })">
+                Repuestos
               </button>
 
-              <!-- Rines -->
-              <button class="filterBtn flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm" onclick="setFilter('Rines')">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="9"/>
-                  <line x1="12" y1="3" x2="12" y2="21"/>
-                  <line x1="3" y1="12" x2="21" y2="12"/>
-                </svg>
+              <button class="filterBtn px-4 py-2 rounded-full border border-gray-200 text-sm"
+                onclick="filtrarProductos({ category: 'rines' })">
                 Rines
-              </button>
-            </div>
+              </button>            
+          </div>
         </div>
       </section>
 
@@ -1289,12 +1674,6 @@ Participar ahora
                   onclick="changeImage('main-xr701dama', this.src)"
                 />
                 <img 
-                  src="./assets/casco_xr701_atras.jpg"
-                  alt="Casco Integral Xecuro 701 vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-xr701dama', this.src)"
-                />
-                <img 
                   src="./assets/cascointegralxr701dama.png"
                   alt="Casco Integral Xecuro 701 vista delantera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
@@ -1502,7 +1881,7 @@ Participar ahora
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Casco Abierto NZI"
             data-category="Cascos"
-            data-type="abierto"
+            data-type="Abierto"
             data-brand="NZI"
           >
             <div class="relative">
@@ -1551,6 +1930,455 @@ Participar ahora
                 >
               </div>
               <button onclick="agregarAlCarrito('Casco Abierto NZI',350000, 'assets/cascoabiertonzi.png')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+                    <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible1"
+                src="./assets/cascontfazulyamarillomen.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontfazulyamarillomen.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible1', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfazulyamarillomen2.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible1', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfazulyamarillomen3.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible1', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfazulyamarillomen4.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible1', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfazulyamarillomen.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible2"
+                src="./assets/cascontfgrismen.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontfgrismen.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible2', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfgrismen2.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible2', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfgrismen3.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible2', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfgrismen4.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible2', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfgrismen.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible3"
+                src="./assets/cascontfgrisrojo.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontfgrisrojo.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible3', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfgrisrojo2.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible3', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfgrisrojo3.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible3', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfgrisrojo4.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible3', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfgrisrojo.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible"
+                src="./assets/cascontfazulgrisespejo.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontfazulgrisespejo.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfazulgrisespejo2.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfazulgrisespejo3.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfazulgrisespejo.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible6"
+                src="./assets/cascontfrosadobrillante.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontfrosadobrillante.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible6', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfrosadobrillante2.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible6', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfrosadobrillante3.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible6', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfrosadobrillante4.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible6', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfrosadobrillante.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible5"
+                src="./assets/cascontflilatornasoldama.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontflilatornasoldama2.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible5', this.src)"
+                />
+                <img 
+                  src="./assets/cascontflilatornasoldama3.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible5', this.src)"
+                />
+                <img 
+                  src="./assets/cascontflilatornasoldama.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible5', this.src)"
+                />
+                <img 
+                  src="./assets/cascontflilatornasoldama4.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible5', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontflilatornasoldama.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Abatible NTF"
+            data-category="Cascos"
+            data-type="Abatible"
+            data-brand="NTF"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-ntfabatible4"
+                src="./assets/cascontfliladama.jpeg"
+                alt="Casco Abatible NTF"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascontfliladama.jpeg"
+                  alt="Casco Abatible NTF vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible4', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfliladama2.jpeg"
+                  alt="Casco Abatible NTF vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible4', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfliladama3.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible4', this.src)"
+                />
+                <img 
+                  src="./assets/cascontfliladama4.jpeg"
+                  alt="Casco Abatible NTF vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-ntfabatible4', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Abatible NTF</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$150.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20NTF"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfliladama.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1724,7 +2552,7 @@ Participar ahora
           <!-- Producto 2 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="tapaclutch"
             data-name="Tapa clutch de lujo"
           >
@@ -1784,7 +2612,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="electricos"
             data-type="direccionales"
             data-name="Direccionales Lujo"
           >
@@ -1817,7 +2645,7 @@ Participar ahora
             </div>
             <div class="p-4">
               <h4 class="font-semibold">Direccionales Lujo</h4>
-              <p class="text-sm text-gray-500 mt-1">Accesorios</p>
+              <p class="text-sm text-gray-500 mt-1">Electricos</p>
               <div class="mt-4 flex items-center justify-between">
                 <span class="text-indigo-600 font-bold">$30.000</span>
                 <a
@@ -1827,7 +2655,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Direccionales Lujo MotoLed',45000, 'assets/direccionaleslujomotoled.png')"
+              <button onclick="agregarAlCarrito('Direccionales Lujo MotoLed',30000, 'assets/direccionaleslujomotoled.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1836,7 +2664,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="guardabarrosdelanteros"
             data-name="guardabarro aktevo"
           >
@@ -1846,7 +2674,7 @@ Participar ahora
               <img    
                 id="main-guardabarroaktevo"
                 src="./assets/guardabarrodelevo125.png"
-                alt="guardabarro akt EVO
+                alt="guardabarro akt EVO"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
               />
@@ -1882,7 +2710,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="guardabarrosdelanteros"
             data-name="guardabarro boxer ct"
           >
@@ -1928,7 +2756,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="carenajes"
             data-name="carenaje eco deluxe"
           >
@@ -1974,7 +2802,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="carenajes"
             data-name="carenaje boxer mas visor"
           >
@@ -2020,7 +2848,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="guardabarrostraseros"
             data-name="guardabarro XR 125"
           >
@@ -2066,7 +2894,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="carenajes"
             data-name="carenaje xtz 125"
           >
@@ -2112,7 +2940,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="guardabarrosdelanteros"
             data-name="guardabarros xtz125"
           >
@@ -2158,7 +2986,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="tapas"
             data-name="tapaslaterales"
           >
@@ -2204,7 +3032,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="direccionales"
             data-name="Direccionales Lujo"
           >
@@ -2366,7 +3194,7 @@ Participar ahora
           <!-- Producto 4 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="bombillosled"
           >
           <div class="relative">
@@ -2423,7 +3251,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="cablealta"
             data-name="cable alta ngk"
           >
@@ -2470,7 +3298,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="exploradoras"
             data-name="exploradorasbuho"
           >
@@ -2522,7 +3350,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="exploradoras"
             data-name="exploradorasoojodiablo"
           >
@@ -2580,8 +3408,9 @@ Participar ahora
           <!-- Producto 5 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
-            data-type="farolasled" 
+            data-category="electricos"
+            data-type="farolasled"
+            data-name="farolaled" 
           >
           <div class="relative">
 
@@ -2637,14 +3466,15 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="farolasled"
+            data-name="farolaled"
           >
           <div class="relative">
 
             <!-- Imagen principal -->
               <img    
-                id="main-farola"
+                id="main-farolagn"
                 src="./assets/farolagn125led.png"
                 alt="Farola Gn-125 Led"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
@@ -2657,19 +3487,19 @@ Participar ahora
                   src="./assets/farolagn125led.png"
                   alt="Farola Gn-125 Led vista lateral"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-farola', this.src)"
+                  onclick="changeImage('main-farolagn', this.src)"
                 />
                 <img 
                   src="./assets/farolagn125led.png"
                   alt="Farola Gn-125 Led vista trasera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-farola', this.src)"
+                  onclick="changeImage('main-farolagn', this.src)"
                 />
                 <img 
                   src="./assets/farolagn125led.png"
                   alt="Farola Gn-125 Led vista delantera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-farola', this.src)"
+                  onclick="changeImage('main-farolagn', this.src)"
                 />
               </div>
             </div>
@@ -2695,16 +3525,16 @@ Participar ahora
           <!-- Producto 6 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="stopled"
-            data-name="stoplednkd"
+            data-name="stoptrasero"
           >
           <div class="relative">
 
             <!-- Imagen principal -->
               <img    
                 id="main-stop"
-                src="./assets/stoplednkd.png"
+                src="./assets/STOP NKD 125 LED GAMA.jpg"
                 alt="Stop Led Nkd"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
@@ -2713,8 +3543,14 @@ Participar ahora
             <!-- Miniaturas -->
               <div class="flex gap-2 mt-3">
                 <img 
-                  src="./assets/stoplednkd.png"
+                  src="./assets/STOP NKD 125 LED GAMA.jpg"
                   alt="Stop Led Nkd vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-stop', this.src)"
+                />
+                <img 
+                  src="./assets/stoplednkd.png"
+                  alt="Stop Led Nkd vista trasera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-stop', this.src)"
                 />
@@ -2753,16 +3589,16 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="stopled"
-            data-name="stop led Boxer Ct"
+            data-name="stop trasero"
           >
           <div class="relative">
 
             <!-- Imagen principal -->
               <img    
                 id="main-stopledboxerct"
-                src="./assets/stopledboxerct.png"
+                src="./assets/stoplujoboxerctposter.png"
                 alt="Stop Led boxer ct"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
@@ -2771,13 +3607,13 @@ Participar ahora
             <!-- Miniaturas -->
               <div class="flex gap-2 mt-3">
                 <img 
-                  src="./assets/stopledboxerct.png"
+                  src="./assets/stoplujoboxerctposter.png"
                   alt="Stop Led boxer ct vista lateral"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-stopledboxerct', this.src)"
                 />
                 <img 
-                  src="./assets/stopledboxerct2.png"
+                  src="./assets/stopledboxerct.png"
                   alt="Stop Led boxer ct vista trasera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-stopledboxerct', this.src)"
@@ -2805,15 +3641,15 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="stopled"
-            data-name="stop led gn 125"
+            data-name="stop trasero"
           >
           <div class="relative">
 
             <!-- Imagen principal -->
               <img    
-                id="main-stop"
+                id="main-stopgn125"
                 src="./assets/stopledgn125.png"
                 alt="Stop Led Gn-125"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
@@ -2826,19 +3662,13 @@ Participar ahora
                   src="./assets/stopledgn125.png"
                   alt="Stop Led Gn-125 vista lateral"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-stop', this.src)"
+                  onclick="changeImage('main-stopgn125', this.src)"
                 />
                 <img 
-                  src="./assets/stopledgn125.png"
+                  src="./assets/stopledgn1252.png"
                   alt="Stop Led Gn-125 vista trasera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-stop', this.src)"
-                />
-                <img 
-                  src="./assets/stopledgn125.png"
-                  alt="Stop Led Gn-125 vista delantera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-stop', this.src)"
+                  onclick="changeImage('main-stopgn125', this.src)"
                 />
               </div>
             </div>
@@ -2865,7 +3695,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Manilar Barracuda"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="manilares"
           >
           <div class="relative">
@@ -2923,7 +3753,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="candado manigueta"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="candados"
           >
           <div class="relative">
@@ -2972,7 +3802,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="levas de freno de lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="levas"
           >
           <div class="relative">
@@ -3026,7 +3856,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="patas laterales de lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="patas"
           >
           <div class="relative">
@@ -3080,7 +3910,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="clevis de freno trasero"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="clevis"
           >
           <div class="relative">
@@ -3128,7 +3958,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Manilar Grip Labial"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="manilares"
           >
           <div class="relative">
@@ -3180,7 +4010,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Manilar Daytona"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="manilares"
           >
           <div class="relative">
@@ -3232,7 +4062,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Manilar ProGrip importado"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="manilares"
           >
           <div class="relative">
@@ -3278,7 +4108,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Slider carbono colores"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="sliders"
           >
           <div class="relative">
@@ -3336,7 +4166,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Slider carbono Tornasol"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="sliders"
           >
           <div class="relative">
@@ -3394,7 +4224,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Slider k080"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="sliders"
           >
           <div class="relative">
@@ -3452,7 +4282,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Manilar ProGrip colores"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="manilares"
           >
           <div class="relative">
@@ -3510,7 +4340,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Espejos de Lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="espejoslujo"
           >
           <div class="relative">
@@ -3562,7 +4392,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Espejos de Lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="espejoslujo"
           >
           <div class="relative">
@@ -3608,7 +4438,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Espejos de Lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="espejoslujo"
           >
           <div class="relative">
@@ -3654,7 +4484,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Espejos de Lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="espejoslujo"
           >
           <div class="relative">
@@ -3700,7 +4530,7 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Espejos de Lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="espejoslujo"
           >
           <div class="relative">
@@ -3752,7 +4582,7 @@ Participar ahora
            <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Espejos de Lujo"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="espejoslujo"
           >
           <div class="relative">
@@ -3816,7 +4646,7 @@ Participar ahora
           <!-- Producto 9 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="gafas"
             data-name="gafas Cross Vmar niño"
           >
@@ -3864,7 +4694,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="gafas"
             data-name="gafas cross 100% racecraft doble lente"
           >
@@ -3918,7 +4748,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="gafas"
             data-name="gafas cross economicas"
           >
@@ -4070,7 +4900,7 @@ Participar ahora
           
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="protectordisco"
             data-name="protectordiscoaluminio"
           >
@@ -4129,7 +4959,7 @@ Participar ahora
           <!-- Producto 10 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="soportes"
             data-name="Soporte celular moto"
           >
@@ -4181,7 +5011,7 @@ Participar ahora
 
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Accesorios"
+            data-category="accesorios"
             data-type="piecitosfreno"
             data-name="piecitos aluminio para freno"
           >
@@ -4703,7 +5533,7 @@ Participar ahora
           
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-category="Electricos"
+            data-category="electricos"
             data-type="interruptores"
             data-name="interruptor 2 y 3 golpes"
           >
@@ -4755,7 +5585,7 @@ Participar ahora
           </article> 
         </div>
       </section>
-
+      <section id="contacto">
       <!-- BENEFICIOS -->
       <section class="bg-gradient-to-b from-indigo-50 to-white py-16">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
@@ -4785,7 +5615,120 @@ Participar ahora
         </div>
       </section>
 
-    <footer class="footer">
+      <section class="bg-black py-16">
+        <div class="max-w-7xl mx-auto px-6">
+
+          <!-- TITULO -->
+          <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">
+              🎯 ¿Cómo participar en la rifa?
+            </h2>
+            <p class="text-gray-400 mt-2">
+              Sigue estos pasos y participa fácilmente
+            </p>
+          </div>
+
+          <!-- IMAGEN POSTER -->
+          <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+            <img 
+              src="assets/POSTER RIFA MR50 COMO PARTICIPAR.png" 
+              alt="Cómo participar en la rifa Moto Ruta 50"
+              class="w-full object-cover"
+            />
+          </div>
+
+          <!-- BOTÓN CTA -->
+          <div class="text-center mt-10">
+            <a href="rifas.html"
+              class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition">
+              🔥 Participar ahora
+            </a>
+          </div>
+
+        </div>
+      </section>
+      <!-- NOSOTROS -->
+      <section id="nosotros" class="bg-white text-black py-16 px-6">
+        <div class="max-w-6xl mx-auto text-center">  
+          <h2 class="text-3xl font-bold mb-6">Sobre Moto Ruta 50</h2> 
+          <p class="text-lg max-w-3xl mx-auto mb-6">
+            Moto Ruta 50 es una tienda especializada en cascos, repuestos y accesorios para motociclistas.
+            Nuestro objetivo es brindar productos de alta calidad y seguridad para todos los moteros en Colombia.
+          </p>
+          <p class="text-lg max-w-3xl mx-auto">
+            Además, ofrecemos rifas mensuales totalmente transparentes, donde puedes participar 
+            y ganar increíbles premios relacionados con el mundo de las motos.
+          </p>
+
+          <!-- COMO FUNCIONA LA RIFA -->
+        <section id="rifas-info" class="bg-gray-100 text-black py-16 px-6">
+          <div class="max-w-6xl mx-auto text-center">
+
+            <h2 class="text-3xl font-bold mb-10">¿Cómo funcionan nuestras rifas?</h2>
+
+            <div class="grid md:grid-cols-4 gap-8">
+
+              <!-- PASO 1 -->
+              <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="text-xl font-bold mb-3">1. Elige tu número</h3>
+                <p>Selecciona uno o varios números disponibles en la rifa.</p>
+              </div>
+
+              <!-- PASO 2 -->
+              <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="text-xl font-bold mb-3">2. Realiza el pago</h3>
+                <p>Paga fácilmente mediante Nequi o transferencia.</p>
+              </div>
+
+              <!-- PASO 3 -->
+              <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="text-xl font-bold mb-3">3. Envía tu comprobante</h3>
+                <p>Sube tu comprobante para validar tu participación.</p>
+              </div>
+
+              <!-- PASO 4 -->
+              <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="text-xl font-bold mb-3">4. Espera el sorteo</h3>
+                <p>El ganador se elige con la lotería oficial del Tolima.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- TERMINOS Y CONDICIONES -->
+        <section id="terminos" class="bg-white text-black py-16 px-6">
+          <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center">Términos y Condiciones</h2>
+            <p class="mb-4">
+              Al participar en las rifas de Moto Ruta 50, el usuario acepta los siguientes términos:
+            </p>
+            <ul class="list-disc pl-6 space-y-3">
+              <li>Los números se asignan por orden de pago confirmado.</li>
+              <li>Una vez realizado el pago, no hay devoluciones.</li>
+              <li>El sorteo se realiza con base en la lotería oficial del Tolima.</li>
+              <li>El ganador será contactado vía WhatsApp.</li>
+              <li>Si el ganador no responde en 5 días, se podrá reasignar el premio.</li>
+              <li>La participación implica aceptación total de estas condiciones.</li>
+            </ul>
+          </div>
+        </section>
+        <!-- POLITICA DE PRIVACIDAD -->
+        <section id="privacidad" class="bg-gray-100 text-black py-16 px-6">
+          <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center">Política de Privacidad</h2>
+            <p class="mb-4">
+              En Moto Ruta 50 protegemos la información de nuestros usuarios.
+            </p>
+            <ul class="list-disc pl-6 space-y-3">
+              <li>Recopilamos datos como nombre, teléfono y correo para gestionar tu participación.</li>
+              <li>Tu información no será vendida ni compartida con terceros.</li>
+              <li>Los datos se usan únicamente para contacto, validación y notificaciones.</li>
+              <li>Podemos enviarte información relacionada con tus compras o rifas.</li>
+              <li>Puedes solicitar la eliminación de tus datos en cualquier momento.</li>
+            </ul>
+          </div>
+        </section>
+    </section>
+    <footer id="footer" class="footer">
     <div class="footer-container text-xl font-semibold tracking-wide">
     <!-- LOGO -->
   <div class="footer-logo">
@@ -4809,19 +5752,16 @@ Participar ahora
       </a>
     </div>
   </div>
-
     <!-- INFO -->
     <div>
     <h4>+ Información</h4>
     <ul>
-    <li><a href="#">Mi cuenta</a></li>
-    <li><a href="#">Promociones</a></li>
-    <li><a href="#">Rifas activas</a></li>
-    <li><a href="#">Ganadores</a></li>
-    <li><a href="#">Certificados</a></li>
+      <li><a href="#terminos">Términos y condiciones</a></li>
+      <li><a href="#privacidad">Política de privacidad</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#rifas-info">Cómo funcionan las rifas</a></li>
     </ul>
     </div>
-    
     <!-- NOSOTROS -->
     <div>
     <h4>Nosotros</h4>
@@ -4854,6 +5794,9 @@ Participar ahora
     <img src="./assets/logopse-1.png" alt="PSE">
     <img src="./assets/logobre-b-forma.png" alt="Bre-B">
     </div>
+    <p style="margin-top:10px;font-size:12px">
+    Este sitio cumple con las políticas comerciales y de privacidad requeridas para servicios digitales.
+    </p>
     <p style="margin-top:15px;font-size:12px">
     © 2026 Moto Ruta 50 - Todos los derechos reservados
     </p>
@@ -4911,48 +5854,65 @@ Participar ahora
     <!-- Scripts -->
     <script>
       // 1. MENÚ
-        function toggleMenu(id){
+      function toggleMenu(id){
         document.querySelectorAll(".mega-menu").forEach(m=>{
-        if(m.id !== id){
-        m.classList.add("hidden")
-        }
+          if(m.id !== id){
+            m.classList.add("hidden")
+          }
         })
         document.getElementById(id).classList.toggle("hidden")
-        }
-      document.addEventListener("click",function(e){
-      if(!e.target.closest("nav")){
-      document.querySelectorAll(".mega-menu")
-      .forEach(m=>m.classList.add("hidden"))
       }
-      })
-      // MENU MOBILE
-      const menuBtn = document.getElementById("menuBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
-      if(menuBtn && mobileMenu){
-      menuBtn.onclick = function(){
-      mobileMenu.classList.toggle("hidden");
-      }
-      }
-    // -------- SUBMENÚ MOBILE --------
+  // MENU MOBILE
+      document.addEventListener("DOMContentLoaded", function(){
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if(menuBtn && mobileMenu){
+          menuBtn.addEventListener("click", function(e){
+            e.stopPropagation(); // evita conflictos con otros clicks
+            mobileMenu.classList.toggle("hidden");
+          });
+          mobileMenu.addEventListener("click", function(e){
+          e.stopPropagation();
+        });
+        } 
+      });
+      // SUBMENÚ MOBILE
       const mobileProducts = document.getElementById("mobileProducts");
       const mobileSubmenu = document.getElementById("mobileSubmenu");
+
       if(mobileProducts && mobileSubmenu){
-      mobileProducts.addEventListener("click", () => {
-      mobileSubmenu.classList.toggle("hidden");
-      });
+        mobileProducts.addEventListener("click", () => {
+          mobileSubmenu.classList.toggle("hidden");
+        });
       }
       // Año en footer
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
+    function cerrarMenu(){
+      document.getElementById("mobileMenu").classList.add("hidden");
+    }
+    function openSubmenu(id){
+      const panel = document.getElementById("submenuPanel");
+      const contenido = document.getElementById(id);
+      if(!contenido){
+        console.error("No existe:", id);
+        return;
+      }
+      panel.innerHTML = contenido.innerHTML;
+      panel.classList.remove("hidden");
+      }
+      function goBack(){
+        document.getElementById("submenuPanel").classList.add("hidden");
+      }
       // -------- PROMO TOP BAR --------
       const promoEndDate = new Date("2026-04-30T23:59:59").getTime()
       const bar = document.getElementById("promoTopBar");
       const spacer = document.getElementById("promoSpacer");
       const countdownTop = document.getElementById("countdown");
       const timer = setInterval(() => {
-        const now = Date.now();
-        const distance = promoEndDate - now;
-
+      const now = Date.now();
+      const distance = promoEndDate - now;
         if (distance <= 0) {
           clearInterval(timer);
           if (bar) bar.style.display = "none";
@@ -5275,82 +6235,102 @@ Participar ahora
       let currentCategory = "";
       let currentType = "";
       let currentBrand = "";
+
       function setFilter(category){
-      currentCategory = category;
-      currentType = "";
-      currentBrand = "";
-      applyFilters();
-      }
-      function setBrand(brand){
-      currentBrand = brand;
-
-      currentType = null;
-
-      applyFilters();
-
-      document.querySelectorAll(".mega-menu").forEach(m=>{
-      m.classList.add("hidden");
-      });
-      window.scrollTo({
-      top: document.querySelector("#productos").offsetTop - 120,
-      behavior: "smooth"
-      });
-      }
-        function applyFilters(){
-
-        let visibles = 0;
-        const LIMITE = 12;
-
-        document.querySelectorAll(".product-card").forEach(card=>{
-
-        const category = card.dataset.category || "";
-        const type = card.dataset.type || "";
-        const brand = card.dataset.brand || "";
-
-        let show = true;
-
-        if(currentCategory && category !== currentCategory){
-        show = false;
-        }
-
-        if(currentType && type !== currentType){
-        show = false;
-        }
-
-        if(currentBrand && brand !== currentBrand){
-        show = false;
-        }
-
-        if(show && visibles < LIMITE){
-        card.style.display = "";
-        visibles++;
-        }else{
-        card.style.display = "none";
-        }
-
-        });
-
-        }
-        function setType(type){
-        currentType = type;
-
-        currentCategory = null;
-        currentBrand = null;
+        currentCategory = (category || "").toLowerCase();
+        currentType = "";
+        currentBrand = "";
 
         applyFilters();
 
-        document.querySelectorAll(".mega-menu").forEach(m=>{
-        m.classList.add("hidden");
-        });
+        // SCROLL
+        const seccion = document.querySelector("#productos");
+        if(seccion){
+          seccion.scrollIntoView({ behavior: "smooth" });
+        }
+        // CERRAR MENU
+        cerrarMenu();
+      }
+      function setBrand(brand){
+      currentBrand = (brand || "").toLowerCase();
 
-        window.scrollTo({
-        top: document.querySelector("#productos").offsetTop - 120,
-        behavior: "smooth"
-        });
+      currentType = "";
+      currentCategory = "";
+
+      applyFilters();
+
+        // 🔥 SCROLL A PRODUCTOS
+        const seccion = document.querySelector("#productos");
+        if(seccion){
+          seccion.scrollIntoView({ behavior: "smooth" });
         }
 
+        // 🔥 CERRAR MENU MOBILE
+        const mobileMenu = document.getElementById("mobileMenu");
+        if(mobileMenu){
+          mobileMenu.classList.add("hidden");
+        }
+      }
+      function applyFilters(){
+      document.querySelectorAll(".product-card").forEach(card => {
+          const category = (card.dataset.category || "").toLowerCase();
+          const type = (card.dataset.type || "").toLowerCase();
+          const brand = (card.dataset.brand || "").toLowerCase();
+          let show = true;
+          if(currentCategory && category !== currentCategory){
+            show = false;
+          }
+          if(currentType && type !== currentType){
+            show = false;
+          }
+          if(currentBrand && brand !== currentBrand){
+            show = false;
+          }
+          // 🔥 SIN LIMITE
+          card.style.display = show ? "" : "none";
+        });
+      }
+        function setType(type){
+          currentType = (type || "").toLowerCase(); // 🔥 IMPORTANTE
+          currentCategory = "";
+          currentBrand = "";
+
+          applyFilters();
+
+          const seccion = document.querySelector("#productos");
+          if(seccion){
+            seccion.scrollIntoView({ behavior: "smooth" });
+          }
+
+          cerrarMenu();
+        }
+        function filtrarTipo(type){
+          filtrarProductos({ type });
+          cerrarMenu();
+
+          const seccion = document.querySelector("#productos");
+          if(seccion){
+            seccion.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+        function filtrarProductos({ category = "", type = "", brand = "" }) {
+          currentCategory = (category || "").toLowerCase();
+          currentType = (type || "").toLowerCase();
+          currentBrand = (brand || "").toLowerCase();
+          applyFilters();
+          // scroll a productos
+          const seccion = document.querySelector("#productos");
+          if(seccion){
+            seccion.scrollIntoView({ behavior: "smooth" });
+          }
+          // cerrar menú mobile
+          const mobileMenu = document.getElementById("mobileMenu");
+          if(mobileMenu){
+            mobileMenu.classList.add("hidden");
+          }
+        }
         function setCategory(category){
-          currentCategory = category;
+          currentCategory = (category || "").toLowerCase();
 
           currentType = null;
           currentBrand = null;
@@ -5366,25 +6346,56 @@ Participar ahora
           behavior: "smooth"
           });
           }
+          const productos = document.querySelector("#productos");
+          if(productos){
+            window.scrollTo({
+              top: productos.offsetTop - 120,
+              behavior: "smooth"
+            });
+          }
         // 8. CONTADORES / TIEMPO
        // iniciar contador
       document.addEventListener("DOMContentLoaded", () => {
         renderCarrito();
       });
-      const LIMITE_INICIAL = 8;
-      function mostrarInicial(){
-      const productos = document.querySelectorAll(".product-card");
-      productos.forEach((p, index)=>{
-      if(index < LIMITE_INICIAL){
-      p.style.display = "block";
-      }else{
-      p.style.display = "none";
+     document.addEventListener("click", function(e){
+      // TYPE (submenu mobile y desktop)
+      const typeBtn = e.target.closest("button[data-type]");
+      if(typeBtn){
+        const type = typeBtn.dataset.type.toLowerCase();
+        filtrarProductos({ type });
+        cerrarMenu();
+        return;
       }
-      });
+      // BRAND (cascos)
+      const brandBtn = e.target.closest("button[data-brand]");
+      if(brandBtn){
+        const brand = brandBtn.dataset.brand.toLowerCase();
+        filtrarProductos({ brand });
+        cerrarMenu();
+        return;
       }
-      document.addEventListener("DOMContentLoaded", mostrarInicial);
-      document.addEventListener("DOMContentLoaded", ()=>{
-      applyFilters();
+      // FILTER (botones SVG)
+      const filterBtn = e.target.closest(".filterBtn");
+      if(filterBtn){
+        return; // NO hacer nada aquí, el onclick ya maneja setFilter
+      }
+    });
+      let slides = document.querySelectorAll(".hero-slide");
+      let index = 0;
+
+      function cambiarSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }
+      setInterval(cambiarSlide, 5000);
+      /* PAUSA AL PASAR EL MOUSE 🔥 */
+      const slider = document.querySelector(".hero-slider");
+      let interval = setInterval(cambiarSlide, 5000);
+      slider.addEventListener("mouseenter", () => clearInterval(interval));
+      slider.addEventListener("mouseleave", () => {
+        interval = setInterval(cambiarSlide, 5000);
       });
     </script>
   </body>

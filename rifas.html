@@ -482,6 +482,7 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const storage = getStorage(app);
+      let sorteoActualId = null;
 
       //3.FIREBASE HELPERS
       async function numeroVendido(numero) {
@@ -489,25 +490,26 @@
         const snap = await getDoc(ref);
         return snap.exists();
       }
-
       async function guardarRifa(numero, datos) {
-        const ref = firestoreDoc(db, "rifas", numero);
+        const ref = firestoreDoc(
+          db,
+          "sorteos",
+          sorteoActualId,
+          "participantes",
+          numero
+        );
         const snap = await getDoc(ref);
-
         if (snap.exists()) {
           alert("❌ Este número ya fue tomado");
           return false;
         }
-
         await setDoc(ref, {
-          estado: "vendido",
+          estado: "pendiente", // 👈 IMPORTANTE
           ...datos,
           fecha: new Date().toISOString(),
         });
-
         return true;
       }
-
       const numbersContainer = document.getElementById("numbers");
       const selectedInfo = document.getElementById("selectedInfo");
       const result = document.getElementById("result");
@@ -687,47 +689,51 @@
             snapshot.forEach((docSnap) => {
               numerosOcupados[docSnap.id] = docSnap.data().estado;
             });
-
-            document.querySelectorAll(".number").forEach((div) => {
-              const numero = div.textContent.trim();
-
-              if (numerosOcupados[numero]) {
-                div.classList.remove("available");
-                div.classList.add("sold");
-                div.style.pointerEvents = "none";
-              } else {
-                div.classList.remove("sold");
-                div.classList.add("available");
-                div.style.pointerEvents = "auto";
-              }
-            });
+          document.querySelectorAll(".number").forEach((div) => {
+            const numero = div.textContent.trim();
+           if (numerosOcupados[numero]) {
+            div.classList.remove("available", "selected");
+            if (numerosOcupados[numero] === "aprobado") {
+              div.classList.add("aprobado"); // 🔴 ROJO REAL
+            } else {
+              div.classList.add("pendiente"); // 🟠 naranja
+            }
+            div.style.pointerEvents = "none";
+          } else {
+            div.classList.remove("aprobado", "pendiente");
+            div.classList.add("available");
+            div.style.pointerEvents = "auto";
+          }
+          });
           },
         );
       }
-
       async function cargarSorteoActivo() {
+          const q = query(
+            collection(db, "sorteos"),
+            where("estado", "==", "activo")
+          );
+          const snapshot = await getDocs(q);
+          if (snapshot.empty) {
+            console.log("❌ No hay sorteo activo");
+            return;
+          }
+          snapshot.forEach((docSnap) => {
+            sorteoActualId = docSnap.id;
+            console.log("✅ Sorteo activo:", sorteoActualId);
+          });
+          escucharNumeros();
+        }
+    async function contarRifas(){
       const q = query(
         collection(db, "sorteos"),
-        where("activo", "==", true)
+        where("estado", "==", "activo")
       );
-
       const snapshot = await getDocs(q);
-
-      snapshot.forEach((docSnap) => {
-        sorteoActualId = docSnap.id;
-      });
-
-      escucharNumeros();
+      document.getElementById("contadorRifas").textContent = snapshot.size;
     }
-    async function contarRifas(){
-      const snapshot = await db.collection("sorteos")
-      .where("estado","==","activo")
-      .get()
-
-      document.getElementById("contadorRifas").textContent = snapshot.size
-      }
-
-      contarRifas()
+    cargarSorteoActivo();
+    contarRifas();
     </script>
     <section id="nosotros" class="container">
     <div class="card">
