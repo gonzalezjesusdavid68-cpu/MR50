@@ -1,0 +1,230 @@
+{
+  "Amazonas": {
+    "ciudades": {
+      "Leticia": { "nivel": 3, "costo": 25000 }
+    }
+  },
+
+  "Antioquia": {
+    "ciudades": {
+      "Medellín": { "nivel": 1, "costo": 11000 },
+      "Bello": { "nivel": 2, "costo": 13000 },
+      "Itagüí": { "nivel": 2, "costo": 13000 },
+      "Envigado": { "nivel": 2, "costo": 13000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 }
+    }
+  },
+
+  "Arauca": {
+    "ciudades": {
+      "Arauca": { "nivel": 3, "costo": 20000 }
+    }
+  },
+
+  "Atlántico": {
+    "ciudades": {
+      "Barranquilla": { "nivel": 1, "costo": 11000 },
+      "Soledad": { "nivel": 2, "costo": 13000 },
+      "Malambo": { "nivel": 2, "costo": 14000 }
+    }
+  },
+
+  "Bogotá D.C.": {
+    "ciudades": {
+      "Bogotá": { "nivel": 1, "costo": 11000 }
+    }
+  },
+
+  "Bolívar": {
+    "ciudades": {
+      "Cartagena": { "nivel": 1, "costo": 12000 },
+      "Magangué": { "nivel": 3, "costo": 18000 }
+    }
+  },
+
+  "Boyacá": {
+    "ciudades": {
+      "Tunja": { "nivel": 2, "costo": 15000 },
+      "Duitama": { "nivel": 2, "costo": 15000 },
+      "Sogamoso": { "nivel": 2, "costo": 15000 }
+    }
+  },
+
+  "Caldas": {
+    "ciudades": {
+      "Manizales": { "nivel": 2, "costo": 13000 },
+      "La Dorada": { "nivel": 3, "costo": 17000 }
+    }
+  },
+
+  "Caquetá": {
+    "ciudades": {
+      "Florencia": { "nivel": 3, "costo": 20000 }
+    }
+  },
+
+  "Casanare": {
+    "ciudades": {
+      "Yopal": { "nivel": 3, "costo": 20000 }
+    }
+  },
+
+  "Cauca": {
+    "ciudades": {
+      "Popayán": { "nivel": 2, "costo": 15000 },
+      "Santander de Quilichao": { "nivel": 3, "costo": 18000 }
+    }
+  },
+
+  "Cesar": {
+    "ciudades": {
+      "Valledupar": { "nivel": 2, "costo": 14000 }
+    }
+  },
+
+  "Chocó": {
+    "ciudades": {
+      "Quibdó": { "nivel": 3, "costo": 25000 }
+    }
+  },
+
+  "Córdoba": {
+    "ciudades": {
+      "Montería": { "nivel": 2, "costo": 14000 },
+      "Sahagún": { "nivel": 3, "costo": 18000 }
+    }
+  },
+
+  "Cundinamarca": {
+    "ciudades": {
+      "Bogotá": { "nivel": 1, "costo": 11000 },
+      "Soacha": { "nivel": 2, "costo": 12000 },
+      "Chía": { "nivel": 2, "costo": 14000 },
+      "Zipaquirá": { "nivel": 2, "costo": 15000 },
+      "Facatativá": { "nivel": 3, "costo": 16000 }
+    }
+  },
+
+  "Guainía": {
+    "ciudades": {
+      "Inírida": { "nivel": 3, "costo": 25000 }
+    }
+  },
+
+  "Guaviare": {
+    "ciudades": {
+      "San José del Guaviare": { "nivel": 3, "costo": 22000 }
+    }
+  },
+
+  "Huila": {
+    "ciudades": {
+      "Neiva": { "nivel": 2, "costo": 14000 },
+      "Pitalito": { "nivel": 3, "costo": 17000 }
+    }
+  },
+
+  "La Guajira": {
+    "ciudades": {
+      "Riohacha": { "nivel": 2, "costo": 15000 },
+      "Maicao": { "nivel": 3, "costo": 18000 }
+    }
+  },
+
+  "Magdalena": {
+    "ciudades": {
+      "Santa Marta": { "nivel": 1, "costo": 12000 },
+      "Ciénaga": { "nivel": 2, "costo": 14000 }
+    }
+  },
+
+  "Meta": {
+    "ciudades": {
+      "Villavicencio": { "nivel": 2, "costo": 14000 },
+      "Acacías": { "nivel": 3, "costo": 16000 }
+    }
+  },
+
+  "Nariño": {
+    "ciudades": {
+      "Pasto": { "nivel": 2, "costo": 15000 },
+      "Tumaco": { "nivel": 3, "costo": 20000 }
+    }
+  },
+
+  "Norte de Santander": {
+    "ciudades": {
+      "Cúcuta": { "nivel": 2, "costo": 13000 },
+      "Ocaña": { "nivel": 3, "costo": 17000 }
+    }
+  },
+
+  "Putumayo": {
+    "ciudades": {
+      "Mocoa": { "nivel": 3, "costo": 22000 }
+    }
+  },
+
+  "Quindío": {
+    "ciudades": {
+      "Armenia": { "nivel": 2, "costo": 13000 },
+      "Calarcá": { "nivel": 3, "costo": 15000 }
+    }
+  },
+
+  "Risaralda": {
+    "ciudades": {
+      "Pereira": { "nivel": 2, "costo": 13000 },
+      "Dosquebradas": { "nivel": 2, "costo": 13000 }
+    }
+  },
+
+  "San Andrés y Providencia": {
+    "ciudades": {
+      "San Andrés": { "nivel": 3, "costo": 28000 }
+    }
+  },
+
+  "Santander": {
+    "ciudades": {
+      "Bucaramanga": { "nivel": 1, "costo": 12000 },
+      "Floridablanca": { "nivel": 2, "costo": 13000 },
+      "Girón": { "nivel": 2, "costo": 13000 },
+      "Barrancabermeja": { "nivel": 3, "costo": 16000 }
+    }
+  },
+
+  "Sucre": {
+    "ciudades": {
+      "Sincelejo": { "nivel": 2, "costo": 14000 },
+      "Corozal": { "nivel": 3, "costo": 16000 }
+    }
+  },
+
+  "Tolima": {
+    "ciudades": {
+      "Ibagué": { "nivel": 2, "costo": 13000 },
+      "Espinal": { "nivel": 3, "costo": 15000 }
+    }
+  },
+
+  "Valle del Cauca": {
+    "ciudades": {
+      "Cali": { "nivel": 1, "costo": 11000 },
+      "Palmira": { "nivel": 2, "costo": 13000 },
+      "Buenaventura": { "nivel": 3, "costo": 18000 }
+    }
+  },
+
+  "Vaupés": {
+    "ciudades": {
+      "Mitú": { "nivel": 3, "costo": 26000 }
+    }
+  },
+
+  "Vichada": {
+    "ciudades": {
+      "Puerto Carreño": { "nivel": 3, "costo": 26000 }
+    }
+  }
+}

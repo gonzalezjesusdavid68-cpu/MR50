@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "rifa-digital-mr50",
+    "rifa-digital-mr50": "rifa-digital-mr50"
+  },
+  "targets": {},
+  "etags": {}
+}

@@ -78,13 +78,21 @@
       margin:auto;
       padding:30px 20px;
       }
+      .section-container{
+      max-width:1200px;
+      margin:auto;
+      padding:30px 20px;
+      }
 
       /* TARJETAS */
+        .dark-card{
+        background:#111;
+        box-shadow:0 0 20px rgba(0,0,0,.5);
+        }
       .card{
-      background:#111;
-      border-radius:12px;
-      padding:20px;
-      box-shadow:0 0 20px rgba(0,0,0,.5);
+      border-radius:18px;
+      padding:25px;
+      box-sizing:border-box;
       }
 
       /* NUMEROS */
@@ -179,6 +187,27 @@
       margin:0 8px;
       }
 
+      .footer-pagos-logos{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:20px;
+        flex-wrap:wrap;
+        margin-top:20px;
+        }
+
+        .footer-pagos-logos img{
+        height:32px;
+        width:auto;
+        object-fit:contain;
+        filter:brightness(1);
+        transition:.3s;
+        }
+
+        .footer-pagos-logos img:hover{
+        transform:scale(1.08);
+        }
+
       /* responsive */
       @media(max-width:900px){
       .footer-container{
@@ -191,50 +220,31 @@
       grid-template-columns:1fr;
       }
       }
-      .container {
-        max-width: 1100px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+      .light-card{
+      background:white;
+      color:#111;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
       }
-
-      @media (max-width: 768px) {
-        .container {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .card {
-        background: white;
-        color: #111; /* ✅ TEXTO NEGRO */
-        border-radius: 14px;
-        padding: 20px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      }
-
       .numbers {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
         gap: 10px;
         margin-bottom: 15px;
       }
-
-      .numero {
-        width: 50px;
-        height: 50px;
-        margin: 5px;
-        border-radius: 8px;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
+      .number{
+      height:55px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:.2s;
       }
-
-      .numero:hover {
-        background: #4caf50;
-        color: white;
+      .number:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 10px rgba(255,255,255,.3);
       }
-
       .pendiente {
         background: orange;
         color: white;
@@ -318,6 +328,7 @@
       .mensaje-pago-card {
         background: var(--mensaje-pago-bg);
         border: 2px solid var(--mensaje-pago-border);
+        color: #111;
       }
 
       .mensaje-pago-suerte {
@@ -341,10 +352,221 @@
       border-radius:20px;
       margin-left:5px;
       }
+      /* ========================= */
+      /* PARTICIPANTES */
+      /* ========================= */
+
+      .btn-participantes{
+      width:100%;
+      background:#e11d48;
+      color:white;
+      font-weight:bold;
+      font-size:18px;
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      }
+
+      .panel-participantes{
+      display:none;
+      margin-top:20px;
+      }
+
+      .panel-participantes.activo{
+      display:block;
+      }
+
+      .participantes-header,
+      .participante-row{
+      display:grid;
+      grid-template-columns:100px 1fr 120px;
+      gap:15px;
+      padding:12px;
+      align-items:center;
+      }
+
+      .participantes-header{
+      background:#1f2937;
+      font-weight:bold;
+      border-radius:10px;
+      }
+
+      .participante-row{
+      border-bottom:1px solid #333;
+      }
+
+      .estado-aprobado{
+      color:#22c55e;
+      font-weight:bold;
+      }
+
+      .estado-pendiente{
+      color:#f59e0b;
+      font-weight:bold;
+      }
+
+      @media(max-width:768px){
+
+      .participantes-header,
+      .participante-row{
+      grid-template-columns:70px 1fr 90px;
+      font-size:13px;
+      }
+
+      }
+      /* ========================= */
+      /* PREMIO ACTUAL */
+      /* ========================= */
+      .premio-card{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:40px;
+      align-items:center;
+      background:#111;
+      color:white;
+      }
+      .premio-img{
+      width:100%;
+      height:380px;
+      object-fit:contain;
+      border-radius:16px;
+      background:#000;
+      padding:10px;
+      display:block;
+      }
+
+      .miniaturas{
+      display:flex;
+      gap:10px;
+      margin-top:15px;
+      flex-wrap:wrap;
+      }
+
+      .miniaturas img{
+      width:70px;
+      height:70px;
+      object-fit:cover;
+      border-radius:10px;
+      cursor:pointer;
+      border:2px solid transparent;
+      }
+
+      .miniaturas img:hover{
+      border-color:#e11d48;
+      }
+
+      .badge-premio{
+      background:#e11d48;
+      padding:6px 12px;
+      border-radius:30px;
+      font-size:12px;
+      font-weight:bold;
+      display:inline-block;
+      margin-bottom:15px;
+      }
+
+      .premio-meta{
+      margin-top:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      font-size:18px;
+      }
+      @media(max-width:768px){
+      .premio-card{
+      grid-template-columns:1fr;
+      text-align:center;
+      }
+      .premio-info{
+      align-items:center;
+      }
+      }
+      /* ========================= */
+      /* GANADOR */
+      /* ========================= */
+
+      .ganador-card{
+      background:linear-gradient(90deg,#111,#1f2937);
+      color:white;
+      }
+
+      .ganador-header{
+      font-size:28px;
+      font-weight:bold;
+      margin-bottom:20px;
+      text-align:center;
+      }
+
+      .ganador-content{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:50px;
+      padding:20px;
+      flex-wrap:wrap;
+      }
+
+      .ganador-img{
+      width:250px;
+      border-radius:14px;
+      object-fit:cover;
+      }
+
+      .ganador-info h3{
+      font-size:32px;
+      margin-bottom:15px;
+      color:#22c55e;
+      }
+
+      .ganador-info p{
+      font-size:18px;
+      margin:10px 0;
+      }
+
+      @media(max-width:768px){
+      .ganador-img{
+      width:100%;
+      max-width:320px;
+      }
+      .premio-meta{
+      font-size:16px;
+      }
+      .premio-info h2{
+      font-size:24px;
+      }
+      .ganador-info h3{
+      font-size:26px;
+      }
+      }
+      .rifa-grid{
+      max-width:1100px;
+      margin:auto;
+      padding:30px 20px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      }
+
+      @media(max-width:768px){
+      .rifa-grid{
+      grid-template-columns:1fr;
+      }
+      }
+      .premio-info{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      height:100%;
+      }
+      img{
+      max-width:100%;
+      display:block;
+      } 
     </style>
   </head>
+<body>
   <header class="header-rifa">
-
   <div class="logo-rifa">
   <img src="assets/logomotoruta50.png" alt="Logo Moto Ruta 50" />
   <h1>Moto Ruta 50</h1>
@@ -366,8 +588,111 @@
   <div class="banner-rifa">
   🏍️ Participa en nuestras Rifas Oficiales
   </div>
-  <body>
-    <div class="container">
+      <!-- ========================= -->
+      <!-- PREMIO ACTUAL -->
+      <!-- ========================= -->
+      <section class="section-container">
+        <div class="card dark-card premio-card">
+          <div class="premio-galeria">
+            <img
+              id="premioPrincipal"
+              src="assets/Posterrifa001kitmoteropremium.png"
+              class="premio-img"
+              alt="Imagen del premio"
+            >
+            <!-- MINIATURAS -->
+            <div id="miniaturasPremio" class="miniaturas"></div>
+          </div>
+        </div>
+          <div class="premio-info">
+            <span class="badge-premio">
+              🎁 RIFA ACTIVA
+            </span>
+            <h2 id="tituloPremio">
+              Cargando premio...
+            </h2>
+            <p id="descripcionPremio">
+              Información del premio
+            </p>
+            <div class="premio-meta">
+              <div>
+                💰 Valor:
+                <strong id="valorPremio">
+                  ---
+                </strong>
+              </div>
+
+              <div>
+                📅 Sorteo:
+                <strong id="fechaPremio">
+                  ---
+                </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- ========================= -->
+    <!-- ÚLTIMO GANADOR -->
+    <!-- ========================= -->
+    <section class="section-container">
+      <div class="card ganador-card">
+        <div class="ganador-header">
+          🏆 Último Ganador
+        </div>
+        <div class="ganador-content">
+          <img
+            id="fotoGanadorPremio"
+            src="assets/ganador-default.jpg"
+            alt="Foto del ganador"
+          >
+          <div class="ganador-info">
+            <h3 id="nombreGanador">
+              Esperando sorteo...
+            </h3>
+            <p>
+              🎟️ Número ganador:
+              <strong id="numeroGanador">
+                --
+              </strong>
+            </p>
+            <p>
+              📍 Ciudad:
+              <strong id="ciudadGanador">
+                --
+              </strong>
+            </p>
+            <p>
+              📅 Fecha:
+              <strong id="fechaGanador">
+                --
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========================= -->
+    <!-- PARTICIPANTES -->
+    <!-- ========================= -->
+    <section class="section-container">
+      <div class="card dark-card">
+        <button id="btnParticipantes" class="btn-participantes">
+          👥 Ver Participantes Registrados
+        </button>
+        <div id="panelParticipantes" class="panel-participantes">
+          <div class="participantes-header">
+            <div>🎟️ Número</div>
+            <div>👤 Nombre</div>
+            <div>📌 Estado</div>
+          </div>
+          <div id="listaParticipantes">
+            Cargando participantes...
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="rifa-grid">
       <!-- SELECCIÓN DE NÚMERO -->
       <div class="card">
         <h2>1️⃣ Selecciona tu número</h2>
@@ -391,7 +716,7 @@
       </div>
 
       <!-- FORMULARIO -->
-      <div class="card">
+      <div class="card light-card">
         <h2>2️⃣Datos del participante</h2>
 
         <form id="formulario">
@@ -438,9 +763,6 @@
       </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-    
     <script type="module">
       // 1. Importar Firebase
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -522,7 +844,7 @@
       /* =========================
            CREAR NÚMEROS 01–99
         ========================== */
-      for (let i = 1; i <= 99; i++) {
+      for (let i = 0; i <= 99; i++) {
         const num = i.toString().padStart(2, "0");
         const div = document.createElement("div");
         div.textContent = num;
@@ -563,11 +885,16 @@
             body: JSON.stringify({ numero, ...datos }),
           },
         );
-
         const data = await res.json();
         if (!data.success) throw new Error(data.error);
+      await guardarCliente({
+        nombre,
+        telefono,
+        email
+      });
+      document.getElementById("mensajePago")
+      .style.display = "block";
       }
-
       /* =========================
            GUARDAR EN SHEETS
         ========================== */
@@ -596,9 +923,9 @@
 
         alert(
           `💳 PAGO MANUAL\n\n` +
-            `Nequi / Daviplata\n` +
-            `📱 3001234567\n` +
-            `💰 Valor: $15.000\n\n` +
+            `Nequi / Bre-B\n` +
+            `📱 3224597888 \n` +
+            `💰 Valor: $7.000\n\n` +
             `Referencia: RIFA-${finalSelected}`,
         );
       };
@@ -707,7 +1034,7 @@
           });
           },
         );
-      }
+  }
       async function cargarSorteoActivo() {
           const q = query(
             collection(db, "sorteos"),
@@ -723,6 +1050,7 @@
             console.log("✅ Sorteo activo:", sorteoActualId);
           });
           escucharNumeros();
+          cargarParticipantes();
         }
     async function contarRifas(){
       const q = query(
@@ -734,8 +1062,112 @@
     }
     cargarSorteoActivo();
     contarRifas();
+    async function cargarPremioActual(){
+        const q = query(
+          collection(db, "sorteos"),
+          where("estado", "==", "activo")
+        );
+        const snapshot = await getDocs(q);
+        if(snapshot.empty) return;
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          // INFO PREMIO
+          document.getElementById("tituloPremio")
+            .textContent = data.titulo || "Premio activo";
+          document.getElementById("descripcionPremio")
+            .textContent = data.descripcion || "";
+          document.getElementById("valorPremio")
+            .textContent = data.valor || "";
+          const fecha =
+          data.fechaSorteo?.toDate
+          ? data.fechaSorteo.toDate()
+          : null;
+          document.getElementById("fechaPremio")
+          .textContent = fecha
+          ? fecha.toLocaleDateString("es-CO")
+          : "---";
+          // IMAGEN PRINCIPAL
+          if(data.imagenes?.length){
+            document.getElementById("premioPrincipal")
+              .src = data.imagenes[0];
+            }
+            const miniaturas =
+            document.getElementById("miniaturasPremio");
+            miniaturas.innerHTML = "";
+            if(miniaturas){
+            miniaturas.innerHTML = "";
+            data.imagenes.forEach(img => {
+              miniaturas.innerHTML += `
+                <img
+                  src="${img}"
+                  onclick="
+                    document.getElementById('premioPrincipal').src='${img}'
+                  "
+                >
+              `;
+            });
+            // FOTO GANADOR
+            document.getElementById("fotoGanadorPremio")
+          .src = data.ganador?.foto || "assets/ganador-default.jpg";
+          }
+          // GANADOR
+          if(data.ganador){
+            document.getElementById("nombreGanador")
+              .textContent = data.ganador.nombre || "---";
+            document.getElementById("numeroGanador")
+              .textContent = data.ganador.numero || "---";
+            document.getElementById("ciudadGanador")
+              .textContent = data.ganador.ciudad || "---";
+            document.getElementById("fechaGanador")
+              .textContent = data.ganador.fecha || "---";
+          }
+        });
+      }
+      cargarPremioActual();
+     async function cargarParticipantes() {
+        if (!sorteoActualId) return;
+        const snapshot = await getDocs(
+          collection(
+            db,
+            "sorteos",
+            sorteoActualId,
+            "participantes"
+          )
+        );
+        let html = "";
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          html += `
+            <div class="participante-row">
+              <div>${data.numero}</div>
+              <div>${data.nombre}</div>
+              <div class="${
+                data.estado === "aprobado"
+                ? "estado-aprobado"
+                : "estado-pendiente"
+              }">
+                ${data.estado}
+              </div>
+            </div>
+          `;
+        });
+        document.getElementById(
+          "listaParticipantes"
+        ).innerHTML =
+          html || "Aún no hay participantes";
+      } 
+      // =========================
+      // MOSTRAR / OCULTAR
+      // =========================
+      document
+      .getElementById("btnParticipantes")
+      .addEventListener("click", () => {
+        document
+        .getElementById("panelParticipantes")
+        .classList.toggle("activo");
+      });
     </script>
-    <section id="nosotros" class="container">
+    <section id="nosotros" class="section-container">
     <div class="card">
     <h2>Nosotros</h2>
     <p>Moto Ruta 50 es tu tienda de confianza para cascos y accesorios...</p>

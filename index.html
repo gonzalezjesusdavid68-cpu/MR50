@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <!-- Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8V7SY9F5TS"></script>
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-W3FQ6HQC");
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8V7SY9F5TS');
     </script>
     <!-- End Google Tag Manager -->
 
@@ -593,6 +589,353 @@
           padding: 15px;
           border-radius: 10px;
         }
+        /* =========================
+          🔥 BOTÓN FLOTANTE CARRITO
+        ========================= */
+        .floating-cart-btn{
+          position:fixed;
+          bottom:25px;
+          right:25px;
+          width:75px;
+          height:75px;
+          border-radius:50%;
+          border:none;
+          cursor:pointer;
+          z-index:99999;
+          background:linear-gradient(135deg,#e11d48,#ff9800);
+          color:white;
+          font-size:30px;
+          box-shadow:
+          0 10px 30px rgba(0,0,0,.35);
+          transition:.3s;
+        }
+        .floating-cart-btn:hover{
+          transform:scale(1.08);
+        }
+        /* CONTADOR */
+        #floatingCartCount{
+          position:absolute;
+          top:-5px;
+          right:-5px;
+          width:28px;
+          height:28px;
+          border-radius:50%;
+          background:white;
+          color:black;
+          font-size:14px;
+          font-weight:bold;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        }
+        /* PANEL PREMIUM */
+        #cartSidebar{
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+          background:white;
+          transition:all .4s ease;
+        }
+        /* PRODUCTOS */
+        .cart-item{
+          display:flex;
+          gap:15px;
+          padding-bottom:15px;
+          border-bottom:1px solid #eee;
+        }
+        .cart-item img{
+          width:80px;
+          height:80px;
+          object-fit:cover;
+          border-radius:12px;
+        }
+        /* BOTÓN CHECKOUT */
+        .checkout-btn{
+          background:linear-gradient(135deg,#22c55e,#16a34a);
+          transition:.3s;
+        }
+        .checkout-btn:hover{
+          transform:scale(1.02);
+        }
+        /* ANIMACIÓN CARRITO */
+        @keyframes bounceCart {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.15);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        .cart-bounce {
+          animation: bounceCart .4s ease;
+        }
+        /* ========================= */
+        /* CONTRAENTREGA */
+        /* ========================= */
+        .contraentrega-section{
+            width:100%;
+            padding:80px 20px;
+            background:#0f172a;
+            color:white;
+        }
+        .contraentrega-container{
+            max-width:1200px;
+            margin:auto;
+        }
+        .contraentrega-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+        .contraentrega-title h2{
+            font-size:42px;
+            margin-bottom:20px;
+            color:#facc15;
+        }
+        .contraentrega-title p{
+            max-width:800px;
+            margin:auto;
+            font-size:18px;
+            line-height:1.8;
+            color:#cbd5e1;
+        }
+        .contraentrega-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+            margin-top:40px;
+        }
+        .contra-card{
+            background:#1e293b;
+            padding:30px;
+            border-radius:20px;
+            transition:0.3s;
+            border:1px solid rgba(255,255,255,0.05);
+        }
+        .contra-card:hover{
+            transform:translateY(-10px);
+            border-color:#facc15;
+        }
+        .contra-card span{
+            font-size:40px;
+            display:block;
+            margin-bottom:15px;
+        }
+        .contra-card h3{
+            margin-bottom:15px;
+            color:#facc15;
+        }
+        .contra-card p{
+            color:#cbd5e1;
+            line-height:1.7;
+        }
+        .transportadoras{
+            margin-top:70px;
+            text-align:center;
+        }
+        .transportadoras h3{
+            font-size:32px;
+            margin-bottom:30px;
+            color:#facc15;
+        }
+        .logos{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:20px;
+        }
+        .logo-card{
+            background:#1e293b;
+            padding:20px 35px;
+            border-radius:15px;
+            font-weight:bold;
+            border:1px solid rgba(255,255,255,0.08);
+            transition:0.3s;
+        }
+        .logo-card:hover{
+            background:#facc15;
+            color:black;
+        }
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .contraentrega-title h2{
+                font-size:30px;
+            }
+            .contraentrega-title p{
+                font-size:16px;
+            }
+        }
+        /* TRACKING */
+          .tracking-container{
+              margin-top:70px;
+              text-align:center;
+          }
+          .tracking-bar{
+              display:flex;
+              justify-content:space-between;
+              align-items:center;
+              margin-top:40px;
+              gap:20px;
+              flex-wrap:wrap;
+          }
+          .tracking-step{
+              flex:1;
+              position:relative;
+          }
+          .circle{
+              width:60px;
+              height:60px;
+              border-radius:50%;
+              background:#334155;
+              color:white;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              margin:auto;
+              font-weight:bold;
+              font-size:20px;
+          }
+          .tracking-step.active .circle{
+              background:#22c55e;
+          }
+          .tracking-step p{
+              margin-top:10px;
+              color:#cbd5e1;
+          }
+          /* ========================= */
+          /* MODAL CONTRAENTREGA */
+          /* ========================= */
+          .modal-contra{
+              position:fixed;
+              inset:0;
+              background:rgba(0,0,0,0.7);
+              display:none;
+              align-items:center;
+              justify-content:center;
+              z-index:99999;
+          }
+          .modal-content-contra{
+              position:relative;
+              background:white;
+              padding:40px;
+              border-radius:20px;
+              width:90%;
+              max-width:500px;
+              text-align:center;
+          }
+          .modal-content-contra h2{
+              margin-bottom:20px;
+              color:#111827;
+          }
+          .modal-content-contra p{
+              color:#374151;
+              margin-bottom:20px;
+          }
+          .modal-content-contra ul{
+              text-align:left;
+              margin-top:20px;
+              color:#374151;
+          }
+
+          .modal-content-contra li{
+              margin-bottom:10px;
+          }
+          .modal-content-contra button{
+              margin-top:25px;
+              padding:15px 25px;
+              border:none;
+              background:#22c55e;
+              color:white;
+              border-radius:10px;
+              cursor:pointer;
+              font-weight:bold;
+          }
+          /* BOTON CERRAR MODAL */
+        .cerrar-modal-contra{
+            position:absolute;
+            top:15px;
+            right:20px;
+            font-size:28px;
+            font-weight:bold;
+            color:#ef4444;
+            cursor:pointer;
+            transition:0.3s;
+        }
+        .cerrar-modal-contra:hover{
+            transform:scale(1.2);
+            color:#dc2626;
+        }
+          @keyframes modalShow{
+        from{
+            transform:scale(0.8);
+            opacity:0;
+        }
+        to{
+            transform:scale(1);
+            opacity:1;
+        }
+    }
+    /* ========================= */
+      /* CALCULADORA ENVIO */
+      /* ========================= */
+      .calculadora-envio{
+          background:#0f172a;
+          padding:50px 20px;
+          text-align:center;
+          color:white;
+      }
+      .calculadora-envio h2{
+          margin-bottom:30px;
+          color:#facc15;
+      }
+      .calculadora-envio select{
+          padding:15px;
+          border-radius:10px;
+          border:none;
+          width:300px;
+          max-width:90%;
+          margin-bottom:20px;
+      }
+      .calculadora-envio button{
+          background:#22c55e;
+          color:white;
+          border:none;
+          padding:15px 30px;
+          border-radius:10px;
+          cursor:pointer;
+          font-weight:bold;
+      }
+      #resultadoEnvio{
+          margin-top:20px;
+          color:#facc15;
+      }
+      /* SELECT CIUDADES */
+
+        #ciudadEnvio{
+            background:white;
+            color:black;
+        }
+
+        #ciudadEnvio option{
+            background:white;
+            color:black;
+        }
+        .select-envio {
+          width: 100%;
+          max-width: 400px;
+          padding: 12px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+          background: white;
+          color: black;
+          margin-bottom: 15px;
+        }
+
+        .select-envio option {
+          background: white;
+          color: black;
+        }
     </style>
   </head>
 
@@ -1076,12 +1419,21 @@ Participar ahora
             <div class="flex gap-4 items-center">
               <img src="./assets/stoplujoboxerctposter.png"
                    class="img-card" alt="Stop led boxer ct">
-              <div>
-                <h3>Stop led boxer ct</h3>
-                <p class="price">$49.999</p>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $70.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $49.999
+                </p>
+                <p class="text-green-600 text-sm">
+                  Ahorras $20.000
+                </p>
               </div>
             </div>
-
             <button onclick="window.open('https://wa.me/573107643039','_blank')"
                     class="btn-buy">
               Comprar ahora
@@ -1234,15 +1586,12 @@ Participar ahora
           </button>
         </div>
       </section>
-
       <!-- PRODUCT GRID -->
       <section id="productos" class="max-w-7xl mx-auto px-6 pb-16">
         <h3 class="text-3xl font-bold mb-6">Productos destacados</h3>
-
-        <div
-          id="grid"
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-        >
+          <div
+            id="productosGrid"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Producto 1 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
@@ -1287,8 +1636,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Abatible XR-913</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$199.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $220.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $170.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Abatible%20XR-913%20X"
                   target="_blank"
@@ -1296,7 +1653,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible XR-913',199999, 'assets/casco_xr913_1.png')"
+                <button onclick="agregarAlCarrito('Casco Abatible XR-913',169999, 220000, 15, 'assets/casco_xr913_1.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1307,7 +1664,7 @@ Participar ahora
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Casco para bici"
             data-category="Cascos"
-            data-brand="xgp"
+            data-brand="XGP"
           >
             <div class="relative">
 
@@ -1324,25 +1681,25 @@ Participar ahora
               <div class="flex gap-2 mt-3">
                 <img 
                   src="./assets/cascobicihombre.jpg"
-                  alt="Casco bici xgp"
+                  alt="Casco bici XGP"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-cascobici', this.src)"
                 />
                 <img 
                   src="./assets/cascobicimujer.jpg"
-                  alt="Casco bici xgp"
+                  alt="Casco bici XGP"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-cascobici', this.src)"
                 />
                 <img 
                   src="./assets/cascobiciatras.jpg"
-                  alt="Casco bici xgp"
+                  alt="Casco bici XGP"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-cascobici', this.src)"
                 />
                 <img 
                   src="./assets/cascobicimujerarriba.jpg"
-                  alt="Casco bici xgp"
+                  alt="Casco bici XGP"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-cascobici', this.src)"
                 />
@@ -1351,8 +1708,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Bici XGP</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$90.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -10%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $100.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $90.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Bici"
                   target="_blank"
@@ -1360,7 +1725,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco bici xgp',90000, 'assets/cascobicihombre.png')"
+              <button onclick="agregarAlCarrito('Casco Bici XGP',90000, 100000, 10, 'assets/cascobicihombre.jpg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1416,16 +1781,25 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral Fibra</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$240.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -10%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $240.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $216.000
+                </p>
                 <a
-                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Fibra%20Naranja"
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Xecuro"
                   target="_blank"
                   class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
-                  >Comprar ahora</a
                 >
+                  Comprar ahora
+                </a>
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral Fibra Naranja',240000, 'assets/cascofibranaranja.png')"
+              <button onclick="agregarAlCarrito('Casco Integral Fibra Naranja',204000, 240000, 15, 'assets/cascofibranaranja.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1475,8 +1849,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral Xecuro 701</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$220.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -10%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $220.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $198.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Xecuro"
                   target="_blank"
@@ -1484,7 +1866,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral Xecuro 701',220000, 'assets/cascoxr701.png')"
+              <button onclick="agregarAlCarrito('Casco Integral Xecuro 701',187000, 220000, 15, 'assets/cascoxr701.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1529,8 +1911,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral Xecuro 910</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$210.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $210.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $178.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Xecuro"
                   target="_blank"
@@ -1538,10 +1928,10 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral Xecuro 910',210000, 'assets/cascoxr910dama.png')"
+              <button onclick="agregarAlCarrito('Casco Integral Xecuro 910',178000, 210000, 15, 'assets/cascoxr910dama.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
-                </button>
+              </button>
             </div>
           </article>
 
@@ -1588,8 +1978,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral Xecuro 701 Negro</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$240.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $240.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $204.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20NZI"
                   target="_blank"
@@ -1597,7 +1995,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral Xecuro 701 Negro',240000, 'assets/cascoxr701negro.png')"
+              <button onclick="agregarAlCarrito('Casco Integral Xecuro 701 Negro',204000, 240000, 15, 'assets/cascoxr701negro.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1634,8 +2032,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral NZI</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$240.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $270.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $230.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Fibra"
                   target="_blank"
@@ -1643,7 +2049,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral NZI',240000, 'assets/cascointegralnziblanco.png')"
+              <button onclick="agregarAlCarrito('Casco Integral NZI',230000, 270000, 15, 'assets/cascointegralnziblanco.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1687,8 +2093,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral XR701 DAMA</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$240.000</span>
+                           <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $240.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $204.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Fibra"
                   target="_blank"
@@ -1696,7 +2110,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral XR701 Dama',240000, 'assets/cascointegralxr701dama.png')"
+              <button onclick="agregarAlCarrito('Casco Integral XR701 Dama',204000, 240000, 15, 'assets/cascointegralxr701dama.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1746,8 +2160,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Integral Xecuro 370</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$210.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -10%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $210.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $189.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Integral%20Xecuro"
                   target="_blank"
@@ -1755,7 +2177,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Integral Xecuro 370',210000, 'assets/cascoxr370_2.png')"
+              <button onclick="agregarAlCarrito('Casco Integral Xecuro 370',189000, 210000, 10, 'assets/cascoxr370_2.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1805,8 +2227,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Cross NZI</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$350.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $350.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $297.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
                   target="_blank"
@@ -1814,7 +2244,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Cross Rojo NZI',350000, 'assets/casconzicrossrojo.png')"
+              <button onclick="agregarAlCarrito('Casco Cross Rojo NZI',297000, 350000, 15, 'assets/casconzicrossrojo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1864,8 +2294,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Cross Xecuro 805</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$220.000</span>
+                            <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $220.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $187.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20Xecuro%20dama"
                   target="_blank"
@@ -1873,7 +2311,196 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Cross Xecuro 805',220000, 'assets/cascocrossxr805.png')"
+              <button onclick="agregarAlCarrito('Casco Cross Xecuro 805', 187000, 220000, 15, 'assets/cascocrossxr805.png')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+                    <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Integral XR370 DAMA"
+            data-category="Cascos"
+            data-type="Integrales"
+            data-brand="XECURO"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-Xr370dama"
+                src="./assets/cascoxr370dama.png"
+                alt="Casco integral xr370dama"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascoxr370dama.png"
+                  alt="Casco integral xr370dama vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-Xr370dama', this.src)"
+                />
+                <img 
+                  src="./assets/cascoxr370dama_2.png"
+                  alt="Casco integral xr370dama vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-Xr370dama', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Integral XR370 DAMA</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -10%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $220.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $198.000
+                </p>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Integral XR370 DAMA',198000, 220000, 10, 'assets/cascoxr370dama.png')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Integral Prorider 701"
+            data-category="Cascos"
+            data-type="Integrales"
+            data-brand="PRORIDER"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-PRORIDER701"
+                src="./assets/casco_prorider701narajna2_lado.png"
+                alt="Casco integral prorider vista lateral"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/casco_prorider701narajna2_lado.png"
+                  alt="Casco integral prorider vista frontal"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-PRORIDER701', this.src)"
+                />
+                <img 
+                  src="./assets/casco_prorider701narajna_atras.jpg"
+                  alt="Casco integral prorider vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-PRORIDER701', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Integral Prorider 701</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -10%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $220.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $198.000
+                </p>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Casco Integral Prorider 701',198000, 220000, 10, 'assets/casco_prorider701narajna2_lado.png')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-name="Casco Integral Xecuro M-61"
+            data-category="Cascos"
+            data-type="Integrales"
+            data-brand="XECURO"
+          >
+            <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-xrm61"
+                src="./assets/cascoxrm61.png"
+                alt="Casco integral Xecuro M-61"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/cascoxrm61_2.png"
+                  alt="Casco integral Xecuro M-61 vista lateral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-xrm61', this.src)"
+                />
+                <img 
+                  src="./assets/cascoxrm61_3.png"
+                  alt="Casco integral Xecuro M-61 vista trasera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-xrm61', this.src)"
+                />
+                <img 
+                  src="./assets/cascoxrm61.png"
+                  alt="Casco Cross NZI vista delantera"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-xrm61', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Casco Integral Xecuro M-61</h4>
+              <p class="text-sm text-gray-500 mt-1">Cascos</p>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -20%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $200.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $159.999
+                </p>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
+                  target="_blank"
+                  class="block w-full text-center px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+                <button onclick="agregarAlCarrito('Casco Xecuro M-61',159999, 200000, 20, 'assets/cascoxrm61.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -1923,8 +2550,16 @@ Participar ahora
             <div class="p-4">
               <h4 class="font-semibold">Casco Abierto NZI</h4>
               <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$350.000</span>
+              <div class="mt-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                  -15%
+                </span>
+                <p class="line-through text-gray-400 mt-2">
+                  $350.000
+                </p>
+                <p class="text-red-500 font-bold text-xl">
+                  $297.000
+                </p>
                 <a
                   href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
                   target="_blank"
@@ -1932,14 +2567,14 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abierto NZI',350000, 'assets/cascoabiertonzi.png')"
+              <button onclick="agregarAlCarrito('Casco Abierto NZI',297000, 350000, 15, 'assets/cascoabiertonzi.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
             </div>
           </article>
 
-                    <article
+          <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-name="Casco Abatible NTF"
             data-category="Cascos"
@@ -2387,171 +3022,6 @@ Participar ahora
                 </button>
             </div>
           </article>
-
-          <article
-            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-name="Casco Integral XR370 DAMA"
-            data-category="Cascos"
-            data-type="Integrales"
-            data-brand="XECURO"
-          >
-            <div class="relative">
-
-            <!-- Imagen principal -->
-              <img    
-                id="main-Xr370dama"
-                src="./assets/cascoxr370dama.png"
-                alt="Casco integral xr370dama"
-                class="w-full h-64 object-cover cursor-pointer rounded-lg"
-                onclick="openModal(this.src)"
-              />
-
-            <!-- Miniaturas -->
-              <div class="flex gap-2 mt-3">
-                <img 
-                  src="./assets/cascoxr370dama.png"
-                  alt="Casco integral xr370dama vista lateral"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-Xr370dama', this.src)"
-                />
-                <img 
-                  src="./assets/cascoxr370dama_2.png"
-                  alt="Casco integral xr370dama vista delantera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-Xr370dama', this.src)"
-                />
-              </div>
-            </div>
-            <div class="p-4">
-              <h4 class="font-semibold">Casco Integral XR370 DAMA</h4>
-              <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$220.000</span>
-                <a
-                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
-                  target="_blank"
-                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
-                  >Comprar ahora</a
-                >
-              </div>
-              <button onclick="agregarAlCarrito('Casco Integral XR370 DAMA',220000, 'assets/cascoxr370dama.png')"
-                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
-                  🛒 Agregar al carrito
-                </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-name="Casco Integral Prorider 701"
-            data-category="Cascos"
-            data-type="Integrales"
-            data-brand="PRORIDER"
-          >
-            <div class="relative">
-
-            <!-- Imagen principal -->
-              <img    
-                id="main-PRORIDER701"
-                src="./assets/casco_prorider701narajna2_lado.png"
-                alt="Casco integral prorider vista lateral"
-                class="w-full h-64 object-cover cursor-pointer rounded-lg"
-                onclick="openModal(this.src)"
-              />
-
-            <!-- Miniaturas -->
-              <div class="flex gap-2 mt-3">
-                <img 
-                  src="./assets/casco_prorider701narajna2_lado.png"
-                  alt="Casco integral prorider vista frontal"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-PRORIDER701', this.src)"
-                />
-                <img 
-                  src="./assets/casco_prorider701narajna_atras.jpg"
-                  alt="Casco integral prorider vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-PRORIDER701', this.src)"
-                />
-              </div>
-            </div>
-            <div class="p-4">
-              <h4 class="font-semibold">Casco Integral Prorider 701</h4>
-              <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$180.000</span>
-                <a
-                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
-                  target="_blank"
-                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
-                  >Comprar ahora</a
-                >
-              </div>
-              <button onclick="agregarAlCarrito('Casco Integral Prorider 701',180000, 'assets/casco_prorider701narajna2_lado.png')"
-                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
-                  🛒 Agregar al carrito
-                </button>
-            </div>
-          </article>
-
-          <article
-            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
-            data-name="Casco Integral Xecuro M-61"
-            data-category="Cascos"
-            data-type="Integrales"
-            data-brand="XECURO"
-          >
-            <div class="relative">
-
-            <!-- Imagen principal -->
-              <img    
-                id="main-xrm61"
-                src="./assets/cascoxrm61.png"
-                alt="Casco integral Xecuro M-61"
-                class="w-full h-64 object-cover cursor-pointer rounded-lg"
-                onclick="openModal(this.src)"
-              />
-
-            <!-- Miniaturas -->
-              <div class="flex gap-2 mt-3">
-                <img 
-                  src="./assets/cascoxrm61_2.png"
-                  alt="Casco integral Xecuro M-61 vista lateral"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-xrm61', this.src)"
-                />
-                <img 
-                  src="./assets/cascoxrm61_3.png"
-                  alt="Casco integral Xecuro M-61 vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-xrm61', this.src)"
-                />
-                <img 
-                  src="./assets/cascoxrm61.png"
-                  alt="Casco Cross NZI vista delantera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-xrm61', this.src)"
-                />
-              </div>
-            </div>
-            <div class="p-4">
-              <h4 class="font-semibold">Casco Integral Xecuro M-61</h4>
-              <p class="text-sm text-gray-500 mt-1">Cascos</p>
-              <div class="mt-4 space-y-3">
-                <span class="text-indigo-600 font-bold block">$150.000</span>
-                <a
-                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Casco%20Cross%20NZI"
-                  target="_blank"
-                  class="block w-full text-center px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
-                  >Comprar ahora</a
-                >
-              </div>
-                <button onclick="agregarAlCarrito('Casco Xecuro M-61',149999, 'assets/cascoxrm61.png')"
-                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
-                  🛒 Agregar al carrito
-                </button>
-            </div>
-          </article>
           <!-- Producto 2 -->
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
@@ -2704,7 +3174,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('guardabarro akt EVO',60000, 'assets/guardabarrodelevo.png')"
+              <button onclick="agregarAlCarrito('guardabarro akt EVO',60000, 'assets/guardabarrodelevo125.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3026,7 +3496,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Tapas laterales NKD',60000, 'assets/direccionaleslujomotoled.png')"
+              <button onclick="agregarAlCarrito('Tapas laterales NKD',60000, 'assets/tapalaTERALNKD.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3420,7 +3890,7 @@ Participar ahora
             <!-- Imagen principal -->
               <img    
                 id="main-farola"
-                src="./assets/farolaboxerctled2.png"
+                src="./assets/farolaboxerct.png"
                 alt="Farola Led BoxerCT"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
@@ -3437,12 +3907,6 @@ Participar ahora
                 <img 
                   src="./assets/farolaboxerctled2.png"
                   alt="Farola Led BoxerCT vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-farola', this.src)"
-                />
-                <img 
-                  src="./assets/farolaboxerctled2.png"
-                  alt="Farola Led BoxerCT vista delantera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-farola', this.src)"
                 />
@@ -3489,18 +3953,6 @@ Participar ahora
                 <img 
                   src="./assets/farolagn125led.png"
                   alt="Farola Gn-125 Led vista lateral"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-farolagn', this.src)"
-                />
-                <img 
-                  src="./assets/farolagn125led.png"
-                  alt="Farola Gn-125 Led vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-farolagn', this.src)"
-                />
-                <img 
-                  src="./assets/farolagn125led.png"
-                  alt="Farola Gn-125 Led vista delantera"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-farolagn', this.src)"
                 />
@@ -3557,22 +4009,10 @@ Participar ahora
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
                   onclick="changeImage('main-stop', this.src)"
                 />
-                <img 
-                  src="./assets/stopnkdled2.png"
-                  alt="Stop Led Nkd vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-stop', this.src)"
-                />
-                <img 
-                  src="./assets/stopnkdfvdireccionalesincluidas.png"
-                  alt="Stop Led Nkd vista trasera"
-                  class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-stop', this.src)"
-                />
               </div>
             </div>
             <div class="p-4">
-              <h4 class="font-semibold">Stop Led Nkd</h4>
+              <h4 class="font-semibold">Stop Led Nkd Ojo Diablo</h4>
               <p class="text-sm text-gray-500 mt-1">Stop Trasero</p>
               <div class="mt-4 flex items-center justify-between">
                 <span class="text-indigo-600 font-bold">$60.000</span>
@@ -3583,7 +4023,99 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Nkd',60000, 'assets/stoplednkd.png')"
+                <button onclick="agregarAlCarrito('Stop Led Nkd Ojo Diablo',60000, 'assets/STOP NKD 125 LED GAMA.jpg')"
+                    class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                    🛒 Agregar al carrito
+                  </button>
+            </div>
+          </article>
+          
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="electricos"
+            data-type="stopled"
+            data-name="stoptrasero"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-stopNkdojos"
+                src="./assets/stopnkdled2.png"
+                alt="Stop Led Nkd ojos"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/stopnkdled2.png"
+                  alt="Stop Led Nkd ojos"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-stopNkdojos', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Stop Led Nkd Ojos</h4>
+              <p class="text-sm text-gray-500 mt-1">Stop Trasero</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Stop%20Led%20Traseros"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+                <button onclick="agregarAlCarrito('Stop Led Nkd Ojos',50000, 'assets/stopnkdled2.png')"
+                    class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                    🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="electricos"
+            data-type="stopled"
+            data-name="stoptrasero"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-stopNkdFv"
+                src="./assets/stopnkdfvdireccionalesincluidas.png"
+                alt="Stop Led Nkd fv"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/stopnkdfvdireccionalesincluidas.png"
+                  alt="Stop Led Nkd fv"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-stopNkdFv', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Stop Led Nkd FV</h4>
+              <p class="text-sm text-gray-500 mt-1">Stop Trasero</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Stop%20Led%20Traseros"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+                <button onclick="agregarAlCarrito('Stop Led Nkd FV',50000, 'assets/stopnkdfvdireccionalesincluidas.png')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                   </button>
@@ -3602,7 +4134,7 @@ Participar ahora
               <img    
                 id="main-stopledboxerct"
                 src="./assets/stoplujoboxerctposter.png"
-                alt="Stop Led boxer ct"
+                alt="Stop Led Boxer Ct"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
               />
@@ -3635,7 +4167,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Gn-125',50000, 'assets/stopledboxerct.png')"
+                <button onclick="agregarAlCarrito('Stop Led Boxer Ct',50000, 'assets/stopledboxerct.png')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                   </button>
@@ -3903,7 +4435,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('patas laterales de lujo',40000, 'assets/pataslaterallujo.png')"
+              <button onclick="agregarAlCarrito('patas laterales de lujo',40000, 'assets/patalaterallujo2.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4217,7 +4749,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('slider tornasol',50000, 'assets/slidercarbono3.png')"
+              <button onclick="agregarAlCarrito('slider tornasol',50000, 'assets/slidercarbonotornasol3.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4275,7 +4807,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('slider K080',40000, 'assets/slidercarbono3.png')"
+              <button onclick="agregarAlCarrito('slider K080',40000, 'assets/sliderk080-3.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4333,7 +4865,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Manilar ProGrip colores',25000, 'assets/manilarprogripcolores.png')"
+              <button onclick="agregarAlCarrito('Manilar ProGrip colores',25000, 'assets/manilarprogriprojo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5731,6 +6263,132 @@ Participar ahora
           </div>
         </section>
     </section>
+   <!-- ========================= -->
+    <!-- CONTRAENTREGA MOTO RUTA 50 -->
+    <!-- ========================= -->
+    <section class="contraentrega-section">
+      <div class="contraentrega-container">
+        <div class="contraentrega-title">
+          <h2>🚚 Envíos Contraentrega en Toda Colombia</h2>
+          <p>
+            Compra seguro en Moto Ruta 50 y paga cuando recibas tu pedido.
+            Trabajamos con operadores logísticos confiables para entregar
+            tus productos de forma rápida y segura.
+          </p>
+        </div>
+          <div class="tracking-container">
+          <h3>📦 Seguimiento de Pedido</h3>
+          <div class="tracking-bar">
+            <div class="tracking-step active">
+              <div class="circle">1</div>
+              <p>Confirmado</p>
+            </div>
+            <div class="tracking-step active">
+              <div class="circle">2</div>
+              <p>Empacado</p>
+            </div>
+            <div class="tracking-step">
+              <div class="circle">3</div>
+              <p>En tránsito</p>
+            </div>
+            <div class="tracking-step">
+              <div class="circle">4</div>
+              <p>Entregado</p>
+            </div>
+        </div>
+      </div>
+
+        <div class="contraentrega-grid">
+          <div class="contra-card">
+            <span>1️⃣</span>
+            <h3>Realiza tu pedido</h3>
+            <p>
+              Escoge tus productos favoritos y envíanos tus datos de entrega.
+            </p>
+          </div>
+          <div class="contra-card">
+            <span>2️⃣</span>
+            <h3>Confirmamos información</h3>
+            <p>
+              Validamos dirección, cobertura y disponibilidad para evitar inconvenientes.
+            </p>
+          </div>
+          <div class="contra-card">
+            <span>3️⃣</span>
+            <h3>Empacamos tu pedido</h3>
+            <p>
+              Protegemos cuidadosamente cada producto para que llegue en perfecto estado.
+            </p>
+          </div>
+          <div class="contra-card">
+            <span>4️⃣</span>
+            <h3>Despacho nacional</h3>
+            <p>
+              Enviamos mediante transportadoras reconocidas en Colombia.
+            </p>
+          </div>
+          <div class="contra-card">
+            <span>5️⃣</span>
+            <h3>Recibes y pagas</h3>
+            <p>
+              El cliente paga únicamente cuando recibe el paquete en su domicilio.
+            </p>
+          </div>
+          <div class="contra-card">
+            <span>6️⃣</span>
+            <h3>Seguimiento garantizado</h3>
+            <p>
+              Hacemos monitoreo constante del envío hasta la entrega final.
+            </p>
+          </div>
+        </div>
+        <div class="transportadoras">
+          <h3>📦 Operadores Logísticos</h3>
+          <div class="logos">
+            <div class="logo-card">Servientrega</div>
+            <div class="logo-card">Inter Rapidísimo</div>
+            <div class="logo-card">Coordinadora</div>
+            <div class="logo-card">Envía</div>
+            <div class="logo-card">TCC</div>
+          </div>
+        </div>
+      </div>
+  </section>
+    <section class="calculadora-envio">
+      <h2>🚚 Calcula tu envío</h2>
+      <!-- DEPARTAMENTO -->
+      <label for="departamentoEnvio" class="block mb-2 font-medium">
+        Departamento
+      </label>
+      <select
+        id="departamentoEnvio"
+        class="select-envio"
+        onchange="cargarCiudades()"
+      >
+        <option value="">
+          Selecciona departamento
+        </option>
+      </select>
+      <!-- CIUDAD / MUNICIPIO -->
+      <label for="ciudadEnvio" class="block mb-2 font-medium">
+        Ciudad o municipio
+      </label>
+      <select
+        id="ciudadEnvio"
+        class="select-envio"
+      >
+        <option value="">
+          Selecciona ciudad
+        </option>
+      </select>
+      <button
+        onclick="calcularEnvio()"
+        class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+      >
+        Calcular envío
+      </button>
+      <div id="resultadoEnvio" class="mt-4"></div>
+    </section>
     <footer id="footer" class="footer">
     <div class="footer-container text-xl font-semibold tracking-wide">
     <!-- LOGO -->
@@ -5805,57 +6463,144 @@ Participar ahora
     </p>
     </div>
     </footer>
-                <!-- PANEL CARRITO -->
+    <!-- BOTÓN FLOTANTE -->
+    <button id="floatingCartBtn"
+    class="floating-cart-btn"
+    onclick="toggleCart()">
+      🛒
+      <span id="floatingCartCount">
+        0
+      </span>
+    </button>
+    <!-- PANEL CARRITO -->
       <div id="cartSidebar" class="fixed top-0 right-0 w-96 h-full bg-white shadow-2xl transition duration-300 z-[9999] flex flex-col"
         style="transform: translateX(100%);">  
         <div class="flex justify-between items-center p-4 border-b">
             <h2 class="text-xl font-bold">🛒 Carrito</h2>
             <button onclick="toggleCart()" class="text-red-500 font-bold">X</button>
           </div>
-        <!-- Productos -->
+      <!-- Productos -->
           <div id="cartItems" class="flex-1 overflow-y-auto p-4 space-y-4">
           </div>
           <div class="p-4 border-t">
-              <p class="font-bold">Total: $<span id="cartTotal">0</span></p>
-              <button onclick="abrirCheckout()" class="w-full bg-green-500 text-white py-2 rounded mt-3">
+              <p class="font-bold">Total: <span id="cartTotal">0</span></p>
+              <div class="mt-3">
+                <input
+                  id="cuponInput"
+                  type="text"
+                  placeholder="Cupón de descuento"
+                  class="w-full border p-2 rounded"
+                >
+                <button
+                  onclick="aplicarCupon()"
+                  class="w-full bg-black text-white py-2 rounded mt-2"
+                >
+                  Aplicar cupón
+                </button>
+              </div>
+              <button 
+              onclick="abrirCheckout()"
+              class="w-full bg-green-500 text-white py-2 rounded mt-3">
                 Continuar compra
               </button>
           </div>
       </div>
+         <!-- MODAL CONTRAENTREGA -->
+    <div class="modal-contra" id="modalContra">
+      <div class="modal-content-contra">
+        <!-- BOTON CERRAR -->
+          <span 
+          class="cerrar-modal-contra"
+          onclick="cerrarModalContraentrega()">
+              ✕
+          </span>
+          <h2>🚚 Pago Contraentrega</h2>
+          <p>
+            Tu pedido será enviado y pagarás al recibir.
+          </p>
+          <ul>
+            <li>✅ Verifica dirección</li>
+            <li>✅ Ten dinero disponible</li>
+            <li>✅ Recibe personalmente</li>
+          </ul>
+          <button onclick="confirmarPedidoFinal()">
+            Entendido
+          </button>
+      </div>
+    </div>
       <div id="checkoutModal"
       class="fixed inset-0 bg-black/40 hidden z-[9999] flex items-center justify-center">
-      
-
         <div class="bg-white w-full max-w-lg p-6 rounded-xl">
+              <!-- BOTON CERRAR -->
+          <button
+          onclick="cerrarCheckout()"
+          class="absolute top-3 right-4 text-red-500 text-3xl font-bold hover:scale-110 transition">
 
+              ✕
+          </button>
           <h2 class="text-xl font-bold mb-4">Datos del cliente</h2>
-
           <input id="nombre" placeholder="Nombre"
           class="w-full border p-2 mb-2">
-
           <input id="telefono" placeholder="Teléfono"
           class="w-full border p-2 mb-2">
-
           <input id="direccion" placeholder="Dirección"
           class="w-full border p-2 mb-2">
-
           <select id="pago" aria-label="Metodos de pago" class="w-full border p-2 mb-4">
             <option>Contra entrega</option>
             <option>Transferencia</option>
           </select>
-
-          <button onclick="enviarWhatsApp()"
-          class="flex justify-between items-center p-4 border-b">
-            Enviar pedido 
+          <p id="errorMsg"
+            class="text-red-500 text-sm mb-3"></p>
+          <button 
+          onclick="finalizarPedido()"
+          class="w-full bg-green-500 text-white py-3 rounded">
+            Enviar pedido
           </button>
         </div>
       </div>
+      <!-- MODAL IMAGEN -->
+      <div
+        id="imageModal"
+        class="hidden fixed inset-0 bg-black/80 z-50 items-center justify-center"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-5 right-5 text-white text-4xl"
+        >
+          ✕
+        </button>
+        <img
+          id="modalImage" alt="Imagen ampliada"
+          class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+        >
+      </div>
     </main>
 
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-    <!-- Scripts -->
+    <script src="js/logistica-colombia.js"></script>
     <script>
+          fetch('/logistica/colombia.json')
+      .then(res => res.json())
+      .then(data => {
+        window.logisticaColombia = data;
+        console.log("Logística cargada:", data);
+      });
+      </script>
+    <!-- Scripts -->
+    <script type="module">
+      import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+      import {
+      getFirestore,
+      collection,
+      getDocs,
+      query,
+      where,
+      doc,
+      setDoc,
+      updateDoc
+      }
+      from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
       // 1. MENÚ
       function toggleMenu(id){
         document.querySelectorAll(".mega-menu").forEach(m=>{
@@ -5865,6 +6610,7 @@ Participar ahora
         })
         document.getElementById(id).classList.toggle("hidden")
       }
+      window.toggleMenu = toggleMenu;
   // MENU MOBILE
       document.addEventListener("DOMContentLoaded", function(){
         const menuBtn = document.getElementById("menuBtn");
@@ -5895,6 +6641,7 @@ Participar ahora
     function cerrarMenu(){
       document.getElementById("mobileMenu").classList.add("hidden");
     }
+    window.cerrarMenu = cerrarMenu;
     function openSubmenu(id){
       const panel = document.getElementById("submenuPanel");
       const contenido = document.getElementById(id);
@@ -5905,11 +6652,13 @@ Participar ahora
       panel.innerHTML = contenido.innerHTML;
       panel.classList.remove("hidden");
       }
+      window.openSubmenu = openSubmenu;
       function goBack(){
         document.getElementById("submenuPanel").classList.add("hidden");
       }
+      window.goBack = goBack;
       // -------- PROMO TOP BAR --------
-      const promoEndDate = new Date("2026-04-30T23:59:59").getTime()
+      const promoEndDate = new Date("2026-12-30T23:59:59").getTime()
       const bar = document.getElementById("promoTopBar");
       const spacer = document.getElementById("promoSpacer");
       const countdownTop = document.getElementById("countdown");
@@ -5939,21 +6688,36 @@ Participar ahora
       function changeImage(id, newSrc) {
       document.getElementById(id).src = newSrc;
       }
+      window.changeImage = changeImage;
       function openModal(src) {
-        document.getElementById("modalImage").src = src;
-        document.getElementById("imageModal").classList.remove("hidden");
-        document.getElementById("imageModal").classList.add("flex");
+        const modal =
+         document.getElementById("imageModal");
+        const image =
+        document.getElementById("modalImage");
+        if(!modal || !image){
+          console.error("❌ Modal no existe");
+          return;
+        }
+        image.src = src;
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
       }
+      window.openModal = openModal;
       // FUNCIONES SUELTAS
       function toggleAccesorios(){
       const submenu = document.getElementById("submenuAccesorios");
       if(!submenu) return;
       submenu.classList.toggle("hidden");
       }
+      window.toggleAccesorios = toggleAccesorios;
       function closeModal() {
-        document.getElementById("imageModal").classList.add("hidden");
-        document.getElementById("imageModal").classList.remove("flex");
+        const modal =
+        document.getElementById("imageModal");
+        if(!modal) return;
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
       }
+      window.closeModal = closeModal;
       function openSearch() {
       const modal = document.getElementById("searchModal");
       const input = document.getElementById("searchInputMain");
@@ -5965,6 +6729,7 @@ Participar ahora
         setTimeout(() => input.focus(), 100);
       }
     }
+    window.openSearch = openSearch;
       function closeSearch() {
         const modal = document.getElementById("searchModal");
           if (modal) {
@@ -5972,6 +6737,7 @@ Participar ahora
             modal.classList.remove("flex");
           }
         }
+        window.closeSearch = closeSearch;
       // 4. BUSCADORES
       function searchMain(){
         const input = document.getElementById("searchInputMain").value.toLowerCase()
@@ -6001,7 +6767,8 @@ Participar ahora
         })
         results.classList.remove("hidden")
         }
-        function searchProducts() {
+        window.searchMain = searchMain;
+    function searchProducts() {
       const input = document
       .getElementById("searchInput")
       .value
@@ -6033,47 +6800,79 @@ Participar ahora
       }
       });
       }
+      window.searchProducts = searchProducts;
       // 6. CARRITO
       let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      function toggleCart() {
-      const cart = document.getElementById("cartSidebar");
-          if (cart.style.transform === "translateX(0%)") {
-        // CERRAR
-        cart.style.transform = "translateX(100%)";
-      } else {
-        // ABRIR
-        cart.style.transform = "translateX(0%)";
+      function toggleCart(){
+        const cart = document.getElementById("cartSidebar");
+        if(cart.style.transform === "translateX(0%)"){
+          cart.style.transform = "translateX(100%)";
+        }else{
+          cart.style.transform = "translateX(0%)";
+        }
       }
-      }
-       function abrirCheckout() {
-        document.getElementById("checkoutModal").classList.remove("hidden");      
+      window.toggleCart = toggleCart;
+      function abrirCheckout(){
         if(carrito.length === 0){
-          alert("Tu carrito está vacío");
-          return;
+            alert("Tu carrito está vacío");
+            return;
         }
-        let mensaje = "Hola, quiero comprar:\n\n";
-        carrito.forEach((item, index) => {
-          mensaje += `${index + 1}. ${item.nombre} - $${item.precio}\n`;
-        });
-        mensaje += `\nTotal: $${carrito.reduce((sum, item) => sum + item.precio, 0)}`;
-        const url = `https://wa.me/573107643039?text=${encodeURIComponent(mensaje)}`;
+        document
+        .getElementById("checkoutModal")
+        .classList.remove("hidden");
       }
+      window.abrirCheckout = abrirCheckout;
+      function cerrarCheckout(){
+        document
+        .getElementById("checkoutModal")
+        .classList.add("hidden");
+      }
+      window.cerrarCheckout = cerrarCheckout;
       // Agregar producto
-      function agregarAlCarrito(nombre, precio, imagen) {
-        const existe = carrito.find(p => p.nombre === nombre);
-        if (existe) {
-          existe.cantidad++;
-        } else {
-          carrito.push({ nombre, precio, imagen, cantidad: 1 });
+        function agregarAlCarrito(
+          nombre,
+          precio,
+          precioOriginal = precio,
+          descuento = 0,
+          imagen
+        ) {
+          const existente = carrito.find(
+            item => item.nombre === nombre
+          );
+          if (existente) {
+            existente.cantidad++;
+          } else {
+            carrito.push({
+              nombre,
+              precio,
+              precioOriginal,
+              descuento,
+              imagen,
+              cantidad: 1
+            });
+          }
+          guardarCarrito();
+          renderCarrito();
+          // ABRIR CARRITO
+         toggleCart();
+          // ANIMACIÓN
+          const boton =
+        document.querySelector(".floating-cart");
+          if(boton){
+            boton.classList.add("cart-bounce");
+            setTimeout(() => {
+              boton.classList.remove("cart-bounce");
+            }, 400);
+          }
         }
-        guardarCarrito();
-        renderCarrito();
-      }
+      window.agregarAlCarrito = agregarAlCarrito; 
+
       function eliminarProducto(index) {
         carrito.splice(index, 1);
         guardarCarrito();
         renderCarrito();
       }
+      window.eliminarProducto = eliminarProducto;
       function cambiarCantidad(index, cambio) {
         carrito[index].cantidad += cambio;
         if (carrito[index].cantidad <= 0) {
@@ -6082,44 +6881,143 @@ Participar ahora
         guardarCarrito();
         renderCarrito();
       }
+      window.cambiarCantidad = cambiarCantidad;
       function guardarCarrito() {
         localStorage.setItem("carrito", JSON.stringify(carrito));
       }
+      window.guardarCarrito = guardarCarrito;
+      let descuentoCupon = 0;
       // Renderizar carrito
       function renderCarrito() {
-      const contenedor = document.getElementById("cartItems");
-      const totalElemento = document.getElementById("cartTotal");
-      const contador = document.getElementById("cartCount");
-      contenedor.innerHTML = "";
-      let total = 0;
-      carrito.forEach((item, index) => {
-        total += item.precio * item.cantidad;
-        contenedor.innerHTML += `
-          <div class="flex gap-3 border-b pb-3 items-center">
-            
-            <img src="${item.imagen || 'https://via.placeholder.com/80'}"
-            class="w-16 h-16 object-cover rounded">
-
-            <div class="flex-1">
-              <p class="font-semibold">${item.nombre}</p>
-              <p>$${item.precio}</p>
-
-              <div class="flex items-center gap-2 mt-2">
-                <button onclick="cambiarCantidad(${index}, -1)" class="px-2 bg-gray-200">-</button>
-                <span>${item.cantidad}</span>
-                <button onclick="cambiarCantidad(${index}, 1)" class="px-2 bg-gray-200">+</button>
+        const contenedor = document.getElementById("cartItems");
+        const totalElemento = document.getElementById("cartTotal");
+        // CONTADOR NORMAL
+        const contador = document.getElementById("cartCount");
+        // CONTADOR FLOTANTE
+        const contadorFlotante = document.getElementById("floatingCartCount");
+        contenedor.innerHTML = "";
+        let total = 0;
+        carrito.forEach((item, index) => {
+          total += item.precio * item.cantidad;
+          contenedor.innerHTML += `
+            <div class="flex gap-3 border-b pb-3 items-center">
+              <img 
+                src="${item.imagen || 'https://via.placeholder.com/80'}"
+                class="w-16 h-16 object-cover rounded-lg border"
+              >
+              <div class="flex-1">
+                <p class="font-semibold text-sm">
+                  ${item.nombre}
+                </p>
+                <p class="text-red-600 font-bold">
+                  $${item.precio.toLocaleString()}
+                </p>
+                <div class="flex items-center gap-2 mt-2">
+                  <button 
+                    onclick="cambiarCantidad(${index}, -1)"
+                    class="px-2 bg-gray-200 rounded"
+                  >
+                    -
+                  </button>
+                  <span>${item.cantidad}</span>
+                  <button 
+                    onclick="cambiarCantidad(${index}, 1)"
+                    class="px-2 bg-gray-200 rounded"
+                  >
+                    +
+                  </button>
+                </div>
               </div>
+              <button 
+                onclick="eliminarProducto(${index})"
+                class="text-red-500 text-lg"
+              >
+                ❌
+              </button>
             </div>
+          `;
+        });
+        if(descuentoCupon > 0){
+        total =
+        total -
+        (total * descuentoCupon / 100);
+        }
 
-            <button onclick="eliminarProducto(${index})"
-            class="text-red-500 text-lg">❌</button>
-
-          </div>
-        `;
-      });
-      totalElemento.textContent = total.toLocaleString();
-      contador.textContent = carrito.length;
-    }  
+        if(descuentoCupon > 0){
+          totalElemento.innerHTML = `
+              <span style="color:#22c55e">
+                ${Math.round(descuentoCupon)}% OFF aplicado
+              </span>
+              <br>
+              $${Math.round(total).toLocaleString()}
+          `;
+        }
+        else{
+          totalElemento.innerHTML =
+              `$${Math.round(total).toLocaleString()}`;
+        }
+        // CONTADOR SIDEBAR
+        contador.textContent = carrito.length;
+        // CONTADOR FLOTANTE
+        if(contadorFlotante){
+          contadorFlotante.textContent =
+          carrito.length;
+        }
+      localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+      );
+    }
+      window.renderCarrito = renderCarrito;
+      // ==========================
+        // APLICAR CUPON
+        // ==========================
+        async function aplicarCupon(){
+          const codigo =
+              document
+              .getElementById("cuponInput")
+              .value
+              .trim()
+              .toUpperCase();
+          if(codigo === ""){
+              alert("Ingresa un cupón");
+              return;
+          }
+          try{
+              const snap = await getDocs(
+                query(
+                    collection(db,"cupones"),
+                    where("codigo","==",codigo),
+                    where("activo","==",true)
+                )
+              );
+              if(snap.empty){
+                alert("❌ Cupón inválido");
+              return;
+              }
+              const docCupon =
+                snap.docs[0];
+              const cupon =
+                docCupon.data();
+              // VALIDAR USOS
+              if(cupon.usados >= cupon.usosMaximos){
+                alert("⚠️ Cupón agotado");
+                return;
+              }
+              // GUARDAR DESCUENTO
+              descuentoCupon =
+                cupon.descuento;
+            alert(
+                `✅ Cupón aplicado: ${cupon.descuento}% OFF`
+              );
+              renderCarrito();
+          }
+          catch(error){
+              console.error(error);
+              alert("Error aplicando cupón");
+          }
+        }
+        window.aplicarCupon = aplicarCupon;
         async function enviarWhatsApp() {
           if (!validarFormulario()) return;  
           const nombre = document.getElementById("nombre").value;
@@ -6139,6 +7037,16 @@ Participar ahora
           mensaje += `\n📞 Tel: ${telefono}`;
           mensaje += `\n📍 Dirección: ${direccion}`;
           mensaje += `\n💳 Pago: ${pago}`;
+          const subtotal = carrito.reduce(
+          (sum, item) =>
+          sum + item.precio * item.cantidad,
+          0
+          );
+          const totalFinal =
+          subtotal -
+          (subtotal * descuentoCupon / 100);
+          mensaje += `\n🎟️ Descuento: ${descuentoCupon}%`;
+          mensaje += `\n💰 Total Final: $${Math.round(totalFinal).toLocaleString()}`;
           const numero = "573107643039";
           const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
           window.open(url, "_blank");
@@ -6149,13 +7057,53 @@ Participar ahora
           document.getElementById("checkoutModal").classList.add("hidden");
           alert("Pedido enviado correctamente. Te contactaremos por WhatsApp.");
         }
-    function validarFormulario() {
+      window.enviarWhatsApp = enviarWhatsApp;
+      // ==========================
+      // FINALIZAR PEDIDO
+      // ==========================
+      function finalizarPedido(){
+        // OBTENER DATOS
+        const nombre =
+            document.getElementById("nombre").value;
+        const telefono =
+            document.getElementById("telefono").value;
+        const direccion =
+            document.getElementById("direccion").value;
+        // VALIDAR
+        if(
+            nombre === "" ||
+            telefono === "" ||
+            direccion === ""
+        ){
+            alert("⚠️ Completa todos los campos");
+            return;
+        }
+        // MOSTRAR MODAL CONTRAENTREGA
+        abrirModalContraentrega();
+      }
+      window.finalizarPedido = finalizarPedido;
+      // ==========================
+      // CONFIRMAR PEDIDO FINAL
+      // ==========================
+      async function confirmarPedidoFinal(){
+        // CERRAR MODAL CONTRAENTREGA
+        cerrarModalContraentrega();
+        // CERRAR CHECKOUT
+        cerrarCheckout();
+        // ENVIAR WHATSAPP
+        await enviarWhatsApp();
+        // LIMPIAR FORMULARIO
+        document.getElementById("nombre").value = "";
+        document.getElementById("telefono").value = "";
+        document.getElementById("direccion").value = "";
+      }
+      window.confirmarPedidoFinal = confirmarPedidoFinal;
+      function validarFormulario() {
       const error = document.getElementById("errorMsg");
        if (!error) return true; // evita crash
       const nombre = document.getElementById("nombre").value.trim();
       const telefono = document.getElementById("telefono").value.trim();
-      const direccion = document.getElementById("direccion").value.trim();
-      
+      const direccion = document.getElementById("direccion").value.trim();     
       error.textContent = "";
       if (!nombre) {
         error.textContent = "El nombre es obligatorio";
@@ -6171,55 +7119,111 @@ Participar ahora
       }
      return true;
     }
-    const firebaseConfig = {
+      window.validarFormulario = validarFormulario;
+      const firebaseConfig = {
         apiKey: "AIzaSyCGPv5ciPmClCyfEK3qK_vYuo5ijxOJVZo",
         authDomain: "rifa-digital-mr50.firebaseapp.com",
         projectId: "rifa-digital-mr50",
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();      
-          async function guardarPedido(datos) {
-        try {
-          const total = carrito.reduce(
-            (sum, item) => sum + item.precio * item.cantidad,
-            0
-          );
-          // fecha actual
-          const hoy = new Date();
-          const dia = hoy.getDate();
-          const meses = [
-            "enero","febrero","marzo","abril","mayo","junio",
-            "julio","agosto","septiembre","octubre","noviembre","diciembre"
-          ];
-          const mes = meses[hoy.getMonth()];
-          // limpiar nombre
-          const nombreLimpio = datos.nombre
-            .toLowerCase()
-            .replace(/\s+/g, "_");
-          // ID FINAL
-          const idPedido = `pedido_${nombreLimpio}_${dia}_${mes}`;
-          await db.collection("pedidos_tienda").doc(idPedido).set({
-            nombre: datos.nombre,
-            telefono: datos.telefono,
-            direccion: datos.direccion,
-            pago: datos.pago,
-            productos: carrito,
-            total: total,
-            estado: "pendiente",
-            fecha: firebase.firestore.FieldValue.serverTimestamp()
+    };    
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app); 
+      async function guardarCliente(datos){
+        const idCliente =
+        datos.telefono.replace(/\D/g,'');
+        const clienteRef =
+        firestoreDoc(
+          db,
+          "clientes",
+          idCliente
+        );
+        const snap =
+        await getDoc(clienteRef);
+        if(snap.exists()){
+          const actual =
+          snap.data();
+          await updateDoc(clienteRef,{
+            nombre:
+            datos.nombre || actual.nombre,
+            telefono:
+            datos.telefono || actual.telefono,
+            email:
+            datos.email || actual.email,
+            ciudad:
+            datos.ciudad || actual.ciudad
           });
-          console.log("Pedido guardado 🔥");
-        } catch (e) {
-          console.error("Error:", e);
+        }else{
+          await setDoc(clienteRef,{
+            nombre:
+            datos.nombre || "",
+            telefono:
+            datos.telefono || "",
+            email:
+            datos.email || "",
+            ciudad:
+            datos.ciudad || "",
+            totalCompras:0,
+            totalRifas:0
+          });
         }
       }
-    // 7. FAVORITOS
+      window.guardarCliente = guardarCliente;
+      async function guardarPedido(datos) {
+            try {
+              const total = carrito.reduce(
+                (sum, item) =>
+                sum + item.precio * item.cantidad,
+                0
+              );
+              // FECHA
+              const hoy = new Date();
+              const dia = hoy.getDate();
+              const meses = [
+                "enero","febrero","marzo",
+                "abril","mayo","junio",
+                "julio","agosto","septiembre",
+                "octubre","noviembre","diciembre"
+              ];
+              const mes = meses[hoy.getMonth()];
+              // LIMPIAR NOMBRE
+              const nombreLimpio = datos.nombre
+                .toLowerCase()
+                .replace(/\s+/g, "_");
+              // ID PEDIDO
+              const timestamp = Date.now();
+              const idPedido =
+              `pedido_${nombreLimpio}_${timestamp}`;
+              // REFERENCIA DOCUMENTO
+              const pedidoRef =
+             doc(db, "pedidos_tienda", idPedido);
+              // GUARDAR
+              await setDoc(pedidoRef, {
+                nombre: datos.nombre,
+                telefono: datos.telefono,
+                direccion: datos.direccion,
+                pago: datos.pago,
+                productos: carrito,
+                total: total,
+                estado: "pendiente",
+                fecha: new Date()
+              });
+              await guardarCliente({
+                nombre: datos.nombre,
+                telefono: datos.telefono
+              });
+              console.log("✅ Pedido guardado");
+            } catch (e) {
+            console.error("❌ Error guardando pedido:", e);
+            }
+          }   
+      window.guardarPedido = guardarPedido;
+      // 7. FAVORITOS
       let favorites = JSON.parse(localStorage.getItem("fav")) || []
       function addToFavorites(name){
       favorites.push(name)
       localStorage.setItem("fav", JSON.stringify(favorites))
       alert("Agregado a favoritos ❤️")
       }
+      window.addToFavorites = addToFavorites;
       function openFavorites(){
       alert("Tienes " + favorites.length + " favoritos")
       }
@@ -6231,21 +7235,19 @@ Participar ahora
       localStorage.setItem("popupRifa","visto")
       }
       }
+      window.openFavorites = openFavorites;
       function cerrarPopup(){
       document.getElementById("popupRifa").style.display="none"
       }
-
+      window.cerrarPopup = cerrarPopup;
       let currentCategory = "";
       let currentType = "";
       let currentBrand = "";
-
       function setFilter(category){
         currentCategory = (category || "").toLowerCase();
         currentType = "";
         currentBrand = "";
-
         applyFilters();
-
         // SCROLL
         const seccion = document.querySelector("#productos");
         if(seccion){
@@ -6254,26 +7256,24 @@ Participar ahora
         // CERRAR MENU
         cerrarMenu();
       }
+      window.setFilter = setFilter;
       function setBrand(brand){
       currentBrand = (brand || "").toLowerCase();
-
       currentType = "";
       currentCategory = "";
-
       applyFilters();
-
         // 🔥 SCROLL A PRODUCTOS
         const seccion = document.querySelector("#productos");
         if(seccion){
           seccion.scrollIntoView({ behavior: "smooth" });
         }
-
         // 🔥 CERRAR MENU MOBILE
         const mobileMenu = document.getElementById("mobileMenu");
         if(mobileMenu){
           mobileMenu.classList.add("hidden");
         }
       }
+      window.setBrand = setBrand;
       function applyFilters(){
       document.querySelectorAll(".product-card").forEach(card => {
           const category = (card.dataset.category || "").toLowerCase();
@@ -6293,30 +7293,8 @@ Participar ahora
           card.style.display = show ? "" : "none";
         });
       }
-        function setType(type){
-          currentType = (type || "").toLowerCase(); // 🔥 IMPORTANTE
-          currentCategory = "";
-          currentBrand = "";
-
-          applyFilters();
-
-          const seccion = document.querySelector("#productos");
-          if(seccion){
-            seccion.scrollIntoView({ behavior: "smooth" });
-          }
-
-          cerrarMenu();
-        }
-        function filtrarTipo(type){
-          filtrarProductos({ type });
-          cerrarMenu();
-
-          const seccion = document.querySelector("#productos");
-          if(seccion){
-            seccion.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-        function filtrarProductos({ category = "", type = "", brand = "" }) {
+      window.applyFilters = applyFilters;
+      function filtrarProductos({ category = "", type = "", brand = "" }) {
           currentCategory = (category || "").toLowerCase();
           currentType = (type || "").toLowerCase();
           currentBrand = (brand || "").toLowerCase();
@@ -6332,24 +7310,43 @@ Participar ahora
             mobileMenu.classList.add("hidden");
           }
         }
-        function setCategory(category){
+      window.filtrarProductos = filtrarProductos;
+      function setType(type){
+          currentType = (type || "").toLowerCase(); // 🔥 IMPORTANTE
+          currentCategory = "";
+          currentBrand = "";
+          applyFilters();
+          const seccion = document.querySelector("#productos");
+          if(seccion){
+            seccion.scrollIntoView({ behavior: "smooth" });
+          }
+          cerrarMenu();
+        }
+      window.setType = setType;
+      function filtrarTipo(type){
+          filtrarProductos({ type });
+          cerrarMenu();
+          const seccion = document.querySelector("#productos");
+          if(seccion){
+            seccion.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      window.filtrarTipo = filtrarTipo; 
+      function setCategory(category){
           currentCategory = (category || "").toLowerCase();
-
           currentType = null;
           currentBrand = null;
-
           applyFilters();
-
           document.querySelectorAll(".mega-menu").forEach(m=>{
           m.classList.add("hidden");
           });
-
           window.scrollTo({
           top: document.querySelector("#productos").offsetTop - 120,
           behavior: "smooth"
           });
           }
-          const productos = document.querySelector("#productos");
+      window.setCategory = setCategory;
+        const productos = document.querySelector("#productos");
           if(productos){
             window.scrollTo({
               top: productos.offsetTop - 120,
@@ -6386,7 +7383,6 @@ Participar ahora
     });
       let slides = document.querySelectorAll(".hero-slide");
       let index = 0;
-
       function cambiarSlide() {
         slides[index].classList.remove("active");
         index = (index + 1) % slides.length;
@@ -6400,6 +7396,163 @@ Participar ahora
       slider.addEventListener("mouseleave", () => {
         interval = setInterval(cambiarSlide, 5000);
       });
+      window.cambiarSlide = cambiarSlide;
+      function calcularEnvio() {
+        const departamento =
+        document.getElementById("departamentoEnvio").value;
+        const ciudad =
+          document.getElementById("ciudadEnvio").value;
+        const resultado =
+          document.getElementById("resultadoEnvio");
+        if (!departamento || !ciudad) {
+          resultado.innerHTML =
+            "⚠️ Selecciona departamento y ciudad";
+          return;
+        }
+        if(!window.logisticaColombia){
+          resultado.innerHTML =
+          "Cargando logística...";
+          return;
+        }
+        // 🔥 OBTENER DATA DE LA CIUDAD
+        const dataCiudad =
+          logisticaColombia[departamento]
+          .ciudades[ciudad];
+        // 🔥 COSTO REAL
+        const costo = dataCiudad.costo;
+        resultado.innerHTML = `
+          🚚 Envío a:
+          <strong>${ciudad}</strong>
+          <br><br>
+          💰 Costo estimado:
+          <strong>
+            $${costo.toLocaleString()} COP
+          </strong>
+          <br><br>
+          📦 Transportadora:
+          Inter Rapidísimo
+          <br><br>
+          ⏱️ Tiempo:
+          2 a 5 días hábiles
+        `;
+      }
+      window.calcularEnvio = calcularEnvio;
+      function cargarDepartamentos() {
+      const departamentoSelect =
+        document.getElementById("departamentoEnvio");
+      departamentoSelect.innerHTML =
+      `<option value="">Selecciona departamento</option>`;
+      for (let departamento in logisticaColombia) {
+        departamentoSelect.innerHTML += `
+      
+          <option value="${departamento}">
+            ${departamento}
+          </option>    
+        `;
+      }
+    }
+      window.cargarDepartamentos = cargarDepartamentos;
+      function cargarCiudades() {
+        const departamento =
+          document.getElementById("departamentoEnvio").value;
+        const ciudadSelect =
+          document.getElementById("ciudadEnvio");
+        ciudadSelect.innerHTML =
+          `<option value="">Selecciona ciudad</option>`;
+        if (
+          !departamento ||
+          !logisticaColombia[departamento]
+        ) {
+          return;
+        }
+        const ciudades =
+          logisticaColombia[departamento].ciudades;
+        for (let ciudad in ciudades) {
+          ciudadSelect.innerHTML += ` 
+            <option value="${ciudad}">
+              ${ciudad}
+            </option>  
+          `;
+        }
+      }
+      window.cargarCiudades = cargarCiudades;
+      function calcularFlete() {
+        const departamento =
+          document.getElementById("departamentoEnvio").value;
+        const ciudad =
+          document.getElementById("ciudadEnvio").value;
+        const municipio =
+          document.getElementById("municipioEnvio").value;
+        const resultado =
+          document.getElementById("resultadoEnvio");
+        if (
+          !departamento ||
+          !ciudad ||
+          !municipio
+        ) {
+          resultado.innerHTML =
+            "⚠️ Completa ubicación";
+          return;
+        }
+        const data =
+          logisticaColombia[departamento]
+          .ciudades[ciudad];
+        const pesoKg = 2;
+        const costo =
+          logisticaColombia[departamento].costoBase +
+          (pesoKg *
+          logisticaColombia[departamento]
+          .recargoPesoKg) +
+          data.recargo;
+        resultado.innerHTML = `
+          🚚 Envío a:
+          <strong>${municipio}</strong>
+          <br><br>
+          🏙️ Ciudad:
+          <strong>${ciudad}</strong>
+          <br><br>
+          💰 Costo:
+          <strong>
+            $${costo.toLocaleString()} COP
+          </strong>
+          <br><br>
+          📦 Zona:
+          ${data.zona}
+          <br><br>
+          🚀 Express:
+          ${logisticaColombia[departamento]
+          .entrega.express}
+        `;
+      }
+      window.calcularFlete = calcularFlete;
+      // ==========================
+      // MODAL CONTRAENTREGA
+      // ==========================
+     function abrirModalContraentrega(){
+        const modal =
+            document.getElementById("modalContra");
+        if(modal){
+            modal.style.display = "flex";
+        }
+      }
+      window.abrirModalContraentrega = abrirModalContraentrega;
+      function cerrarModalContraentrega(){
+        const modal =
+            document.getElementById("modalContra");
+        if(modal){
+            modal.style.display = "none";
+        }
+      }
+      window.cerrarModalContraentrega = cerrarModalContraentrega;
+      function initLogistica() {
+        if (!window.logisticaColombia) {
+          setTimeout(initLogistica, 200);
+          return;
+        }
+        cargarDepartamentos();
+      }
+      window.initLogistica = initLogistica;
+      document.addEventListener("DOMContentLoaded", initLogistica);
     </script>
   </body>
 </html>

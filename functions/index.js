@@ -208,7 +208,7 @@ exports.aprobarPago = onRequest(
       if (!telefono.startsWith("57")) {
         telefono = "57" + telefono;
       }
-      console.log("📲 Teléfono final:", telefono);
+      console.log("📲 Enviando WhatsApp a:", telefono);
      // ✅ 1️⃣ Aprobar primero SIEMPRE
 await docRef.update({
   estado: "aprobado",
@@ -217,11 +217,11 @@ await docRef.update({
 });
 console.log("🔥 APROBADO CORRECTAMENTE");
 console.log("🔥 DATOS PARTICIPANTE:", data);
-console.log("🔥 TELEFONO:", telefono)
-// ======================================
-// GUARDAR / ACTUALIZAR CLIENTE
-// ======================================
-console.log("🔥 GUARDANDO CLIENTE");
+console.log("🔥 TELEFONO:", telefono);
+/* =====================================
+   GUARDAR CLIENTE
+===================================== */
+
 const clienteRef = db
   .collection("clientes")
   .doc(telefono);
@@ -233,25 +233,29 @@ if (clienteSnap.exists) {
   const clienteActual = clienteSnap.data();
 
   await clienteRef.update({
-    nombre: data.nombre || nombre || "",
+    nombre: data.nombre || "",
     telefono: telefono,
     email: data.email || "",
     totalRifas: (clienteActual.totalRifas || 0) + 1,
     ultimaParticipacion:
       admin.firestore.FieldValue.serverTimestamp(),
   });
-    console.log("✅ CLIENTE ACTUALIZADO");
+
+  console.log("✅ CLIENTE ACTUALIZADO");
+
 } else {
 
   await clienteRef.set({
-    nombre: data.nombre || nombre || "",
-    telefono,
+    nombre: data.nombre || "",
+    telefono: telefono,
     email: data.email || "",
     totalCompras: 0,
     totalRifas: 1,
-    creadoEn: admin.firestore.FieldValue.serverTimestamp()
+    creadoEn:
+      admin.firestore.FieldValue.serverTimestamp(),
   });
-  console.log("🔥 CLIENTE GUARDADO");
+
+  console.log("✅ CLIENTE CREADO");
 }
 
 // 📲 2️⃣ Intentar enviar WhatsApp (pero que no bloquee)
@@ -269,8 +273,8 @@ try {
         to: telefono, // ⚠ ya tiene 57
         type: "template",
         template: {
-          name: "hello_world",
-          language: { code: "en_US" },
+          name: "pago_aprobado",
+          language: { code: "es_CO" },
           components: [
             {
               type: "body",
@@ -293,11 +297,7 @@ try {
     });
   } else {
     console.error("⚠ WhatsApp falló:", whatsappData);
-      return res.status(400).json({
-    success: false,
-    error: whatsappData,
-  });
-}
+  }
 
 } catch (err) {
   console.error("⚠ Error enviando WhatsApp:", err.message);
@@ -353,7 +353,7 @@ exports.elegirGanadorPorLoteria = onRequest(
         });
       }
 
-      const sorteoRef = db.collection(db, "sorteos").doc(sorteoId);
+      const sorteoRef = db.collection("sorteos").doc(sorteoId);
       const sorteoSnap = await sorteoRef.get();
 
       if (!sorteoSnap.exists) {

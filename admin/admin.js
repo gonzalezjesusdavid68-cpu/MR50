@@ -1,148 +1,4 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Admin – Rifa Digital</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <style>
-      body {
-        font-family: system-ui, sans-serif;
-        background: #f8fafc;
-        padding: 20px;
-      }
-
-      h1 {
-        text-align: center;
-        color: #2563eb;
-      }
-
-      .login,
-      .panel {
-        max-width: 900px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      }
-
-      input,
-      button {
-        width: 100%;
-        padding: 12px;
-        margin-top: 10px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-      }
-
-      button {
-        background: #2563eb;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-
-      .card {
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        padding: 15px;
-        margin-top: 15px;
-      }
-
-      img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin-top: 10px;
-      }
-
-      .hidden {
-        display: none;
-      }
-      #contador {
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      #previewGanador {
-        display: none !important;
-      }
-      #btnConfirmar {
-        display: none;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>🔐 Panel Administrador</h1>
-
-    <!-- LOGIN -->
-    <div class="login" id="loginBox">
-      <h2>Ingresar</h2>
-      <input type="email" id="email" placeholder="Correo admin" />
-      <input type="password" id="password" placeholder="Contraseña" />
-      <button id="loginBtn">Ingresar</button>
-      <p id="loginMsg"></p>
-    </div>
-
-    <!-- PANEL -->
-    <div class="panel hidden" id="panel">
-      <!-- TABS -->
-      <div style="display:flex; gap:10px; margin-bottom:20px;">
-        <button onclick="verRifas()">🎟️ Rifas</button>
-        <button onclick="verPedidos()">🛒 Pedidos</button>
-      </div>
-
-      <div id="rifasPanel">
-        <h2>Rifas</h2>
-        <div id="listaRifas"></div>
-      </div>
-
-        <div id="pedidosPanelWrapper">
-
-        <h2>
-        📦 Pedidos tienda  
-        <span id="contadorPedidos">
-        ✅ Confirmados: 0 | ⏳ Pendientes: 0 | 🚚 Entregados: 0
-        </span>
-        </h2>
-
-        <div id="pedidosPanel"></div>
-
-        </div>
-
-      <h2>📋 Pagos pendientes</h2>
-      <p id="contador"></p>
-      <div id="lista"></div>
-      <hr />
-
-      <div id="listaPedidos"></div>
-
-      <h2>🎯 Elegir Ganador por Lotería</h2>
-
-      <input
-        type="text"
-        id="numeroLoteria"
-        placeholder="Número completo (ej: 45827)"
-      />
-      <input
-        type="text"
-        id="nombreLoteria"
-        placeholder="Ej: Lotería del Tolima"
-      />
-
-      <button id="btnPreview">🔎 Previsualizar ganador</button>
-      <button id="btnConfirmar" type="button" class="hidden">
-        🎉 Confirmar ganador
-      </button>
-
-      <div id="previewGanador" class="card"></div>
-      <button onclick="logout()">Cerrar sesión</button>
-    </div>
-    <hr />
-    <h2>🏆 Historial de Ganadores</h2>
-    <div id="historialGanadores"></div>
-    <script type="module">
+      let sorteoActualId = null;
       
       // 🔥 Firebase imports
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -165,6 +21,9 @@
         limit,
         updateDoc,
         deleteDoc,
+        addDoc,
+        serverTimestamp,
+        setDoc,
       } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
       
       import {
@@ -277,6 +136,7 @@
           cargarPendientes();
           iniciarContador();
           cargarHistorial();
+          cargarParticipantes();
         } else {
           loginBox.classList.remove("hidden");
           panel.classList.add("hidden");
@@ -305,7 +165,7 @@
                             <p><strong>Número:</strong> ${doc.id}</p>
                             <p><strong>Nombre:</strong> ${d.nombre}</p>
                             <p><strong>Teléfono:</strong> ${d.telefono}</p>
-                            <img src="${d.comprobanteURL ? `<img src="${d.comprobanteURL}" />` : ""}
+                            ${d.comprobanteURL ? `<img src="${d.comprobanteURL}" style="width:100px"/>` : ""}
                             <button
                               class="btn-aprobar"
                               data-numero="${doc.id}"
@@ -338,10 +198,10 @@
 
         const { numero, telefono, nombre } = e.target.dataset;
 
-        if (!numero) {
-          alert("Número no válido");
-          return;
-        }
+        if (!sorteoActualId) {
+        alert("❌ No hay sorteo activo cargado");
+        return;
+      }
         console.log("Aprobando número:", numero);
 
         const user = auth.currentUser;
@@ -504,6 +364,10 @@
                 document.getElementById("numeroLoteria").value;
               const nombreLoteria =
                 document.getElementById("nombreLoteria").value;
+              
+              const user = auth.currentUser;
+              const token = await user.getIdToken(true);
+
               const res = await fetch(
                 "https://us-central1-rifa-digital-mr50.cloudfunctions.net/elegirGanadorPorLoteria",
                 {
@@ -574,7 +438,12 @@
           document.getElementById("pedidosPanel").style.display = "block";
         cargarPedidos();
         };
-
+        window.verProductos = function() {
+          document.getElementById("rifasPanel").style.display = "none";
+          document.getElementById("pedidosPanel").style.display = "none";
+          document.getElementById("productosPanel").style.display = "block";
+          cargarProductos();
+        };
         async function cargarPedidos(){
           const contenedor = document.getElementById("pedidosPanel");
           contenedor.innerHTML = "";
@@ -593,7 +462,6 @@
             if(data.estado === "pendiente") pendientes++;
             if(data.estado === "confirmado") confirmados++;
             if(data.estado === "entregado") entregados++;
-            if(data.estado === "confirmado") return;
             let productosHTML = "";
             if(data.productos){
               data.productos.forEach(p => {
@@ -631,7 +499,6 @@
                 id="file-${doc.id}"
                 accept="image/*"
                 style="margin-top:5px">
-
                 <br><br>
                 <button onclick="confirmarPedido('${doc.id}')"
                 style="background:green;color:white;padding:5px 10px;margin-top:5px">
@@ -655,7 +522,6 @@
           document.getElementById("contadorPedidos").innerHTML =
           `✅ Confirmados: ${confirmados} | ⏳ Pendientes: ${pendientes} | 🚚 Entregados: ${entregados}`;
         }
-
       async function enviarPedido() {
         if (!validarFormulario()) return;
         const datos = {
@@ -675,7 +541,6 @@
         renderCarrito();
         alert("Pedido enviado ✅");
       }
-
       async function cargarPedidosTienda() {
         const contenedor = document.getElementById("pedidosPanel");
         contenedor.innerHTML = "";
@@ -718,7 +583,7 @@
         }
         const file = input.files[0];
         // nombre archivo
-        const nombre = data.nombreCompleto.replace(/\s/g,"_");
+        const nombre = "pedido_" + id;
         const storageRef = ref(
         storage,
         `transportadoras/${nombre}_${id}_${file.name}`
@@ -759,11 +624,314 @@
             "participantes",
             numero
           );
-
           await updateDoc(ref, {
             estado: "aprobado"
           });
         }
-    </script>
-  </body>
-</html>
+        async function obtenerSorteoActivo() {
+          const q = query(
+            collection(db, "sorteos"),
+            where("estado", "==", "activo"),
+            limit(1)
+          );
+          const snapshot = await getDocs(q);
+          if (snapshot.empty) {
+            console.error("❌ No hay sorteo activo");
+            return;
+          }
+          sorteoActualId = snapshot.docs[0].id;
+          console.log("🎯 Sorteo activo:", sorteoActualId);
+        }
+          obtenerSorteoActivo(); 
+          window.crearProducto = async function(){
+          try{
+            const nombre =
+            document.getElementById("productoNombre").value;
+            const precio =
+            Number(document.getElementById("productoPrecio").value);
+            const stock =
+            Number(document.getElementById("productoStock").value);
+            const categoria =
+            document.getElementById("productoCategoria").value;
+            const marca =
+            document.getElementById("productoMarca").value;
+            const descripcion =
+            document.getElementById("productoDescripcion").value;
+            const files =
+            document.getElementById("productoImagen").files;
+            if(!nombre || !precio){
+              alert("Completa datos");
+              return;
+            }
+            let imagenes = [];
+            // 🔥 SUBIR IMÁGENES
+            for(const file of files){
+              const nombreArchivo =
+              `productos/${Date.now()}_${file.name}`;
+              const storageRef =
+              ref(storage, nombreArchivo);
+              await uploadBytes(storageRef, file);
+              const url =
+              await getDownloadURL(storageRef);
+              imagenes.push(url);
+            }
+            // 🔥 GUARDAR FIRESTORE
+            await addDoc(
+              collection(db,"productos"),
+              {
+                nombre,
+                precio,
+                stock,
+                categoria,
+                marca,
+                descripcion,
+                imagenes,
+                activo:true,
+                destacado:false,
+                creadoEn:serverTimestamp()
+              }
+            );
+            alert("✅ Producto creado");
+            cargarProductos();
+          }catch(error){
+            console.error(error);
+            alert("❌ Error creando producto");
+          }
+        }
+        async function cargarProductos(){
+
+  const contenedor =
+  document.getElementById("listaProductos");
+
+  contenedor.innerHTML = "";
+
+  const snapshot =
+  await getDocs(collection(db,"productos"));
+
+  snapshot.forEach(docu => {
+
+    const p = docu.data();
+
+    contenedor.innerHTML += `
+
+      <div class="card">
+
+        <img
+          src="${p.imagenes?.[0] || ''}"
+          style="
+            width:120px;
+            border-radius:10px;
+          "
+        >
+
+        <h3>${p.nombre}</h3>
+
+        <p>$${p.precio.toLocaleString()}</p>
+
+        <p>Stock: ${p.stock}</p>
+
+        <p>${p.categoria}</p>
+
+        <button
+          onclick="eliminarProductoAdmin('${docu.id}')"
+          style="
+            background:red;
+            color:white;
+            margin-top:10px;
+          "
+        >
+          Eliminar
+        </button>
+
+      </div>
+    `;
+  });
+}
+    window.eliminarProductoAdmin =
+async function(id){
+
+  if(!confirm("Eliminar producto?")) return;
+
+  await deleteDoc(
+    doc(db,"productos",id)
+  );
+
+  cargarProductos();
+}
+window.verDashboard = function(){
+
+  ocultarPanels();
+
+  document.getElementById("dashboardPanel")
+  .style.display = "block";
+
+  cargarDashboard();
+}
+
+window.verClientes = function(){
+
+  ocultarPanels();
+
+  document.getElementById("clientesPanel")
+  .style.display = "block";
+
+  cargarClientes();
+}
+
+window.verAnalytics = function(){
+
+  ocultarPanels();
+
+  document.getElementById("analyticsPanel")
+  .style.display = "block";
+
+  cargarAnalytics();
+}
+function ocultarPanels(){
+  document.getElementById("dashboardPanel")
+  .style.display = "none";
+  document.getElementById("rifasPanel")
+  .style.display = "none";
+  document.getElementById("pedidosPanel")
+  .style.display = "none";
+  document.getElementById("productosPanel")
+  .style.display = "none";
+  document.getElementById("clientesPanel")
+  .style.display = "none";
+  document.getElementById("analyticsPanel")
+  .style.display = "none";
+  document.getElementById("participantesPanel")
+  .style.display = "none";
+}      
+async function cargarDashboard(){
+
+  const pedidos =
+  await getDocs(collection(db,"pedidos_tienda"));
+
+  const rifas =
+  await getDocs(collection(db,"sorteos"));
+
+  let ventas = 0;
+
+  pedidos.forEach(docu => {
+
+    ventas += docu.data().total || 0;
+  });
+
+  document.getElementById("ventasTotal")
+  .innerText =
+  "$" + ventas.toLocaleString();
+
+  document.getElementById("pedidosTotal")
+  .innerText =
+  pedidos.size;
+
+  document.getElementById("rifasTotal")
+  .innerText =
+  rifas.size;
+}
+   async function cargarClientes(){
+  const contenedor =
+  document.getElementById("listaClientes");
+  contenedor.innerHTML = "";
+  const snapshot =
+  await getDocs(collection(db,"clientes"));
+  snapshot.forEach(docu => {
+    const c = docu.data();
+    contenedor.innerHTML += `
+      <div class="card">
+        <h3>${c.nombre || "Sin nombre"}</h3>
+        <p>📞 ${c.telefono || "-"}</p>
+        <p>📧 ${c.email || "-"}</p>
+        <p>🏙️ ${c.ciudad || "-"}</p>
+        <p>
+          🎟️ Rifas:
+          ${c.totalRifas || 0}
+        </p>
+        <p>
+          🛒 Compras:
+          ${c.totalCompras || 0}
+        </p>
+      </div>
+    `;
+  });
+}
+async function cargarAnalytics(){
+
+  const snapshot =
+  await getDocs(collection(db,"pedidos_tienda"));
+
+  let pendientes = 0;
+  let entregados = 0;
+
+  snapshot.forEach(docu => {
+
+    const p = docu.data();
+
+    if(p.estado === "pendiente"){
+      pendientes++;
+    }
+
+    if(p.estado === "entregado"){
+      entregados++;
+    }
+  });
+
+  document.getElementById("analyticsPendientes")
+  .innerText = pendientes;
+
+  document.getElementById("analyticsEntregados")
+  .innerText = entregados;
+}
+async function cargarParticipantes() {
+
+  if(!sorteoActualId) return;
+
+  const contenedor =
+  document.getElementById("listaParticipantes");
+
+  contenedor.innerHTML = "";
+
+  const snapshot =
+  await getDocs(
+    collection(
+      db,
+      "sorteos",
+      sorteoActualId,
+      "participantes"
+    )
+  );
+
+  let html = `
+  <table class="tablaParticipantes">
+    <tr>
+      <th>Número</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+    </tr>
+  `;
+
+  snapshot.forEach(docu => {
+
+    const p = docu.data();
+
+    html += `
+      <tr>
+        <td>${docu.id}</td>
+        <td>${p.nombre || "-"}</td>
+        <td>${p.estado || "-"}</td>
+      </tr>
+    `;
+  });
+
+  html += "</table>";
+
+  contenedor.innerHTML = html;
+}
+window.verParticipantes = function(){
+  ocultarPanels();
+  document
+  .getElementById("participantesPanel")
+  .style.display = "block";
+  cargarParticipantes();
+}
