@@ -11,13 +11,31 @@
       "Bello": { "nivel": 2, "costo": 13000 },
       "Itagüí": { "nivel": 2, "costo": 13000 },
       "Envigado": { "nivel": 2, "costo": 13000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 },
+      "Rionegro": { "nivel": 2, "costo": 15000 },
       "Rionegro": { "nivel": 2, "costo": 15000 }
     }
   },
 
   "Arauca": {
     "ciudades": {
-      "Arauca": { "nivel": 3, "costo": 20000 }
+      "Arauca": { "nivel": 3, "costo": 20000 },
+      "Aguachica": { "nivel": 3, "costo": 20000 },
+      "Cusay": { "nivel": 3, "costo": 20000 },
+      "El Loro": { "nivel": 3, "costo": 20000 },
+      "Fortul": { "nivel": 3, "costo": 20000 },
+      "Flor Amarilla": { "nivel": 3, "costo": 20000 },
+      "Maporillal": { "nivel": 3, "costo": 20000 },
+      "Los Pajaros": { "nivel": 3, "costo": 20000 },
+      "Puerto Colombia": { "nivel": 3, "costo": 20000 },
+      "Puerto Rondon": { "nivel": 3, "costo": 20000 },
+      "Saravena": { "nivel": 3, "costo": 20000 },
+      "Tame": { "nivel": 3, "costo": 20000 },
+      "Todos los Santos": { "nivel": 3, "costo": 20000 }
     }
   },
 
@@ -25,7 +43,17 @@
     "ciudades": {
       "Barranquilla": { "nivel": 1, "costo": 11000 },
       "Soledad": { "nivel": 2, "costo": 13000 },
-      "Malambo": { "nivel": 2, "costo": 14000 }
+      "Baranoa": { "nivel": 2, "costo": 14000 },
+      "Campo de la Cruz": { "nivel": 2, "costo": 14000 },
+      "Candelaria": { "nivel": 2, "costo": 14000 },
+      "Malambo": { "nivel": 2, "costo": 14000 },
+      "Manati": { "nivel": 2, "costo": 14000 },
+      "Luruaco": { "nivel": 2, "costo": 14000 },
+      "Puerto Colombia": { "nivel": 2, "costo": 14000 },
+      "Polo Nuevo": { "nivel": 2, "costo": 14000 },
+      "Sabanalarga": { "nivel": 2, "costo": 14000 },
+      "Ponedera": { "nivel": 2, "costo": 14000 },
+      "Piojo": { "nivel": 2, "costo": 14000 }
     }
   },
 
@@ -38,7 +66,18 @@
   "Bolívar": {
     "ciudades": {
       "Cartagena": { "nivel": 1, "costo": 12000 },
-      "Magangué": { "nivel": 3, "costo": 18000 }
+      "Arjona": { "nivel": 3, "costo": 18000 },
+      "Calamar": { "nivel": 3, "costo": 18000 },
+      "Cordoba": { "nivel": 3, "costo": 18000 },
+      "Clemencia": { "nivel": 3, "costo": 18000 },
+      "El Guamo": { "nivel": 3, "costo": 18000 },
+      "Maria La Baja": { "nivel": 3, "costo": 18000 },
+      "Magangué": { "nivel": 3, "costo": 18000 },
+      "Mahates": { "nivel": 3, "costo": 18000 },
+      "Turbaco": { "nivel": 3, "costo": 18000 },
+      "Turbana": { "nivel": 3, "costo": 18000 },
+      "Santa Catalina": { "nivel": 3, "costo": 18000 },
+      "Villanueva": { "nivel": 3, "costo": 18000 }
     }
   },
 
@@ -53,13 +92,33 @@
   "Caldas": {
     "ciudades": {
       "Manizales": { "nivel": 2, "costo": 13000 },
-      "La Dorada": { "nivel": 3, "costo": 17000 }
+      "Aguadas": { "nivel": 3, "costo": 17000 },
+      "Anserma": { "nivel": 3, "costo": 17000 },
+      "Aranzazu": { "nivel": 3, "costo": 17000 },
+      "Belalcazar": { "nivel": 3, "costo": 17000 },
+      "Chinchina": { "nivel": 3, "costo": 17000 },
+      "Filadelfia": { "nivel": 3, "costo": 17000 },
+      "La Dorada": { "nivel": 3, "costo": 17000 },
+      "La Merced": { "nivel": 3, "costo": 17000 },
+      "Marquetalia": { "nivel": 3, "costo": 17000 },
+      "Marulanda": { "nivel": 3, "costo": 17000 },
+      "Manzanares": { "nivel": 3, "costo": 17000 },
+      "Marmato": { "nivel": 3, "costo": 17000 },
+      "Neira": { "nivel": 3, "costo": 17000 },
+      "Viterbo": { "nivel": 3, "costo": 17000 },
+      "Victoria": { "nivel": 3, "costo": 17000 }
     }
   },
 
   "Caquetá": {
     "ciudades": {
-      "Florencia": { "nivel": 3, "costo": 20000 }
+      "Florencia": { "nivel": 3, "costo": 20000 },
+      "Albania": { "nivel": 3, "costo": 20000 },
+      "El Doncello": { "nivel": 3, "costo": 20000 },
+      "El Paujil": { "nivel": 3, "costo": 20000 },
+      "Puerto Rico": { "nivel": 3, "costo": 20000 },
+      "San Vicente Del Caguan": { "nivel": 3, "costo": 20000 },
+      "San Jose de Fragua": { "nivel": 3, "costo": 20000 }
     }
   },
 
@@ -72,26 +131,93 @@
   "Cauca": {
     "ciudades": {
       "Popayán": { "nivel": 2, "costo": 15000 },
+      "Almaguer": { "nivel": 3, "costo": 18000 },
+      "Argelia": { "nivel": 3, "costo": 18000 },
+      "Balboa": { "nivel": 3, "costo": 18000 },
+      "Buenos Aires": { "nivel": 3, "costo": 18000 },
+      "Bolivar": { "nivel": 3, "costo": 18000 },
+      "Caloto": { "nivel": 3, "costo": 18000 },
+      "Caldono": { "nivel": 3, "costo": 18000 },
+      "Corinto": { "nivel": 3, "costo": 18000 },
+      "Coconuco": { "nivel": 3, "costo": 18000 },
+      "El Tambo": { "nivel": 3, "costo": 18000 },
+      "Florencia": { "nivel": 3, "costo": 18000 },
+      "Inza": { "nivel": 3, "costo": 18000 },
+      "Jambalo": { "nivel": 3, "costo": 18000 },
+      "Miranda": { "nivel": 3, "costo": 18000 },
+      "Mercaderes": { "nivel": 3, "costo": 18000 },
+      "Padilla": { "nivel": 3, "costo": 18000 },
+      "Piendamo": { "nivel": 3, "costo": 18000 },
+      "Puerto Tejada": { "nivel": 3, "costo": 18000 },
+      "Rosas": { "nivel": 3, "costo": 18000 },
+      "Toribio": { "nivel": 3, "costo": 18000 },
+      "Timbio": { "nivel": 3, "costo": 18000 },
+      "Silvia": { "nivel": 3, "costo": 18000 },
       "Santander de Quilichao": { "nivel": 3, "costo": 18000 }
     }
   },
 
   "Cesar": {
     "ciudades": {
-      "Valledupar": { "nivel": 2, "costo": 14000 }
+      "Valledupar": { "nivel": 2, "costo": 14000 },
+      "Agua Blanca": { "nivel": 3, "costo": 25000 },
+      "Agustin Codazzi": { "nivel": 3, "costo": 25000 },
+      "Astrea": { "nivel": 3, "costo": 25000 },
+      "Becerril": { "nivel": 3, "costo": 25000 },
+      "Bosconia": { "nivel": 3, "costo": 25000 },
+      "Barranca de Lebrija": { "nivel": 3, "costo": 25000 },
+      "Chimicahgua": { "nivel": 3, "costo": 25000 },
+      "Chiriguana": { "nivel": 3, "costo": 25000 },
+      "El Copey": { "nivel": 3, "costo": 25000 },
+      "El Paso": { "nivel": 3, "costo": 25000 },
+      "Gamarra": { "nivel": 3, "costo": 25000 },
+      "Gonzalez": { "nivel": 3, "costo": 25000 },
+      "Manaure": { "nivel": 3, "costo": 25000 },
+      "Media Luna": { "nivel": 3, "costo": 25000 },
+      "La Loma": { "nivel": 3, "costo": 25000 },
+      "La Paz": { "nivel": 3, "costo": 25000 },
+      "La Jagua": { "nivel": 3, "costo": 25000 },
+      "La Gloria": { "nivel": 3, "costo": 25000 },
+      "Pailitas": { "nivel": 3, "costo": 25000 },
+      "Pelaya": { "nivel": 3, "costo": 25000 },
+      "Tamalameque": { "nivel": 3, "costo": 25000 },
+      "San Diego": { "nivel": 3, "costo": 25000 },
+      "San Martin": { "nivel": 3, "costo": 25000 }
     }
   },
 
   "Chocó": {
     "ciudades": {
-      "Quibdó": { "nivel": 3, "costo": 25000 }
+      "Quibdó": { "nivel": 3, "costo": 25000 },
+      "Condoto": { "nivel": 3, "costo": 25000 },
+      "Novita": { "nivel": 3, "costo": 25000 },
+      "Nuqui": { "nivel": 3, "costo": 25000 },
+      "Sipi": { "nivel": 3, "costo": 25000 },
+      "Bahia Solano": { "nivel": 3, "costo": 25000 }
     }
   },
 
   "Córdoba": {
     "ciudades": {
       "Montería": { "nivel": 2, "costo": 14000 },
-      "Sahagún": { "nivel": 3, "costo": 18000 }
+      "Sahagún": { "nivel": 3, "costo": 18000 },
+      "Buenavista": { "nivel": 3, "costo": 18000 },
+      "Cienaga de oro": { "nivel": 3, "costo": 18000 },
+      "Cerete": { "nivel": 3, "costo": 18000 },
+      "Chinu": { "nivel": 3, "costo": 18000 },
+      "Cotorra": { "nivel": 3, "costo": 18000 },
+      "Canalete": { "nivel": 3, "costo": 18000 },
+      "El cerro": { "nivel": 3, "costo": 18000 },
+      "Montelibano": { "nivel": 3, "costo": 18000 },
+      "Moñitos": { "nivel": 3, "costo": 18000 },
+      "Momil": { "nivel": 3, "costo": 18000 },
+      "Purisima": { "nivel": 3, "costo": 18000 },
+      "Puerto Escondido": { "nivel": 3, "costo": 18000 },
+      "Lorica": { "nivel": 3, "costo": 18000 },
+      "San Pelayo": { "nivel": 3, "costo": 18000 },
+      "San Carlos": { "nivel": 3, "costo": 18000 },
+      "San Bernardo del Viento": { "nivel": 3, "costo": 18000 },
+      "Planeta Rica": { "nivel": 3, "costo": 18000 }
     }
   },
 
@@ -101,7 +227,33 @@
       "Soacha": { "nivel": 2, "costo": 12000 },
       "Chía": { "nivel": 2, "costo": 14000 },
       "Zipaquirá": { "nivel": 2, "costo": 15000 },
-      "Facatativá": { "nivel": 3, "costo": 16000 }
+      "Anapoima": { "nivel": 3, "costo": 16000 },
+      "Apulo": { "nivel": 3, "costo": 16000 },
+      "Caparrapi": { "nivel": 3, "costo": 16000 },
+      "Cajica": { "nivel": 3, "costo": 16000 },
+      "Cota": { "nivel": 3, "costo": 16000 },
+      "Choconta": { "nivel": 3, "costo": 16000 },
+      "Chia": { "nivel": 3, "costo": 16000 },
+      "La Vega": { "nivel": 3, "costo": 16000 },
+      "Gachetá": { "nivel": 3, "costo": 16000 },
+      "Guacheta": { "nivel": 3, "costo": 16000 },
+      "Girardot": { "nivel": 3, "costo": 16000 },
+      "Guaduas": { "nivel": 3, "costo": 16000 },
+      "Fusagasuga": { "nivel": 3, "costo": 16000 },
+      "Funza": { "nivel": 3, "costo": 16000 },
+      "Madrid": { "nivel": 3, "costo": 16000 },
+      "Mosquera": { "nivel": 3, "costo": 16000 },
+      "Puerto Salgar": { "nivel": 3, "costo": 16000 },
+      "Sopo": { "nivel": 3, "costo": 16000 },
+      "Sasaima": { "nivel": 3, "costo": 16000 },
+      "Suesca": { "nivel": 3, "costo": 16000 },
+      "Tausa": { "nivel": 3, "costo": 16000 },
+      "Tocancipa": { "nivel": 3, "costo": 16000 },
+      "Tenjo": { "nivel": 3, "costo": 16000 },
+      "Villeta": { "nivel": 3, "costo": 16000 },
+      "Sibate": { "nivel": 3, "costo": 16000 },
+      "La Calera": { "nivel": 3, "costo": 16000 },
+      "Vilapinzon": { "nivel": 3, "costo": 16000 }
     }
   },
 
@@ -120,7 +272,21 @@
   "Huila": {
     "ciudades": {
       "Neiva": { "nivel": 2, "costo": 14000 },
-      "Pitalito": { "nivel": 3, "costo": 17000 }
+      "Pitalito": { "nivel": 3, "costo": 17000 },
+      "Acevedo": { "nivel": 3, "costo": 17000 },
+      "Algeciras": { "nivel": 3, "costo": 17000 },
+      "Aipe": { "nivel": 3, "costo": 17000 },
+      "Baraya": { "nivel": 3, "costo": 17000 },
+      "Campo Alegre": { "nivel": 3, "costo": 17000 },
+      "Iquira": { "nivel": 3, "costo": 17000 },
+      "La Plata": { "nivel": 3, "costo": 17000 },
+      "La Argentina": { "nivel": 3, "costo": 17000 },
+      "Gigante": { "nivel": 3, "costo": 17000 },
+      "Garzon": { "nivel": 3, "costo": 17000 },
+      "Nataga": { "nivel": 3, "costo": 17000 },
+      "Palermo": { "nivel": 3, "costo": 17000 },
+      "Palestina": { "nivel": 3, "costo": 17000 },
+      "Rivera": { "nivel": 3, "costo": 17000 }
     }
   },
 
@@ -134,48 +300,105 @@
   "Magdalena": {
     "ciudades": {
       "Santa Marta": { "nivel": 1, "costo": 12000 },
-      "Ciénaga": { "nivel": 2, "costo": 14000 }
+      "Ciénaga": { "nivel": 2, "costo": 14000 },
+      "Aracataca": { "nivel": 2, "costo": 14000 },
+      "Alejandria": { "nivel": 2, "costo": 14000 },
+      "Ariguani": { "nivel": 2, "costo": 14000 },
+      "Aguas Vivas": { "nivel": 2, "costo": 14000 },
+      "El Bnaco": { "nivel": 2, "costo": 14000 },
+      "Salamina": { "nivel": 2, "costo": 14000 },
+      "Pedraza": { "nivel": 2, "costo": 14000 },
+      "Tenerife": { "nivel": 2, "costo": 14000 }
     }
   },
 
   "Meta": {
     "ciudades": {
       "Villavicencio": { "nivel": 2, "costo": 14000 },
-      "Acacías": { "nivel": 3, "costo": 16000 }
+      "Acacías": { "nivel": 3, "costo": 16000 },
+      "Cabuyaro": { "nivel": 3, "costo": 16000 },
+      "Cubarral": { "nivel": 3, "costo": 16000 },
+      "Cumaral": { "nivel": 3, "costo": 16000 },
+      "El Castillo": { "nivel": 3, "costo": 16000 },
+      "El Dorado": { "nivel": 3, "costo": 16000 },
+      "Fuente de Oro": { "nivel": 3, "costo": 16000 },
+      "Granada": { "nivel": 3, "costo": 16000 },
+      "Lejanias": { "nivel": 3, "costo": 16000 },
+      "San Martin": { "nivel": 3, "costo": 16000 },
+      "Mesetas": { "nivel": 3, "costo": 16000 },
+      "Uribe": { "nivel": 3, "costo": 16000 },
+      "San Juan de Arama": { "nivel": 3, "costo": 16000 },
+      "La Nueva Castilla": { "nivel": 3, "costo": 16000 }
     }
   },
 
   "Nariño": {
     "ciudades": {
       "Pasto": { "nivel": 2, "costo": 15000 },
-      "Tumaco": { "nivel": 3, "costo": 20000 }
+      "Tumaco": { "nivel": 3, "costo": 20000 },
+      "Arboleda": { "nivel": 3, "costo": 20000 },
+      "Almirante": { "nivel": 3, "costo": 20000 },
+      "Chachagua": { "nivel": 3, "costo": 20000 },
+      "Cuaspud": { "nivel": 3, "costo": 20000 },
+      "Cumbal": { "nivel": 3, "costo": 20000 },
+      "Contadero": { "nivel": 3, "costo": 20000 },
+      "Cumbitara": { "nivel": 3, "costo": 20000 },
+      "Espriela": { "nivel": 3, "costo": 20000 },
+      "El Tambo": { "nivel": 3, "costo": 20000 },
+      "La Llanada": { "nivel": 3, "costo": 20000 },
+      "Leiva": { "nivel": 3, "costo": 20000 },
+      "Ricaurte": { "nivel": 3, "costo": 20000 },
+      "Tuqueres": { "nivel": 3, "costo": 20000 },
+      "Tangua": { "nivel": 3, "costo": 20000 }
     }
   },
 
   "Norte de Santander": {
     "ciudades": {
       "Cúcuta": { "nivel": 2, "costo": 13000 },
-      "Ocaña": { "nivel": 3, "costo": 17000 }
+      "Ocaña": { "nivel": 3, "costo": 17000 },
+      "Abrego": { "nivel": 3, "costo": 17000 },
+      "Chimacota": { "nivel": 3, "costo": 17000 },
+      "El Zulia": { "nivel": 3, "costo": 17000 },
+      "Lourdes": { "nivel": 3, "costo": 17000 },
+      "Campo Guilles": { "nivel": 3, "costo": 17000 },
+      "Salazar": { "nivel": 3, "costo": 17000 },
+      "San Cayetano": { "nivel": 3, "costo": 17000 },
+      "Rio de Oro": { "nivel": 3, "costo": 17000 },
+      "Teorama": { "nivel": 3, "costo": 17000 },
+      "Pamplona": { "nivel": 3, "costo": 17000 },
+      "Puerto Santander": { "nivel": 3, "costo": 17000 },
+      "Toledo": { "nivel": 3, "costo": 17000 }
     }
   },
 
   "Putumayo": {
     "ciudades": {
-      "Mocoa": { "nivel": 3, "costo": 22000 }
+      "Mocoa": { "nivel": 3, "costo": 22000 },
+       "Puerto Asis": { "nivel": 3, "costo": 22000 }
     }
   },
 
   "Quindío": {
     "ciudades": {
       "Armenia": { "nivel": 2, "costo": 13000 },
-      "Calarcá": { "nivel": 3, "costo": 15000 }
+      "Calarcá": { "nivel": 3, "costo": 15000 },
+      "Circasia": { "nivel": 3, "costo": 15000 },
+      "Filandia": { "nivel": 3, "costo": 15000 },
+      "Genova": { "nivel": 3, "costo": 15000 },
+      "La Tebaida": { "nivel": 3, "costo": 15000 },
+      "Quimbaya": { "nivel": 3, "costo": 15000 },
+      "Salento": { "nivel": 3, "costo": 15000 }
     }
   },
 
   "Risaralda": {
     "ciudades": {
       "Pereira": { "nivel": 2, "costo": 13000 },
-      "Dosquebradas": { "nivel": 2, "costo": 13000 }
+      "Dosquebradas": { "nivel": 2, "costo": 13000 },
+      "Belen de Umbria": { "nivel": 2, "costo": 13000 },
+      "Balboa": { "nivel": 2, "costo": 13000 },
+      "Santa Rosa de Cabal": { "nivel": 2, "costo": 13000 }
     }
   },
 
@@ -190,21 +413,44 @@
       "Bucaramanga": { "nivel": 1, "costo": 12000 },
       "Floridablanca": { "nivel": 2, "costo": 13000 },
       "Girón": { "nivel": 2, "costo": 13000 },
-      "Barrancabermeja": { "nivel": 3, "costo": 16000 }
+      "Barrancabermeja": { "nivel": 3, "costo": 16000 },
+      "Barbosa": { "nivel": 3, "costo": 16000 },
+      "Lebrija": { "nivel": 3, "costo": 16000 },
+      "Giron": { "nivel": 3, "costo": 16000 },
+      "Malaga": { "nivel": 3, "costo": 16000 },
+      "Piedecuesta": { "nivel": 3, "costo": 16000 },
+      "Puerto Olaya": { "nivel": 3, "costo": 16000 },
+      "San Gil": { "nivel": 3, "costo": 16000 },
+      "Zapatoca": { "nivel": 3, "costo": 16000 }
     }
   },
 
   "Sucre": {
     "ciudades": {
       "Sincelejo": { "nivel": 2, "costo": 14000 },
-      "Corozal": { "nivel": 3, "costo": 16000 }
+      "Corozal": { "nivel": 3, "costo": 16000 },
+      "Coveñas": { "nivel": 3, "costo": 16000 },
+      "Chalan": { "nivel": 3, "costo": 16000 },
+      "Chengue": { "nivel": 3, "costo": 16000 },
+      "Coloso": { "nivel": 3, "costo": 16000 },
+      "Galeras": { "nivel": 3, "costo": 16000 },
+      "Monteria": { "nivel": 3, "costo": 16000 },
+      "Sampues": { "nivel": 3, "costo": 16000 },
+      "San Juan": { "nivel": 3, "costo": 16000 },
+      "Tolu": { "nivel": 3, "costo": 16000 },
+      "Tolu Viejo": { "nivel": 3, "costo": 16000 }
     }
   },
 
   "Tolima": {
     "ciudades": {
       "Ibagué": { "nivel": 2, "costo": 13000 },
-      "Espinal": { "nivel": 3, "costo": 15000 }
+      "Espinal": { "nivel": 3, "costo": 15000 },
+      "Libano": { "nivel": 3, "costo": 15000 },
+      "Lerida": { "nivel": 3, "costo": 15000 },
+      "Chaparral": { "nivel": 3, "costo": 15000 },
+      "Fresno": { "nivel": 3, "costo": 15000 },
+      "Venadillo": { "nivel": 3, "costo": 15000 }
     }
   },
 
@@ -212,7 +458,27 @@
     "ciudades": {
       "Cali": { "nivel": 1, "costo": 11000 },
       "Palmira": { "nivel": 2, "costo": 13000 },
-      "Buenaventura": { "nivel": 3, "costo": 18000 }
+      "Buenaventura": { "nivel": 3, "costo": 18000 },
+      "Buga": { "nivel": 3, "costo": 18000 },
+      "Cartago": { "nivel": 3, "costo": 18000 },
+      "Candelaria": { "nivel": 3, "costo": 18000 },
+      "Caicedonia": { "nivel": 3, "costo": 18000 },
+      "Calima": { "nivel": 3, "costo": 18000 },
+      "El Cairo": { "nivel": 3, "costo": 18000 },
+      "El Dovio": { "nivel": 3, "costo": 18000 },
+      "Florida": { "nivel": 3, "costo": 18000 },
+      "Ginebra": { "nivel": 3, "costo": 18000 },
+      "Guacari": { "nivel": 3, "costo": 18000 },
+      "Jamnundi": { "nivel": 3, "costo": 18000 },
+      "Pradera": { "nivel": 3, "costo": 18000 },
+      "Restrepo": { "nivel": 3, "costo": 18000 },
+      "Sevilla": { "nivel": 3, "costo": 18000 },
+      "Trujillo": { "nivel": 3, "costo": 18000 },
+      "Tulua": { "nivel": 3, "costo": 18000 },
+      "Roldanillo": { "nivel": 3, "costo": 18000 },
+      "Yotoco": { "nivel": 3, "costo": 18000 },
+      "Viges": { "nivel": 3, "costo": 18000 },
+      "Zarzal": { "nivel": 3, "costo": 18000 }
     }
   },
 

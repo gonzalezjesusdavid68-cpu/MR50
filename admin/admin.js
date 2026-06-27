@@ -107,25 +107,46 @@
           loginBox.classList.add("hidden");
           panel.classList.remove("hidden");
           // 🔎 Buscar sorteo activo
-          const snapshot = await getDocs(collection(db, "sorteos"));
-
-          snapshot.forEach((doc) => {
-            if (doc.data().estado === "activo") {
-              sorteoActualId = doc.id;
-              console.log("🎯 Sorteo activo:", sorteoActualId);
+          const snapshot = await getDocs(
+            collection(db, "sorteos")
+          );
+          sorteoActualId = null;
+          snapshot.forEach((documento) => {
+            if (documento.data().estado === "activo") {
+              sorteoActualId = documento.id;
             }
           });
-          const sorteoRef = doc(db, "sorteos", sorteoActualId);
-          const sorteoSnap = await getDoc(sorteoRef);
-
-          const fechaSorteo = sorteoSnap.data().fechaSorteo.toDate();
+          if (!sorteoActualId) {
+            console.error("❌ No hay sorteo activo");
+            return;
+          }
+          console.log(
+            "🎯 Sorteo activo:",
+            sorteoActualId
+          );
+          const sorteoRef = doc(
+            db,
+            "sorteos",
+            sorteoActualId
+          );
+          const sorteoSnap =
+          await getDoc(sorteoRef);
+          if (!sorteoSnap.exists()) {
+            console.error(
+              "❌ Documento de sorteo no encontrado"
+            );
+            return;
+          }
+          const fechaSorteo =
+          sorteoSnap.data().fechaSorteo.toDate();
 
           const hoy = new Date();
 
           // Convertimos ambas fechas a formato YYYY-MM-DD
           const hoyStr = hoy.toISOString().split("T")[0];
           const fechaStr = fechaSorteo.toISOString().split("T")[0];
-
+          console.log("HOY:", hoyStr);
+          console.log("SORTEO:", fechaStr);
           if (hoyStr !== fechaStr) {
             document.getElementById("btnPreview").disabled = true;
             document.getElementById("btnConfirmar").disabled = true;
@@ -288,118 +309,199 @@
           },
         );
       }
-      document
-        .getElementById("btnPreview")
+        document.getElementById("btnPreview")
         .addEventListener("click", async () => {
-          const numeroLoteria = document.getElementById("numeroLoteria").value;
-
-          if (!numeroLoteria) {
-            alert("Ingresa el número de la lotería");
-            return;
-          }
-
-          const ultimasDos = numeroLoteria.slice(-2);
-
-          const participanteRef = doc(
-            db,
-            "sorteos",
-            sorteoActualId,
-            "participantes",
-            ultimasDos,
-          );
-          const snap = await getDoc(participanteRef);
 
           const preview = document.getElementById("previewGanador");
           const btnConfirmar = document.getElementById("btnConfirmar");
 
-          if (!snap.exists()) {
+          try {
+
+            const numeroLoteria =
+              document.getElementById("numeroLoteria").value.trim();
+
+            const ultimasDos = numeroLoteria.slice(-2);
+
+            console.log("1 - numeroLoteria:", numeroLoteria);
+            console.log("2 - ultimasDos:", ultimasDos);
+
+            const participanteRef = doc(
+              db,
+              "sorteos",
+              sorteoActualId,
+              "participantes",
+              ultimasDos
+            );
+
+            console.log("3 - ruta:", participanteRef.path);
+
+            const snap = await getDoc(participanteRef);
+
+            console.log("4 - consulta ejecutada");
+            console.log("5 - existe:", snap.exists());
+
+            if (!snap.exists()) {
+
+              preview.style.display = "block";
+
+              preview.innerHTML =
+                `❌ No existe participante ${ultimasDos}`;
+
+              btnConfirmar.style.display = "none";
+
+              return;
+            }
+
+            console.log("preview encontrado:", preview);
+
+            const data = snap.data();
+
+            console.log("nombre:", data.nombre);
+            console.log("telefono:", data.telefono);
+            console.log("estado:", data.estado);
+
+            console.log("6 - datos:", JSON.stringify(data, null, 2));
+
             preview.style.display = "block";
-            preview.innerHTML = "❌ Ese número no fue vendido.";
+
+            preview.innerHTML = `
+              <h3>🏆 Posible Ganador</h3>
+              <p><strong>Número:</strong> ${data.numero}</p>
+              <p><strong>Nombre:</strong> ${data.nombre}</p>
+              <p><strong>Teléfono:</strong> ${data.telefono}</p>
+              <p><strong>Email:</strong> ${data.email}</p>
+              <p><strong>Estado:</strong> ${data.estado}</p>
+            `;
+
+            // 🔥 MOSTRAR BOTÓN CONFIRMAR
+            if (data.estado === "aprobado") {
+
+              console.log("Estado recibido:", data.estado);
+              console.log("Mostrando botón Confirmar");
+
+              btnConfirmar.style.display = "inline-block";
+              btnConfirmar.disabled = false;
+
+            } else {
+
+              console.log("Participante no aprobado");
+
+              btnConfirmar.style.display = "none";
+            }
+
+          } catch(error) {
+
+            console.error("ERROR COMPLETO:", error);
+
+            preview.style.display = "block";
+
+            preview.innerHTML = `
+              <h3>❌ Error</h3>
+              <pre>${error.message}</pre>
+            `;
+
             btnConfirmar.style.display = "none";
-            return;
           }
+        });
+        document
+          .getElementById("btnConfirmar")
+          .addEventListener("click", async () => {
 
-          const data = snap.data();
+            const btn = document.getElementById("btnConfirmar");
+            const preview = document.getElementById("previewGanador");
 
-          preview.style.display = "block";
-          preview.innerHTML = `
-                    <h3>🏆 Posible Ganador</h3>
-                    <p><strong>Número:</strong> ${ultimasDos}</p>
-                    <p><strong>Nombre:</strong> ${data.nombre}</p>
-                    <p><strong>Teléfono:</strong> ${data.telefono}</p>
-                    <p><strong>Email:</strong> ${data.email}</p>
-                    <p><strong>Estado:</strong> ${data.estado}</p>
+            btn.disabled = true;
+
+            preview.style.display = "block";
+            preview.innerHTML = "<h3>🎰 Seleccionando ganador...</h3>";
+
+            // 🎰 Animación ruleta
+            const intervalo = setInterval(() => {
+              preview.innerHTML = `
+                <h2 style="font-size:40px;">
+                  ${Math.floor(Math.random() * 100)
+                    .toString()
+                    .padStart(2, "0")}
+                </h2>
+              `;
+            }, 80);
+
+            // Espera 3 segundos antes de confirmar
+            setTimeout(async () => {
+
+              clearInterval(intervalo);
+
+              try {
+
+                const numeroLoteria =
+                  document.getElementById("numeroLoteria").value.trim();
+
+                const nombreLoteria =
+                  document.getElementById("nombreLoteria").value.trim();
+
+                const user = auth.currentUser;
+
+                if (!user) {
+                  throw new Error("No hay sesión iniciada");
+                }
+
+                const token = await user.getIdToken(true);
+
+                const res = await fetch(
+                  "https://us-central1-rifa-digital-mr50.cloudfunctions.net/elegirGanadorPorLoteria",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: "Bearer " + token,
+                    },
+                    body: JSON.stringify({
+                      sorteoId: sorteoActualId,
+                      numeroLoteria,
+                      nombreLoteria,
+                    }),
+                  }
+                );
+
+                const data = await res.json();
+
+                console.log("Respuesta Cloud Function:", data);
+
+                if (data.success) {
+
+                  preview.innerHTML = `
+                    <h2>🏆 Número Ganador: ${data.numeroGanador}</h2>
+                    <p><strong>Nombre:</strong> ${data.nombreGanador}</p>
+                    <p><strong>Teléfono:</strong> ${data.telefonoGanador}</p>
                   `;
 
-          if (data.estado === "aprobado") {
-            btnConfirmar.style.display = "inline-block";
-          } else {
-            btnConfirmar.style.display = "none";
-          }
-        });
-      document
-        .getElementById("btnConfirmar")
-        .addEventListener("click", async () => {
-          const btn = document.getElementById("btnConfirmar");
-          const preview = document.getElementById("previewGanador");
+                  // Ocultar botón luego de confirmar
+                  btn.style.display = "none";
 
-          btn.disabled = true;
-          preview.innerHTML = "<h3>🎰 Seleccionando ganador...</h3>";
+                } else {
 
-          // 🎰 Animación ruleta
-          const intervalo = setInterval(() => {
-            preview.innerHTML = `
-        <h2 style="font-size:40px;">
-          ${Math.floor(Math.random() * 100)
-            .toString()
-            .padStart(2, "0")}
-        </h2>
-      `;
-          }, 80);
-          // Espera 3 segundos antes de confirmar real
-          setTimeout(async () => {
-            clearInterval(intervalo);
-            try {
-              const numeroLoteria =
-                document.getElementById("numeroLoteria").value;
-              const nombreLoteria =
-                document.getElementById("nombreLoteria").value;
-              
-              const user = auth.currentUser;
-              const token = await user.getIdToken(true);
+                  preview.innerHTML = `
+                    <h3>❌ ${data.error}</h3>
+                  `;
 
-              const res = await fetch(
-                "https://us-central1-rifa-digital-mr50.cloudfunctions.net/elegirGanadorPorLoteria",
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization: "Bearer " + token,
-                  },
-                  body: JSON.stringify({
-                    sorteoId: sorteoActualId,
-                    numeroLoteria,
-                    nombreLoteria,
-                  }),
-                },
-              );
-              const data = await res.json();
-              if (data.success) {
+                  btn.disabled = false;
+                }
+
+              } catch (error) {
+
+                console.error("Error confirmando ganador:", error);
+
                 preview.innerHTML = `
-            <h2>🏆 Número Ganador: ${data.numeroGanador}</h2>
-            <p><strong>Nombre:</strong> ${data.nombreGanador}</p>
-            <p><strong>Teléfono:</strong> ${data.telefonoGanador}</p>
-          `;
-              } else {
-                preview.innerHTML = "❌ " + data.error;
+                  <h3>❌ Error al elegir ganador</h3>
+                  <p>${error.message}</p>
+                `;
+
                 btn.disabled = false;
               }
-            } catch (error) {
-              preview.innerHTML = "❌ Error al elegir ganador";
-              btn.disabled = false;
-            }
-          }, 3000);
-        });
+
+            }, 3000);
+
+          });
 
       async function cargarHistorial() {
         const historialDiv = document.getElementById("historialGanadores");
@@ -429,23 +531,28 @@
       
         window.verRifas = function() {
           document.getElementById("rifasPanel").style.display = "block";
-          document.getElementById("pedidosPanel").style.display = "none";
+          document.getElementById("listaPedidosTienda").style.display = "none";
         };
 
         window.verPedidos = function() {
           console.log("CLICK PEDIDOS"); 
           document.getElementById("rifasPanel").style.display = "none";
-          document.getElementById("pedidosPanel").style.display = "block";
+          document.getElementById("listaPedidosTienda").style.display = "block";
         cargarPedidos();
         };
         window.verProductos = function() {
           document.getElementById("rifasPanel").style.display = "none";
-          document.getElementById("pedidosPanel").style.display = "none";
+          document.getElementById("listaPedidosTienda").style.display = "none";
           document.getElementById("productosPanel").style.display = "block";
           cargarProductos();
         };
         async function cargarPedidos(){
-          const contenedor = document.getElementById("pedidosPanel");
+          const contenedor =
+          document.getElementById("listaPedidosTienda");
+            if(!contenedor){
+              console.error("No existe listaPedidosTienda");
+              return;
+            }
           contenedor.innerHTML = "";
           let pendientes = 0;
           let confirmados = 0;
@@ -540,22 +647,6 @@
         guardarCarrito();
         renderCarrito();
         alert("Pedido enviado ✅");
-      }
-      async function cargarPedidosTienda() {
-        const contenedor = document.getElementById("pedidosPanel");
-        contenedor.innerHTML = "";
-        const snapshot = await getDocs(collection(db, "pedidos_tienda"));
-        snapshot.forEach(doc => {
-          const data = doc.data();
-          contenedor.innerHTML += `
-            <div class="card">
-              <h3>${data.nombre}</h3>
-              <p>${data.telefono}</p>
-              <p>${data.direccion}</p>
-              <p>Estado: ${data.estado}</p>
-            </div>
-          `;
-        });
       }
       window.confirmarPedido = async function(id){
       await updateDoc(
@@ -792,7 +883,7 @@ function ocultarPanels(){
   .style.display = "none";
   document.getElementById("rifasPanel")
   .style.display = "none";
-  document.getElementById("pedidosPanel")
+  document.getElementById("listaPedidosTienda")
   .style.display = "none";
   document.getElementById("productosPanel")
   .style.display = "none";
@@ -802,7 +893,8 @@ function ocultarPanels(){
   .style.display = "none";
   document.getElementById("participantesPanel")
   .style.display = "none";
-}      
+} 
+window.ocultarPanels = ocultarPanels;     
 async function cargarDashboard(){
 
   const pedidos =

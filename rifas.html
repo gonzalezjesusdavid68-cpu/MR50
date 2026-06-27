@@ -427,13 +427,15 @@
       color:white;
       }
       .premio-img{
-      width:100%;
-      height:380px;
-      object-fit:contain;
-      border-radius:16px;
-      background:#000;
-      padding:10px;
-      display:block;
+          width:100%;
+          max-width:1400px;
+          height:auto;
+          object-fit:cover;
+          display:block;
+          margin:auto;
+          border-radius:0;
+          padding:0;
+          background:transparent;
       }
 
       .miniaturas{
@@ -563,6 +565,92 @@
       max-width:100%;
       display:block;
       } 
+      /*=====================================
+      INSTRUCCIONES RIFA
+      ======================================*/
+
+      .instrucciones-rifa{
+          padding:40px;
+      }
+
+      .titulo-instrucciones{
+          text-align:center;
+          font-size:2rem;
+          font-weight:700;
+          margin-bottom:10px;
+          color:#1f2937;
+      }
+
+      .subtitulo-instrucciones{
+          text-align:center;
+          color:#666;
+          margin-bottom:35px;
+      }
+
+      .pasos-rifa{
+          display:flex;
+          flex-direction:column;
+          gap:20px;
+      }
+
+      .paso-rifa{
+          display:flex;
+          align-items:flex-start;
+          gap:18px;
+          background:#f8fafc;
+          padding:18px;
+          border-radius:14px;
+          transition:.25s;
+      }
+
+      .paso-rifa:hover{
+          transform:translateY(-3px);
+          box-shadow:0 8px 18px rgba(0,0,0,.10);
+      }
+
+      .paso-numero{
+          min-width:45px;
+          height:45px;
+          border-radius:50%;
+          background:#facc15;
+          color:#111827;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          font-size:1.2rem;
+          font-weight:bold;
+      }
+
+      .paso-rifa h3{
+          margin-bottom:6px;
+          color:#111827;
+      }
+
+      .paso-rifa p{
+          color:#555;
+          line-height:1.6;
+      }
+
+      .alerta-rifa{
+          margin-top:35px;
+          background:#fff8e1;
+          border-left:6px solid #f59e0b;
+          padding:18px;
+          border-radius:10px;
+          color:#92400e;
+          font-size:.95rem;
+      }
+      .premio-banner{
+          width:100%;
+          margin:0;
+          padding:0;
+      }
+      .premio-galeria{
+          width:100%;
+          display:flex;
+          justify-content:center;
+          background:#000;
+      }
     </style>
   </head>
 <body>
@@ -588,50 +676,49 @@
   <div class="banner-rifa">
   🏍️ Participa en nuestras Rifas Oficiales
   </div>
-      <!-- ========================= -->
-      <!-- PREMIO ACTUAL -->
-      <!-- ========================= -->
-      <section class="section-container">
-        <div class="card dark-card premio-card">
-          <div class="premio-galeria">
-            <img
-              id="premioPrincipal"
-              src="assets/Posterrifa001kitmoteropremium.png"
-              class="premio-img"
-              alt="Imagen del premio"
-            >
-            <!-- MINIATURAS -->
-            <div id="miniaturasPremio" class="miniaturas"></div>
-          </div>
-        </div>
-          <div class="premio-info">
+<!-- ========================= -->
+<!-- GALERÍA DEL PREMIO -->
+<!-- ========================= -->
+<section class="premio-banner">
+    <div class="premio-galeria">
+        <img
+            id="premioPrincipal"
+            src="assets/Poser rifa 001 kitmoteropremium.png"
+            class="premio-img"
+            alt="Imagen del premio"
+        >
+        <!-- MINIATURAS -->
+        <div id="miniaturasPremio" class="miniaturas"></div>
+    </div>
+</section>
+<!-- ========================= -->
+<!-- INFORMACIÓN DEL PREMIO -->
+<!-- ========================= -->
+<section class="section-container">
+    <div class="card dark-card">
+        <div class="premio-info">
             <span class="badge-premio">
-              🎁 RIFA ACTIVA
+                🎁 RIFA ACTIVA
             </span>
             <h2 id="tituloPremio">
-              Cargando premio...
+                Cargando premio...
             </h2>
             <p id="descripcionPremio">
-              Información del premio
+                Información del premio
             </p>
             <div class="premio-meta">
-              <div>
-                💰 Valor:
-                <strong id="valorPremio">
-                  ---
-                </strong>
-              </div>
-
-              <div>
-                📅 Sorteo:
-                <strong id="fechaPremio">
-                  ---
-                </strong>
-              </div>
+                <div>
+                    💰 Valor:
+                    <strong id="valorPremio">---</strong>
+                </div>
+                <div>
+                    📅 Sorteo:
+                    <strong id="fechaPremio">---</strong>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
     <!-- ========================= -->
     <!-- ÚLTIMO GANADOR -->
     <!-- ========================= -->
@@ -643,7 +730,7 @@
         <div class="ganador-content">
           <img
             id="fotoGanadorPremio"
-            src="assets/ganador-default.jpg"
+            src="assets/RIFAMOTERA22JUNIO2026.jpeg"
             alt="Foto del ganador"
           >
           <div class="ganador-info">
@@ -1167,6 +1254,108 @@
         .classList.toggle("activo");
       });
     </script>
+    <!-- ========================= -->
+    <!-- ¿CÓMO PARTICIPAR? -->
+    <!-- ========================= -->
+
+    <section class="section-container">
+      <div class="card light-card instrucciones-rifa">
+
+        <h2 class="titulo-instrucciones">
+          📋 ¿Cómo participar en la rifa?
+        </h2>
+
+        <p class="subtitulo-instrucciones">
+          Sigue estos sencillos pasos para asegurar tu participación.
+        </p>
+
+        <div class="pasos-rifa">
+
+          <div class="paso-rifa">
+            <div class="paso-numero">1</div>
+            <div>
+              <h3>🎟️ Escoge tu número de la suerte</h3>
+              <p>
+                Selecciona uno de los números disponibles para participar
+                en la rifa.
+              </p>
+            </div>
+          </div>
+
+          <div class="paso-rifa">
+            <div class="paso-numero">2</div>
+            <div>
+              <h3>✅ Confirma tu número</h3>
+              <p>
+                Haz clic en <strong>"Confirmar número seleccionado"</strong>.
+                Si el número ya fue reservado por otro participante,
+                el sistema te notificará automáticamente para que puedas
+                elegir uno diferente.
+              </p>
+            </div>
+          </div>
+
+          <div class="paso-rifa">
+            <div class="paso-numero">3</div>
+            <div>
+              <h3>📝 Diligencia tus datos</h3>
+              <p>
+                Completa correctamente tu nombre completo,
+                número de celular o WhatsApp y correo electrónico.
+              </p>
+            </div>
+          </div>
+          <div class="paso-rifa">
+            <div class="paso-numero">4</div>
+            <div>
+              <h3>💳 Realiza el pago</h3>
+              <p>
+                Efectúa el pago mediante Nequi y adjunta una imagen
+                o captura de pantalla del comprobante.
+              </p>
+            </div>
+          </div>
+          <div class="paso-rifa">
+            <div class="paso-numero">5</div>
+            <div>
+              <h3>📤 Envía tu información</h3>
+              <p>
+                Presiona el botón
+                <strong>"Enviar información"</strong>
+                para registrar correctamente tu participación.
+              </p>
+            </div>
+          </div>
+          <div class="paso-rifa">
+            <div class="paso-numero">6</div>
+            <div>
+              <h3>✔️ Confirma el pago</h3>
+              <p>
+                Después de enviar la información,
+                haz clic en
+                <strong>"Confirmar pago"</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="paso-rifa">
+            <div class="paso-numero">7</div>
+            <div>
+              <h3>📲 Espera la aprobación</h3>
+              <p>
+                Nuestro equipo verificará el comprobante y, una vez aprobado,
+                recibirás un mensaje por WhatsApp con la confirmación de tu
+                inscripción y la ficha oficial de la rifa.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="alerta-rifa">
+          ⚠️ <strong>Importante:</strong><br>
+          Tu número quedará oficialmente reservado únicamente después de que
+          el pago sea verificado y aprobado por nuestro equipo.
+        </div>
+      </div>
+  </section>
     <section id="nosotros" class="section-container">
     <div class="card">
     <h2>Nosotros</h2>

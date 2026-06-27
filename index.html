@@ -1139,21 +1139,38 @@
         class="mega-menu hidden absolute left-0 top-full w-full bg-white shadow-xl py-10">
           <div class="max-w-4xl mx-auto flex justify-center">
             <div class="w-full">
-              <h4 class="font-bold text-lg mb-4">Motor y Transmision</h4>
+              <h4 class="font-bold text-lg mb-4">Botones y Broches para Casco</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button data-type="kitarrastre" class="hover:text-red-600">Kit Arrastre completo</button></li>
-                <li><button data-type="kitcilindro" class="hover:text-blue-600 transition w-full">Kit Cilindros Repotenciados</button></li>
-                <li><button data-type="kitpiñones" class="hover:text-blue-600 transition w-full">Kit Piñones</button></li>
-                <li><button data-type="cadenas" class="hover:text-blue-600 transition w-full">Cadenas</button></li>
-                <li><button data-type="correa" class="hover:text-blue-600 transition w-full">Correas Transmision</button></li>
+                <li><button data-type="botonHroCross" class="hover:text-blue-600 transition w-full">Boton Hro Cross</button></li>
+                <li><button data-type="botonHroIntegral" class="hover:text-blue-600 transition w-full">Boton Hro Integral</button></li>
+                <li><button data-type="botonIch3110" class="hover:text-red-600">Boton ICH 3110</button></li>
+                <li><button data-type="botonShaft211" class="hover:text-blue-600 transition w-full">Boton Shaft 211</button></li>
+                <li><button data-type="botonShaft581" class="hover:text-blue-600 transition w-full">Boton Shaft 581</button></li>
+                <li><button data-type="botonShaftPro" class="hover:text-blue-600 transition w-full">Boton Shaft Pro</button></li>
+                <li><button data-type="botonTattoSk2" class="hover:text-blue-600 transition w-full">Boton Tattoo SK2</button></li>
+                <li><button data-type="botonXecuro913" class="hover:text-blue-600 transition w-full">Boton Xecuro 913</button></li>
+                <li><button data-type="botonXr" class="hover:text-blue-600 transition w-full">Boton Xr</button></li>
               </ul>
             </div>
             <div class="w-full">
-              <h4 class="font-bold text-lg mb-4">Frenos y Suspension</h4>
+              <h4 class="font-bold text-lg mb-4">Mecanismos Visor para Casco</h4>
               <ul class="flex flex-col gap-3 text-gray-600">
-                <li><button data-type="discofreno" class="hover:text-blue-600 transition w-full">Discos De Freno</button></li>
-                <li><button data-type="bombas" class="hover:text-blue-600 transition w-full">Bombas de Freno</button></li>
-                <li><button data-type="amortiguadores" class="hover:text-blue-600 transition w-full">Amortiguadores</button></li>
+                <li><button data-type="mecanismosAgvK3" class="hover:text-blue-600 transition w-full">Mecanismos AGV K3</button></li>
+                <li><button data-type="mecanismosAgvK5" class="hover:text-blue-600 transition w-full">Mecanismos AGV K5</button></li>
+                <li><button data-type="mecanismosAxxis" class="hover:text-blue-600 transition w-full">Mecanismos AXXIS</button></li>
+                <li><button data-type="mecanismosFibra" class="hover:text-blue-600 transition w-full">Mecanismos FIBRA</button></li>
+                <li><button data-type="mecanismosHjc" class="hover:text-blue-600 transition w-full">Mecanismos HJC</button></li>
+                <li><button data-type="mecanismosHro3480" class="hover:text-blue-600 transition w-full">Mecanismos HRO 3480</button></li>
+                <li><button data-type="mecanismosIch3300" class="hover:text-blue-600 transition w-full">Mecanismos ICH 3300</button></li>
+                <li><button data-type="mecanismosShaft562" class="hover:text-blue-600 transition w-full">Mecanismos Shaft 562</button></li>
+                <li><button data-type="mecanismosShaft577" class="hover:text-blue-600 transition w-full">Mecanismos Shaft 577</button></li>
+                <li><button data-type="mecanismosKontrol" class="hover:text-blue-600 transition w-full">Mecanismos Kontrol</button></li>
+                <li><button data-type="mecanismosMtmv" class="hover:text-blue-600 transition w-full">Mecanismos MT Mv</button></li>
+                <li><button data-type="mecanismosMtmn" class="hover:text-blue-600 transition w-full">Mecanismos MT Mn</button></li>
+                <li><button data-type="mecanismosPr701" class="hover:text-blue-600 transition w-full">Mecanismos PR 701</button></li>
+                <li><button data-type="mecanismosXone" class="hover:text-blue-600 transition w-full">Mecanismos X-ONE</button></li>
+                <li><button data-type="mecanismosXecuro999" class="hover:text-blue-600 transition w-full">Mecanismos XECURO 999</button></li>
+                <li><button data-type="mecanismosXtrong925" class="hover:text-blue-600 transition w-full">Mecanismos XTRONG 925</button></li>
               </ul>
             </div>
             <div>
@@ -1335,24 +1352,42 @@
         <button onclick="filtrarTipo('cortavientos')" class="block py-2">Cortavientos</button>
       </div>
 
-      <div id="repuestosPanel" class="hidden p-4">
-        <button onclick="goBack()">← Volver</button>
+      <div id="repuestosPanel" class="hidden p-4 overflow-y-auto">
+        <button onclick="goBack()" class="mb-4 text-blue-600 font-semibold">← Volver</button>
+        <!-- BOTONES Y BROCHES -->
+        <h3 class="font-bold text-lg mt-2 mb-3">Botones y Broches para Casco</h3>
+        <button onclick="filtrarTipo('botonHroCross')" class="block w-full text-left py-2 border-b">Boton Hro Cross</button>
+        <button onclick="filtrarTipo('botonHroIntegral')" class="block w-full text-left py-2 border-b">Boton Hro Integral</button>
+        <button onclick="filtrarTipo('botonIch3110')" class="block w-full text-left py-2 border-b">Boton ICH 3110</button>
+        <button onclick="filtrarTipo('botonShaft211')" class="block w-full text-left py-2 border-b">Boton Shaft 211</button>
+        <button onclick="filtrarTipo('botonShaft581')" class="block w-full text-left py-2 border-b">Boton Shaft 581</button>
+        <button onclick="filtrarTipo('botonShaftPro')" class="block w-full text-left py-2 border-b">Boton Shaft Pro</button>
+        <button onclick="filtrarTipo('botonTattoSk2')" class="block w-full text-left py-2 border-b">Boton Tattoo SK2</button>
+        <button onclick="filtrarTipo('botonXecuro913')" class="block w-full text-left py-2 border-b">Boton Xecuro 913</button>
+        <button onclick="filtrarTipo('botonXr')" class="block w-full text-left py-2 border-b">Boton XR</button>
+        <!-- MECANISMOS -->
+        <h3 class="font-bold text-lg mt-8 mb-3">Mecanismos Visor para Casco</h3>
 
-        <h3 class="font-bold mt-3">Motor y Transmision</h3>
-        <button onclick="filtrarTipo('kitarrastre')" class="block py-2">kitarrastre</button>
-        <button onclick="filtrarTipo('kitcilindro')" class="block py-2">kitcilindro</button>
-        <button onclick="filtrarTipo('kitpiñones')" class="block py-2">kitpiñones</button>
-        <button onclick="filtrarTipo('cadenas')" class="block py-2">cadenas</button>
-        <button onclick="filtrarTipo('correa')" class="block py-2">correa</button>
-
-        <h3 class="font-bold mt-3">Frenos y Suspension</h3>
-        <button onclick="filtrarTipo('discofreno')" class="block py-2">Discos De Freno</button>
-        <button onclick="filtrarTipo('bombas')" class="block py-2">Bombas de Freno</button>
-        <button onclick="filtrarTipo('amortiguadores')" class="block py-2">Amortiguadores</button>
+        <button onclick="filtrarTipo('mecanismosAgvK3')" class="block w-full text-left py-2 border-b">Mecanismos AGV K3</button>
+        <button onclick="filtrarTipo('mecanismosAgvK5')" class="block w-full text-left py-2 border-b">Mecanismos AGV K5</button>
+        <button onclick="filtrarTipo('mecanismosAxxis')" class="block w-full text-left py-2 border-b">Mecanismos AXXIS</button>
+        <button onclick="filtrarTipo('mecanismosFibra')" class="block w-full text-left py-2 border-b">Mecanismos FIBRA</button>
+        <button onclick="filtrarTipo('mecanismosHjc')" class="block w-full text-left py-2 border-b">Mecanismos HJC</button>
+        <button onclick="filtrarTipo('mecanismosHro3480')" class="block w-full text-left py-2 border-b">Mecanismos HRO 3480</button>
+        <button onclick="filtrarTipo('mecanismosIch3300')" class="block w-full text-left py-2 border-b">Mecanismos ICH 3300</button>
+        <button onclick="filtrarTipo('mecanismosShaft562')" class="block w-full text-left py-2 border-b">Mecanismos Shaft 562</button>
+        <button onclick="filtrarTipo('mecanismosShaft577')" class="block w-full text-left py-2 border-b">Mecanismos Shaft 577</button>
+        <button onclick="filtrarTipo('mecanismosKontrol')" class="block w-full text-left py-2 border-b">Mecanismos Kontrol</button>
+        <button onclick="filtrarTipo('mecanismosMtmv')" class="block w-full text-left py-2 border-b">Mecanismos MT MV</button>
+        <button onclick="filtrarTipo('mecanismosMtmn')" class="block w-full text-left py-2 border-b">Mecanismos MT MN</button>
+        <button onclick="filtrarTipo('mecanismosPr701')" class="block w-full text-left py-2 border-b">Mecanismos PR 701</button>
+        <button onclick="filtrarTipo('mecanismosXone')" class="block w-full text-left py-2 border-b">Mecanismos X-ONE</button>
+        <button onclick="filtrarTipo('mecanismosXecuro999')" class="block w-full text-left py-2 border-b">Mecanismos XECURO 999</button>
+        <button onclick="filtrarTipo('mecanismosXtrong925')" class="block w-full text-left py-2 border-b">Mecanismos XTRONG 925</button>
+        <p class="text-center text-gray-500 mt-8">Viaja Seguro ⚡</p>
       </div>
-  </div>        
-</nav> 
-  
+    </div>        
+  </nav> 
   <!-- PROMO TOP BAR -->
 <div id="promoTopBar" class="bg-red-600 text-white text-center py-2 text-sm font-semibold tracking-wide shadow-md">
   🔥 Oferta especial - termina en 
@@ -2632,7 +2667,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfazulyamarillomen.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontfazulyamarillomen.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -2697,7 +2732,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfgrismen.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontfgrismen.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -2762,7 +2797,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfgrisrojo.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontfgrisrojo.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -2821,7 +2856,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfazulgrisespejo.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontfazulgrisespejo.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -2886,7 +2921,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfrosadobrillante.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontfrosadobrillante.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -2951,7 +2986,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontflilatornasoldama.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontflilatornasoldama.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3016,7 +3051,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 'assets/cascontfliladama.jpeg')"
+              <button onclick="agregarAlCarrito('Casco Abatible NTF',150000, 150000, 0, 'assets/cascontfliladama.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3076,7 +3111,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Tapa Clutch De Lujo',45000, 'assets/tapacluthcboxer.png')"
+              <button onclick="agregarAlCarrito('Tapa Clutch De Lujo',45000, 45000, 0, 'assets/tapacluthcboxer.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3128,7 +3163,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Direccionales Lujo MotoLed',30000, 'assets/direccionaleslujomotoled.png')"
+              <button onclick="agregarAlCarrito('Direccionales Lujo MotoLed',30000, 30000, 0, 'assets/direccionaleslujomotoled.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3174,7 +3209,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('guardabarro akt EVO',60000, 'assets/guardabarrodelevo125.png')"
+              <button onclick="agregarAlCarrito('guardabarro akt EVO',60000, 60000, 0, 'assets/guardabarrodelevo125.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3220,7 +3255,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('guardabarroboxerct',60000, 'assets/guardabarrodelboxer.png')"
+              <button onclick="agregarAlCarrito('guardabarroboxerct',60000, 60000, 0, 'assets/guardabarrodelboxer.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3266,7 +3301,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('carenaje eco deluxe',60000, 'assets/carenajeecodeluxe.png')"
+              <button onclick="agregarAlCarrito('carenaje eco deluxe',60000, 60000, 0, 'assets/carenajeecodeluxe.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3312,7 +3347,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('carenaje boxer ct',60000, 'assets/carenajeboxerrvisor.png')"
+              <button onclick="agregarAlCarrito('carenaje boxer ct',60000, 60000, 0, 'assets/carenajeboxerrvisor.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3358,7 +3393,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('guardabarrotraseroxr125',60000, 'assets/guardabarroxr125.png')"
+              <button onclick="agregarAlCarrito('guardabarrotraseroxr125',60000, 60000, 0, 'assets/guardabarroxr125.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3404,7 +3439,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Carenaje Xtz125',60000, 'assets/carenajextz125.png')"
+              <button onclick="agregarAlCarrito('Carenaje Xtz125',60000, 60000, 0, 'assets/carenajextz125.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3450,7 +3485,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('guardabarrosxtz125',60000, 'assets/guardabarroxtz125del.png')"
+              <button onclick="agregarAlCarrito('guardabarrosxtz125',60000, 60000, 0, 'assets/guardabarroxtz125del.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3496,7 +3531,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Tapas laterales NKD',60000, 'assets/tapalaTERALNKD.png')"
+              <button onclick="agregarAlCarrito('Tapas laterales NKD',60000, 60000, 0, 'assets/tapalaTERALNKD.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3542,7 +3577,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Mini Direccionales Lujo',20000, 'assets/minidireccionales.png')"
+              <button onclick="agregarAlCarrito('Mini Direccionales Lujo',20000, 20000, 0, 'assets/minidireccionales.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3603,7 +3638,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Impermeable vulcanizado',90000, 'assets/impermeablevulcanizado.png')"
+              <button onclick="agregarAlCarrito('Impermeable vulcanizado',90000, 90000, 0, 'assets/impermeablevulcanizado.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3657,7 +3692,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Rodilleras y coderas Probiker',120000, 'assets/rodillerasycoderasprobiker.png')"
+              <button onclick="agregarAlCarrito('Rodilleras y coderas Probiker',120000, 120000, 0, 'assets/rodillerasycoderasprobiker.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3715,7 +3750,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Luces LED MotoLed 16.000LMS',90000, 'assets/bombillo_motoled_16000lm.png')"
+              <button onclick="agregarAlCarrito('Luces LED MotoLed 16.000LMS',90000, 90000, 0, 'assets/bombillo_motoled_16000lm.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3762,7 +3797,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('cable de alta ngk',90000, 'assets/cablealtangk.png')"
+              <button onclick="agregarAlCarrito('cable de alta ngk',90000, 90000, 0, 'assets/cablealtangk.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3814,7 +3849,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Exploradoras Buho',50000, 'assets/exploradorabuho.png')"
+              <button onclick="agregarAlCarrito('Exploradoras Buho',50000, 50000, 0, 'assets/exploradorabuho.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3872,7 +3907,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Exploradoras Ojo de Diablo',80000, 'assets/exploradoraojodiablo.png')"
+              <button onclick="agregarAlCarrito('Exploradoras Ojo de Diablo',80000, 80000, 0, 'assets/exploradoraojodiablo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3924,7 +3959,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Farola Led BoxerCt',160000, 'assets/farolaboxerctled2.png')"
+              <button onclick="agregarAlCarrito('Farola Led BoxerCt',160000, 160000, 0, 'assets/farolaboxerctled2.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -3970,7 +4005,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Farola Gn-125 Led',159999, 'assets/farolagn125led.png')"
+              <button onclick="agregarAlCarrito('Farola Gn-125 Led',159999, 159999, 0, 'assets/farolagn125led.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4023,7 +4058,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Nkd Ojo Diablo',60000, 'assets/STOP NKD 125 LED GAMA.jpg')"
+                <button onclick="agregarAlCarrito('Stop Led Nkd Ojo Diablo',60000, 60000, 0, 'assets/STOP NKD 125 LED GAMA.jpg')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                   </button>
@@ -4069,7 +4104,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Nkd Ojos',50000, 'assets/stopnkdled2.png')"
+                <button onclick="agregarAlCarrito('Stop Led Nkd Ojos',50000, 50000, 0, 'assets/stopnkdled2.png')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                 </button>
@@ -4115,7 +4150,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Nkd FV',50000, 'assets/stopnkdfvdireccionalesincluidas.png')"
+                <button onclick="agregarAlCarrito('Stop Led Nkd FV',50000, 50000, 0, 'assets/stopnkdfvdireccionalesincluidas.png')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                   </button>
@@ -4167,7 +4202,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Boxer Ct',50000, 'assets/stopledboxerct.png')"
+                <button onclick="agregarAlCarrito('Stop Led Boxer Ct',50000, 50000, 0, 'assets/stopledboxerct.png')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                   </button>
@@ -4219,7 +4254,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-                <button onclick="agregarAlCarrito('Stop Led Gn-125',70000, 'assets/stopledgn125.png')"
+                <button onclick="agregarAlCarrito('Stop Led Gn-125',70000, 70000, 0, 'assets/stopledgn125.png')"
                     class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                     🛒 Agregar al carrito
                   </button>
@@ -4278,7 +4313,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Manilar Barracuda',35000, 'assets/manilarbarracuda.png')"
+              <button onclick="agregarAlCarrito('Manilar Barracuda',35000, 35000, 0, 'assets/manilarbarracuda.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4327,7 +4362,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('candado manigueta',35000, 'assets/canadadomanigueta.png')"
+              <button onclick="agregarAlCarrito('candado manigueta',35000, 35000, 0, 'assets/canadadomanigueta.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4381,7 +4416,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('clevis de freno',30000, 'assets/levasdefrenolujo.png')"
+              <button onclick="agregarAlCarrito('clevis de freno',30000, 30000, 0, 'assets/levasdefrenolujo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4435,7 +4470,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('patas laterales de lujo',40000, 'assets/patalaterallujo2.png')"
+              <button onclick="agregarAlCarrito('patas laterales de lujo',40000, 40000, 0, 'assets/patalaterallujo2.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4483,7 +4518,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('clevis de freno',20000, 'assets/clevisdefrenolujo.png')"
+              <button onclick="agregarAlCarrito('clevis de freno',20000, 20000, 0, 'assets/clevisdefrenolujo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4535,7 +4570,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Manilar Grip Labial',30000, 'assets/manilarprogriplabial.png')"
+              <button onclick="agregarAlCarrito('Manilar Grip Labial',30000, 30000, 0, 'assets/manilarprogriplabial.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4587,7 +4622,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Manilar Daytona',22000, 'assets/manilardaytona.png')"
+              <button onclick="agregarAlCarrito('Manilar Daytona',22000, 22000, 0, 'assets/manilardaytona.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4633,7 +4668,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Manilar ProGrip importado',20000, 'assets/manilaresprogripimportado.png')"
+              <button onclick="agregarAlCarrito('Manilar ProGrip importado',20000, 20000, 0, 'assets/manilaresprogripimportado.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4691,7 +4726,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Slider Carbono Colores',50000, 'assets/slidercarbono3.png')"
+              <button onclick="agregarAlCarrito('Slider Carbono Colores',50000, 50000, 0, 'assets/slidercarbono3.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4749,7 +4784,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('slider tornasol',50000, 'assets/slidercarbonotornasol3.png')"
+              <button onclick="agregarAlCarrito('slider tornasol',50000, 50000, 0, 'assets/slidercarbonotornasol3.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4807,7 +4842,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('slider K080',40000, 'assets/sliderk080-3.png')"
+              <button onclick="agregarAlCarrito('slider K080',40000, 40000, 0, 'assets/sliderk080-3.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4865,7 +4900,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Manilar ProGrip colores',25000, 'assets/manilarprogriprojo.png')"
+              <button onclick="agregarAlCarrito('Manilar ProGrip colores',25000, 25000, 0, 'assets/manilarprogriprojo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4917,7 +4952,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Espejo de Lujo 5 puntas Tornasol',70000, 'assets/espejoslujotornasol.png')"
+              <button onclick="agregarAlCarrito('Espejo de Lujo 5 puntas Tornasol',70000, 70000, 0, 'assets/espejoslujotornasol.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -4963,7 +4998,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Espejo de Lujo Cafe Racer Redondo',55000, 'assets/espejoslujocaferacerredondo.png')"
+              <button onclick="agregarAlCarrito('Espejo de Lujo Cafe Racer Redondo',55000, 55000, 0, 'assets/espejoslujocaferacerredondo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5009,7 +5044,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Espejo de Lujo Cafe Racer Fantasma',55000, 'assets/espejoscaferacerfantasma.png')"
+              <button onclick="agregarAlCarrito('Espejo de Lujo Cafe Racer Fantasma',55000, 55000, 0, 'assets/espejoscaferacerfantasma.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5055,9 +5090,9 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Espejo de Lujo Cafe Racer 5 puntas',65000, 'assets/espejoslujocaferacer5puntas.png')"
-                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
-                  🛒 Agregar al carrito
+              <button onclick="agregarAlCarrito(
+                  'Espejo de Lujo Cafe Racer 5 puntas', 65000, 65000, 0,
+                  'assets/espejoslujocaferacer5puntas.png')" class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition"> 🛒 Agregar al carrito
                 </button>
             </div>
           </article>
@@ -5107,7 +5142,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Espejo Fantasma ECO',20000, 'assets/espejosfantasmaeco.png')"
+              <button onclick="agregarAlCarrito('Espejo Fantasma ECO',20000, 20000, 0, 'assets/espejosfantasmaeco.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5171,7 +5206,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Espejo de Lujo 5 Puntas',60000, 'assets/espejoslujo5puntas.png')"
+              <button onclick="agregarAlCarrito('Espejo de Lujo 5 Puntas',60000, 60000, 0, 'assets/espejoslujo5puntas.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5220,7 +5255,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Gafas Cross Vmar niño',60000, 'assets/gafasvmarniño.png')"
+              <button onclick="agregarAlCarrito('Gafas Cross Vmar niño',60000, 60000, 0, 'assets/gafasvmarniño.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5274,7 +5309,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Gafas Cross 100% RaceCraft doble lente',99000, 'assets/gafas100porcientolentetornasol.png')"
+              <button onclick="agregarAlCarrito('Gafas Cross 100% RaceCraft doble lente',99000, 99000, 0, 'assets/gafas100porcientolentetornasol.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5334,7 +5369,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Gafas Cross economicas',20000, 'assets/gafascrosssenciilas3.png')"
+              <button onclick="agregarAlCarrito('Gafas Cross economicas',20000, 20000, 0, 'assets/gafascrosssenciilas3.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5344,16 +5379,16 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-category="Repuestos"
-            data-type="bombas"
-            data-name="Bomba freno universal"
+            data-type="botonIch3110"
+            data-name="Boton Ich 3110"
           >
           <div class="relative">
 
             <!-- Imagen principal -->
               <img    
-                id="main-bombafreno"
-                src="./assets/bombafrenouniversal.png"
-                alt="Bomba de Freno Universal"
+                id="main-botonich3110"
+                src="./assets/boton_ich3110.jpeg"
+                alt="Boton Ich3110"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
               />
@@ -5361,26 +5396,26 @@ Participar ahora
             <!-- Miniaturas -->
               <div class="flex gap-2 mt-3">
                 <img 
-                  src="./assets/bombafrenouniversal.png"
-                  alt="Bomba de Freno Universal"
+                  src="./assets/boton_ich3110.jpeg"
+                  alt="Boton Ich3110"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-bombafreno', this.src)"
+                  onclick="changeImage('main-botonich3110', this.src)"
                 />
               </div>
             </div>
             <div class="p-4">
-              <h4 class="font-semibold">Bomba de Freno Universal</h4>
+              <h4 class="font-semibold">Boton Ich3110</h4>
               <p class="text-sm text-gray-500 mt-1">Repuestos</p>
               <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$55.000</span>
+                <span class="text-indigo-600 font-bold">$5.000</span>
                 <a
-                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Bomba%20De%20Freno"
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Ich3110"
                   target="_blank"
                   class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Bomba de Freno Universal',55000, 'assets/bombafrenouniversal.png')"
+              <button onclick="agregarAlCarrito('Boton Ich3110',5000, 5000, 0, 'assets/boton_ich3110.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5390,16 +5425,16 @@ Participar ahora
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-category="Repuestos"
-            data-type="Bombas"
-            data-name="Bomba freno universal"
+            data-type="botonShaft211"
+            data-name="Boton Shaft 211"
           >
           <div class="relative">
 
             <!-- Imagen principal -->
               <img    
-                id="main-bombafreno"
-                src="./assets/bombafrenouniversal.png"
-                alt="Bomba de Freno Universal"
+                id="main-botonshaft211"
+                src="./assets/boton_shaft211.jpeg"
+                alt="Boton Shaft 211"
                 class="w-full h-64 object-cover cursor-pointer rounded-lg"
                 onclick="openModal(this.src)"
               />
@@ -5407,32 +5442,1062 @@ Participar ahora
             <!-- Miniaturas -->
               <div class="flex gap-2 mt-3">
                 <img 
-                  src="./assets/bombafrenouniversal.png"
-                  alt="Bomba de Freno Universal"
+                  src="./assets/boton_shaft211.jpeg"
+                  alt="Boton Shaft 211"
                   class="w-16 h-16 object-cover cursor-pointer border rounded"
-                  onclick="changeImage('main-bombafreno', this.src)"
+                  onclick="changeImage('main-botonshaft211', this.src)"
+                />
+                <img 
+                  src="./assets/boton_shaft211-2.jpeg"
+                  alt="Boton Shaft 211"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonshaft211', this.src)"
                 />
               </div>
             </div>
             <div class="p-4">
-              <h4 class="font-semibold">Bomba de Freno Universal</h4>
+              <h4 class="font-semibold">Boton Shaft 211</h4>
               <p class="text-sm text-gray-500 mt-1">Repuestos</p>
               <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">$55.000</span>
+                <span class="text-indigo-600 font-bold">$8.000</span>
                 <a
-                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Bomba%20De%20Freno"
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Shaft%20211"
                   target="_blank"
                   class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Bomba de Freno Universal',55000, 'assets/bombafrenouniversal.png')"
+              <button onclick="agregarAlCarrito('Boton Shaft 211',8000, 8000, 0, 'assets/botonshaft211.jpeg')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
             </div>
           </article>
           
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonShaft581"
+            data-name="Boton Shaft 581"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botonshaft581"
+                src="./assets/boton_shaft581.jpeg"
+                alt="Boton Shaft 581"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_shaft581.jpeg"
+                  alt="Boton Shaft 581"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonshaft581', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Shaft 581</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$10.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Shaft%20581"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Shaft 581',10000, 10000, 0, 'assets/boton_shaft581.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonShaftPro"
+            data-name="Boton Shaft Pro"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botonshaftpro"
+                src="./assets/boton_shaftpro.jpeg"
+                alt="Boton Shaft Pro"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_shaftpro.jpeg"
+                  alt="Boton Shaft Pro"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonshaftpro', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Shaft Pro</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$10.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Shaft%20Pro"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Shaft Pro',10000, 10000, 0, 'assets/boton_shaftpro.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonHroCross"
+            data-name="Boton Hro Cross"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botonhrocross"
+                src="./assets/boton_hrocross.jpeg"
+                alt="Boton Hro Cross"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_hrocross.jpeg"
+                  alt="Boton Hro Cross"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonhrocross', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Hro Cross</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$15.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Hro%20Cross"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Hro Cross',15000, 15000, 0, 'assets/boton_hrocross.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonHroIntegral"
+            data-name="Boton Hro Integral"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botonhrointegral"
+                src="./assets/boton_hrointegral.jpeg"
+                alt="Boton Hro Integral"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_hrointegral.jpeg"
+                  alt="Boton Hro Integral"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonhrointegral', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Hro Integral</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$15.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Hro%20Integral"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Hro Integral',15000, 15000, 0, 'assets/boton_hrointegral.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonTattoSk2"
+            data-name="Boton Tattoo Sk2"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botontattosk2"
+                src="./assets/boton_tattosk2.jpeg"
+                alt="Boton Tattoo Sk2"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_tattosk2.jpeg"
+                  alt="Boton Tattoo Sk2"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botontattosk2', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Tattoo Sk2</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$5.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Tattoo%20Sk2"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Tattoo Sk2',5000, 5000, 0, 'assets/boton_tattosk2.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonXecuro913"
+            data-name="Boton Xecuro 913"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botonxecuro913"
+                src="./assets/boton_xecuro913.jpeg"
+                alt="Boton Xecuro 913"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_xecuro913.jpeg"
+                  alt="Boton Xecuro 913"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonxecuro913', this.src)"
+                />
+                <img 
+                  src="./assets/boton_xecuro913-2.jpeg"
+                  alt="Boton Xecuro 913"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonxecuro913', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Xecuro 913</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$10.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Xecuro%20913"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Xecuro 913',10000, 10000, 0, 'assets/boton_xecuro913.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="botonXr"
+            data-name="Boton Xecuro XR"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-botonxecuroxr"
+                src="./assets/boton_xr.jpeg"
+                alt="Boton Xecuro XR"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/boton_xr.jpeg"
+                  alt="Boton Xecuro XR"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonxecuroxr', this.src)"
+                />
+                <img 
+                  src="./assets/boton_xr-2.jpeg"
+                  alt="Boton Xecuro XR"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-botonxecuroxr', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Boton Xecuro XR</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$5.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Boton%20Xecuro%20XR"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Boton Xecuro XR',5000, 5000, 0, 'assets/boton_xr.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosAgvK3"
+            data-name="Mecanismos Agv K3"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosagvk3"
+                src="./assets/sistemas_agvk3.jpeg"
+                alt="Mecanismos Agv K3"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/sistemas_agvk3.jpeg"
+                  alt="Mecanismos Agv K3"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosagvk3', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Agv K3</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Agv%20K3"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Agv K3',50000, 50000, 0, 'assets/mecanismos_agvk3.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosAgvK5"
+            data-name="Mecanismos Agv K5"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosagvk5"
+                src="./assets/mecanismos_agvk5.jpeg"
+                alt="Mecanismos Agv K5"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_agvk5.jpeg"
+                  alt="Mecanismos Agv K5"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosagvk5', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Agv K5</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Agv%20K5"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Agv K5',50000, 50000, 0, 'assets/mecanismos_agvk5.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosAxxis"
+            data-name="Mecanismos Axxis Alamo"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosaxxis"
+                src="./assets/mecanismos_axxisalamo.jpeg"
+                alt="Mecanismos Axxis Alamo"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_axxisalamo.jpeg"
+                  alt="Mecanismos Axxis Alamo"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosaxxis', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Axxis Alamo</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$40.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Axxis%20Alamo"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Axxis Alamo',40000, 40000, 0, 'assets/mecanismos_axxisalamo.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosFibra"
+            data-name="Mecanismos Fibra"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosfibra"
+                src="./assets/mecanismos_fibra.jpeg"
+                alt="Mecanismos Fibra"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_fibra.jpeg"
+                  alt="Mecanismos Fibra"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosfibra', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Fibra</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$30.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Fibra"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Fibra',30000, 30000, 0, 'assets/mecanismos_fibra.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosHjc"
+            data-name="Mecanismos Hjc"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-sistemashjc"
+                src="./assets/sistemas_hjc.jpeg"
+                alt="Mecanismos Hjc"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/sistemas_hjc.jpeg"
+                  alt="Mecanismos Hjc"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismoshjc', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Hjc</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Hjc"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Hjc',50000, 50000, 0, 'assets/mecanismos_hjc.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosHro3480"
+            data-name="Mecanismos Hro 3480"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismoshro3480"
+                src="./assets/mecanismos hro3480.jpeg"
+                alt="Mecanismos Hro 3480"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos hro3480.jpeg"
+                  alt="Mecanismos Hro 3480"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismoshro3480', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Hro 3480</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$30.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Hro%203480"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Hro 3480',30000, 30000, 0, 'assets/mecanismos_hro3480.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosIch3300"
+            data-name="Mecanismos Ich 3300"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosich3300"
+                src="./assets/mecanismos_ich3300.jpeg"
+                alt="Mecanismos Ich 3300"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_ich3300.jpeg"
+                  alt="Mecanismos Ich 3300"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosich3300', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Ich 3300</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$25.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Ich%203300"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Ich 3300',25000, 25000, 0, 'assets/mecanismos_ich3300.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosShaft562"
+            data-name="Mecanismos Shaft 562"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosshaft562"
+                src="./assets/mecanismos_shaft562.jpeg"
+                alt="Mecanismos Shaft 562"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_shaft562.jpeg"
+                  alt="Mecanismos Shaft 562"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosshaft562', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Shaft 562</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Shaft%20562"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Shaft 562',50000, 50000, 0, 'assets/mecanismos_shaft562.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosShaft577"
+            data-name="Mecanismos Shaft 577"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosshaft577"
+                src="./assets/mecanismos_shaft577.jpeg"
+                alt="Mecanismos Shaft 577"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_shaft577.jpeg"
+                  alt="Mecanismos Shaft 577"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosshaft577', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Shaft 577</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Shaft%20577"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Shaft 577',50000, 50000, 0, 'assets/mecanismos_shaft577.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosKontrol"
+            data-name="Mecanismos Kontrol"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismoskontrol"
+                src="./assets/mecanismos_kontrol.jpeg"
+                alt="Mecanismos Kontrol"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_kontrol.jpeg"
+                  alt="Mecanismos Kontrol"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismoskontrol', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Kontrol</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$25.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Kontrol"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Kontrol',25000, 25000, 0, 'assets/mecanismos_kontrol.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosMtmv"
+            data-name="Mecanismos Mt modeloviejo"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosmtmv"
+                src="./assets/mecanismos_mtviejo.jpeg"
+                alt="Mecanismos Mt modeloviejo"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_mtviejo.jpeg"
+                  alt="Mecanismos Mt modeloviejo"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosmtmv', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Mt Modelo Viejo</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Mt%20modeloviejo"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Mt Modelo Viejo',50000, 50000, 0, 'assets/mecanismos_mtviejo.jpeg')"
+                  class="bg-black text-whitepx-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosMtmn"
+            data-name="Mecanismos Mt modelonuevo"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosmtmn"
+                src="./assets/mecanismos_mtnuevo.jpeg"
+                alt="Mecanismos Mt modelonuevo"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_mtnuevo.jpeg"
+                  alt="Mecanismos Mt modelonuevo"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosmtmn', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Mt Modelo Nuevo</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$50.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Mt%20modelonuevo"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Mt modelonuevo',50000, 50000, 0, 'assets/mecanismos_mtnuevo.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosPr701"
+            data-name="Mecanismos Pr 701"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismospr701"
+                src="./assets/mecanismos_pr701.jpeg"
+                alt="Mecanismos Pr 701"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_pr701.jpeg"
+                  alt="Mecanismos Pr 701"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismospr701', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos Pr 700</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$40.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20Pr%20701"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos Pr 701',40000, 40000, 0, 'assets/mecanismos_pr701.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosXone"
+            data-name="Mecanismos X-one"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosxone"
+                src="./assets/mecanismos_xone.jpeg"
+                alt="Mecanismos X-one"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/mecanismos_xone.jpeg"
+                  alt="Mecanismos X-one"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosxone', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos X-one</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$30.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20X-one"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos X-one',30000, 30000, 0, 'assets/mecanismos_xone.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
+          <article
+            class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
+            data-category="Repuestos"
+            data-type="mecanismosXecuro999"
+            data-name="Mecanismos X-r999"
+          >
+          <div class="relative">
+
+            <!-- Imagen principal -->
+              <img    
+                id="main-mecanismosxr999"
+                src="./assets/sistemas_xr999.jpeg"
+                alt="Mecanismos X-r999"
+                class="w-full h-64 object-cover cursor-pointer rounded-lg"
+                onclick="openModal(this.src)"
+              />
+
+            <!-- Miniaturas -->
+              <div class="flex gap-2 mt-3">
+                <img 
+                  src="./assets/sistemas_xr999.jpeg"
+                  alt="Mecanismos X-r999"
+                  class="w-16 h-16 object-cover cursor-pointer border rounded"
+                  onclick="changeImage('main-mecanismosxr999', this.src)"
+                />
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Mecanismos X-r999</h4>
+              <p class="text-sm text-gray-500 mt-1">Repuestos</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-indigo-600 font-bold">$30.000</span>
+                <a
+                  href="https://wa.me/573107643039?text=Hola%20quiero%20comprar%20Mecanismos%20X-r999"
+                  target="_blank"
+                  class="px-3 py-2 bg-green-500 text-white rounded-lg text-sm"
+                  >Comprar ahora</a
+                >
+              </div>
+              <button onclick="agregarAlCarrito('Mecanismos X-r999',30000, 30000, 0, 'assets/sistemas_xr999.jpeg')"
+                  class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
+                  🛒 Agregar al carrito
+                </button>
+            </div>
+          </article>
+
           <article
             class="product-card group bg-white rounded-2xl shadow hover:shadow-2xl transform transition duration-300 overflow-hidden"
             data-category="accesorios"
@@ -5484,7 +6549,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Protector de Lujo Disco de Freno',55000, 'assets/protectordiscolujo.png')"
+              <button onclick="agregarAlCarrito('Protector de Lujo Disco de Freno',55000, 55000, 0, 'assets/protectordiscolujo.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5537,7 +6602,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Araña Portacelular RideHold',39000, 'assets/arañaportacelular.png')"
+              <button onclick="agregarAlCarrito('Araña Portacelular RideHold',39000, 39000, 0, 'assets/arañaportacelular.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5597,7 +6662,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Piecitos aluminio para freno',20000, 'assets/piecitofreno2.png')"
+              <button onclick="agregarAlCarrito('Piecitos aluminio para freno',20000, 20000, 0, 'assets/piecitofreno2.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5649,7 +6714,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes 511',25000, 'assets/guantes511.png')"
+              <button onclick="agregarAlCarrito('Guantes 511',25000, 25000, 0, 'assets/guantes511.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5701,7 +6766,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes largos cremallera',35000, 'assets/guanteslargoscremallera.png')"
+              <button onclick="agregarAlCarrito('Guantes largos cremallera',35000, 35000, 0, 'assets/guanteslargoscremallera.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5759,7 +6824,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes fox',60000, 'assets/guantesfox.png')"
+              <button onclick="agregarAlCarrito('Guantes fox',60000, 60000, 0, 'assets/guantesfox.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5805,7 +6870,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes Scoyco',70000, 'assets/guantesscoyco.png')"
+              <button onclick="agregarAlCarrito('Guantes Scoyco',70000, 70000, 0, 'assets/guantesscoyco.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5851,7 +6916,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes troylee',70000, 'assets/guantestroylee.png')"
+              <button onclick="agregarAlCarrito('Guantes troylee',70000, 70000, 0, 'assets/guantestroylee.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5897,7 +6962,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes Xtrong',60000, 'assets/guantesxronghombre.png')"
+              <button onclick="agregarAlCarrito('Guantes Xtrong',60000, 60000, 0, 'assets/guantesxronghombre.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -5943,7 +7008,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes Xtreme',70000, 'assets/guantesxtreme.png')"
+              <button onclick="agregarAlCarrito('Guantes Xtreme',70000, 70000, 0, 'assets/guantesxtreme.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -6001,7 +7066,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes cortos Pro Biker',30000, 'assets/guantescortosprobiker.png')"
+              <button onclick="agregarAlCarrito('Guantes cortos Pro Biker',30000, 30000, 0, 'assets/guantescortosprobiker.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -6059,7 +7124,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('Guantes largos Pro Biker',30000, 'assets/guanteslargosprobiker.png')"
+              <button onclick="agregarAlCarrito('Guantes largos Pro Biker',30000, 30000, 0, 'assets/guanteslargosprobiker.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>
@@ -6112,7 +7177,7 @@ Participar ahora
                   >Comprar ahora</a
                 >
               </div>
-              <button onclick="agregarAlCarrito('interruptor',15000, 'assets/run2cables.png')"
+              <button onclick="agregarAlCarrito('interruptor',15000, 15000, 0, 'assets/run2cables.png')"
                   class="bg-black text-white px-4 py-2 rounded-lg mt-2 w-full hover:bg-gray-800 transition">
                   🛒 Agregar al carrito
                 </button>

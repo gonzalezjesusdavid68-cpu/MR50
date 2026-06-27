@@ -353,7 +353,7 @@ exports.elegirGanadorPorLoteria = onRequest(
         });
       }
 
-      const sorteoRef = db.collection(db, "sorteos").doc(sorteoId);
+      const sorteoRef = db.collection("sorteos").doc(sorteoId);
       const sorteoSnap = await sorteoRef.get();
 
       if (!sorteoSnap.exists) {
@@ -418,6 +418,7 @@ exports.elegirGanadorPorLoteria = onRequest(
       );
 
       // 🏁 Finalizar sorteo actual
+      const fechaHoy = new Date().toISOString().split("T")[0];
       await sorteoRef.update({
         numeroGanador: numeroGanador,
         ganadorElegido: true,
@@ -425,8 +426,26 @@ exports.elegirGanadorPorLoteria = onRequest(
         loteriaReferencia: nombreLoteria,
         numeroLoteriaOficial: numeroLoteria,
         fechaEleccion: admin.firestore.FieldValue.serverTimestamp(),
+        ganador: {
+          numero: ganador.numero || numeroGanador,
+          nombre: ganador.nombre || "",
+          telefono: ganador.telefono || "",
+          email: ganador.email || "",
+          ciudad: ganador.ciudad || "",
+          fecha: fechaHoy
+        }
       });
+      await db.collection("historialGanadores").add({
+        sorteoId,
+        numeroGanador,
+        nombre: ganador.nombre,
+        telefono: ganador.telefono,
+        email: ganador.email,
+        loteria: nombreLoteria,
+        numeroLoteria,
+        fecha: admin.firestore.FieldValue.serverTimestamp()
 
+      });
       // 📅 Crear siguiente mes automáticamente
       const fechaActual = sorteoData.fechaSorteo.toDate();
       const nuevaFecha = new Date(fechaActual);
@@ -440,10 +459,26 @@ exports.elegirGanadorPorLoteria = onRequest(
       const nuevoId = `sorteo_${nombreMes}_${anio}`;
 
       await db.collection("sorteos").doc(nuevoId).set({
+        titulo: sorteoData.titulo || "",
+        descripcion: sorteoData.descripcion || "",
+        imagenes: sorteoData.imagenes || [],
+        valor: sorteoData.valor || "",
+
         estado: "activo",
         fechaSorteo: nuevaFecha,
         ganadorElegido: false,
         numeroGanador: null,
+
+        ganador: {
+          numero: "",
+          nombre: "",
+          telefono: "",
+          email: "",
+          ciudad: "",
+          fecha: ""
+        },
+        participantesVendidos: 0,
+          recaudado: 0,
         creadoEn: admin.firestore.FieldValue.serverTimestamp(),
       });
 
@@ -524,12 +559,31 @@ exports.finalizarYCrearNuevoSorteo = onRequest(
 
       const nuevoId = `sorteo_${nombreMes}_${anio}`;
 
-      // 🚀 Crear nuevo sorteo
+      // 🚀 Crear nuevo sorteo heredando la configuración anterior
       await db.collection("sorteos").doc(nuevoId).set({
+        titulo: sorteoData.titulo || "",
+        descripcion: sorteoData.descripcion || "",
+        imagenes: sorteoData.imagenes || [],
+        valor: sorteoData.valor || "",
+
         estado: "activo",
         fechaSorteo: siguienteFecha,
+
         ganadorElegido: false,
         numeroGanador: null,
+
+        ganador: {
+          numero: "",
+          nombre: "",
+          telefono: "",
+          email: "",
+          ciudad: "",
+          fecha: ""
+        },
+
+        participantesVendidos: 0,
+        recaudado: 0,
+
         creadoEn: admin.firestore.FieldValue.serverTimestamp(),
       });
 

@@ -51,19 +51,21 @@
         <h2>
         👥 Participantes Confirmados
         </h2>
-        <div id="listaParticipantes">
-        </div>
+        <div id="listaParticipantes"></div>
       </div>
+    </div>
+        <div id="pedidosPanelContainer">
+          <h2>
+            📦 Pedidos tienda
+            <span id="contadorPedidos">
+              ✅ Confirmados: 0 |
+              ⏳ Pendientes: 0 |
+              🚚 Entregados: 0
+            </span>
+          </h2>
+
+          <div id="listaPedidosTienda"></div>
         </div>
-      <div id="pedidosPanel">
-        <h2>
-        📦 Pedidos tienda  
-        <span id="contadorPedidos">
-        ✅ Confirmados: 0 | ⏳ Pendientes: 0 | 🚚 Entregados: 0
-        </span>
-        </h2>
-        <div id="pedidosPanel"></div>
-      </div>
       <!-- DASHBOARD -->
       <div id="dashboardPanel">
         <h2>📊 Dashboard</h2>
@@ -136,8 +138,6 @@
           <p id="contador"></p>
           <div id="lista"></div>
           <hr />
-          <div id="listaPedidos"></div>
-
           <h2>🎯 Elegir Ganador por Lotería</h2>
           <input
             type="text"
@@ -150,10 +150,8 @@
             placeholder="Ej: Lotería del Tolima"
           />
           <button id="btnPreview">🔎 Previsualizar ganador</button>
-          <button id="btnConfirmar" type="button" class="hidden">
-            🎉 Confirmar ganador
-          </button>
           <div id="previewGanador" class="card"></div>
+          <button id="btnConfirmar">🎉 Confirmar ganador</button>
           <button onclick="logout()">Cerrar sesión</button>
         </div>
         <hr />

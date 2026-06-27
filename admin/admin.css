@@ -84,7 +84,7 @@
         margin-bottom: 10px;
       }
       #previewGanador {
-        display: none !important;
+        display: none;
       }
       #btnConfirmar {
         display: none;
