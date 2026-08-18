@@ -325,6 +325,10 @@
             console.log("1 - numeroLoteria:", numeroLoteria);
             console.log("2 - ultimasDos:", ultimasDos);
 
+            console.log("db =", db);
+            console.log("sorteoActualId =", sorteoActualId);
+            console.log("ultimasDos =", ultimasDos);
+            
             const participanteRef = doc(
               db,
               "sorteos",
@@ -553,7 +557,6 @@
               console.error("No existe listaPedidosTienda");
               return;
             }
-          contenedor.innerHTML = "";
           let pendientes = 0;
           let confirmados = 0;
           let entregados = 0;
@@ -563,9 +566,64 @@
           );
           querySnapshot.forEach((doc) => {
             const data = doc.data();
-            let colorEstado = "#f59e0b";
-            if(data.estado === "confirmado") colorEstado = "green";
-            if(data.estado === "entregado") colorEstado = "blue";
+
+        //--------------------------------------------------
+        // INFORMACIÓN ADICIONAL DEL PEDIDO
+        //--------------------------------------------------
+        const estadoColor = {
+            pendiente: "#f59e0b",
+            confirmado: "#16a34a",
+            entregado: "#2563eb"
+        };
+        const colorEstado =
+        estadoColor[data.estado] || "#6b7280";
+        const fechaPedido =
+        data.fecha?.toDate
+        ? data.fecha.toDate().toLocaleString("es-CO")
+        : "Sin fecha";
+        const codigoCupon =
+        data.cupon?.codigo || "Sin cupón";
+        const vendedorCupon =
+        data.cupon?.vendedor || "N/A";
+        const telefonoVendedor =
+        data.cupon?.telefono || "";
+        const metodoPago =
+        data.metodoPago ||
+        data.pago ||
+        "No definido";
+
+            let botones = "";
+            if(data.estado === "pendiente"){
+              botones = `
+                <button
+                  onclick="confirmarPedido('${doc.id}')"
+                  style="background:green;color:white;padding:5px 10px">
+                  Confirmar
+                </button>
+              `;
+            }
+            else if(data.estado === "confirmado"){
+              botones = `
+                <button
+                  onclick="entregarPedido('${doc.id}')"
+                  style="background:blue;color:white;padding:5px 10px">
+                  Entregado
+                </button>
+              `;
+            }
+            else{
+            botones = `
+                <button
+                    disabled
+                    style="
+                        background:#999;
+                        color:white;
+                        padding:5px 10px;
+                        cursor:not-allowed;">
+                    ✔ Entregado
+                </button>
+            `;
+        }
             if(data.estado === "pendiente") pendientes++;
             if(data.estado === "confirmado") confirmados++;
             if(data.estado === "entregado") entregados++;
@@ -573,7 +631,24 @@
             if(data.productos){
               data.productos.forEach(p => {
                 productosHTML += `
-                  <li>${p.nombre} x${p.cantidad} - $${p.precio}</li>
+              <li style="
+              margin-bottom:8px;
+              ">
+              📦 <strong>${p.nombre}</strong>
+              <br>
+              Cantidad:
+              ${p.cantidad}
+              <br>
+              Precio:
+              $${Number(p.precio).toLocaleString()}
+              <br>
+              Subtotal:
+              <strong>
+              $${Number(
+              p.precio * p.cantidad
+              ).toLocaleString()}
+              </strong>
+              </li>
                 `;
               });
             }
@@ -583,47 +658,180 @@
                 padding:15px;
                 margin:10px 0;
                 border-radius:10px;
+              ">  
+              <h3 style="
+              margin:0;
+              color:#111827;
+              font-size:18px;
               ">
-                <b>${data.nombreCompleto || data.nombre}</b><br>
-                📞 ${data.telefono}<br>
-                📍 ${data.direccion}<br>
-                💳 ${data.pago}<br>
-
+              👤 ${data.nombreCompleto || data.nombre}
+              </h3>
+              <p style="
+              font-size:12px;
+              color:#6b7280;
+              margin:4px 0;
+              ">
+              🆔 Pedido:
+              <strong>${data.pedidoId}</strong>
+              </p>
+              <p>
+              📞 ${data.telefono}
+              </p>
+              <p>
+              📍 ${data.direccion}
+              </p>
+              <p>
+              💳 ${metodoPago}
+              </p>
+              <p>
+              🛒 Tipo:
+              <strong>
+              ${data.tipoPedido || "tienda"}
+              </strong>
+              </p>
+              <p>
+              🗓 ${fechaPedido}
+              </p>
+              <p>
+              🎟 Cupón:
+              <strong>
+              ${codigoCupon}
+              </strong>
+              </p>
+              <p>
+              👨‍💼 Vendedor:
+              <strong>
+              ${vendedorCupon}
+              </strong>
+              </p>
+              ${
+              telefonoVendedor
+              ?
+              `<p>📲 ${telefonoVendedor}</p>`
+              :
+              ""
+              }
+              <p>
+              Estado:
+              <span style="
+              background:${colorEstado};
+              color:white;
+              padding:4px 10px;
+              border-radius:20px;
+              font-size:13px;
+              font-weight:bold;
+              ">
+              ${data.estado.toUpperCase()}
+              </span>
+              </p>
                 <b>Productos:</b>
                 <ul>
                   ${productosHTML}
                 </ul>
-               <b>Total: $${data.total}</b><br>
-                Estado: ${data.estado}
-                ${data.comprobanteEnvio ? `
-                <br>
-                <a href="${data.comprobanteEnvio}" target="_blank">
-                📦 Ver comprobante transportadora
+               <div style="
+                background:#f9fafb;
+                padding:10px;
+                border-radius:8px;
+                margin-top:10px;
+                margin-bottom:10px;
+                ">
+                <p>
+                Subtotal:
+                <strong>
+                $${Number(data.subtotal || 0).toLocaleString()}
+                </strong>
+                </p>
+                <p>
+                Descuento:
+                <strong style="color:#dc2626;">
+                -$${Number(data.valorDescuento || 0).toLocaleString()}
+                </strong>
+                </p>
+                <hr>
+                <p style="
+                font-size:18px;
+                font-weight:bold;
+                color:#16a34a;
+                ">
+                TOTAL:
+                $${Number(data.total || 0).toLocaleString()}
+                </p>
+                </div><br>
+                ${
+                data.comprobanteEnvio
+                ?
+                `
+                <p style="
+                margin-top:12px;
+                font-weight:bold;
+                ">
+                📦 Comprobante transportadora
+                </p>
+                <a
+                href="${data.comprobanteEnvio}"
+                target="_blank">
+                <img
+                src="${data.comprobanteEnvio}"
+                style="
+                width:120px;
+                border-radius:8px;
+                border:1px solid #ddd;
+                margin-top:5px;
+                cursor:pointer;
+                ">
                 </a>
-                ` : ""}
-                <br>
-                <input type="file"
+                `
+                :
+                ""
+                }
+                ${
+                data.estado==="confirmado"
+                ?
+                `
+                <input
+                type="file"
                 id="file-${doc.id}"
                 accept="image/*"
-                style="margin-top:5px">
-                <br><br>
-                <button onclick="confirmarPedido('${doc.id}')"
-                style="background:green;color:white;padding:5px 10px;margin-top:5px">
-                Confirmar
-                </button>
-                <button onclick="entregarPedido('${doc.id}')"
-                style="background:blue;color:white;padding:5px 10px;margin-left:5px">
-                Entregado
-                </button>
-                <button onclick="whatsappPedido('${doc.id}')"
-                style="background:#25D366;color:white;padding:5px 10px;margin-left:5px">
-                WhatsApp
-                </button>
-                <button onclick="eliminarPedido('${doc.id}')"
-              style="background:red;color:white;padding:5px 10px;margin-left:5px">
-              Eliminar
-              </button>
-              </div>
+                style
+                ="
+                margin-top:8px;
+                ">
+                `
+                :
+                ""
+                }<br>
+            <div style="
+            display:flex;
+            gap:8px;
+            margin-top:15px;
+            flex-wrap:wrap;
+            ">
+            ${botones}
+            <button
+            onclick="whatsappPedido('${doc.id}')"
+            style="
+            background:#25D366;
+            color:white;
+            padding:6px 12px;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            ">
+            WhatsApp
+            </button>
+            <button
+            onclick="eliminarPedido('${doc.id}')"
+            style="
+            background:#ef4444;
+            color:white;
+            padding:6px 12px;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            ">
+            Eliminar
+            </button>
+            </div>
             `;
           });
           document.getElementById("contadorPedidos").innerHTML =
@@ -649,15 +857,37 @@
         alert("Pedido enviado ✅");
       }
       window.confirmarPedido = async function(id){
-      await updateDoc(
-      doc(db,"pedidos_tienda",id),
-      {
-      estado:"confirmado"
-      }
-      );
-      alert("Pedido confirmado");
-      cargarPedidos();
-      }
+          try{
+            const pedidoRef =
+            doc(db,"pedidos_tienda",id);
+            const snap =
+            await getDoc(pedidoRef);
+            if(!snap.exists){
+            alert("El pedido no existe.");
+              return;
+            }
+            const pedido =
+            snap.data();
+            // Solo se pueden confirmar pedidos pendientes
+            if(pedido.estado !== "pendiente"){
+              alert("Este pedido ya fue procesado.");
+              return;
+            }
+            await updateDoc(
+              pedidoRef,
+              {
+                estado:"confirmado",
+                fechaConfirmacion:new Date()
+              }
+            );
+            console.log("✅ Pedido confirmado:", id);
+            alert("Pedido confirmado correctamente.");
+            cargarPedidos();
+          }catch(error){
+            console.error(error);
+            alert("Error al confirmar el pedido.");
+          }
+        };
       window.eliminarPedido = async function(id){
       if(!confirm("¿Eliminar pedido?")) return;
       await deleteDoc(
@@ -667,33 +897,59 @@
       cargarPedidos();
       }
       window.entregarPedido = async function(id){
-        const input = document.getElementById(`file-${id}`);
-        if(!input.files.length){
-        alert("Adjunta comprobante de transportadora");
-        return;
-        }
-        const file = input.files[0];
-        // nombre archivo
-        const nombre = "pedido_" + id;
-        const storageRef = ref(
-        storage,
-        `transportadoras/${nombre}_${id}_${file.name}`
-        );
-        // subir imagen
-        await uploadBytes(storageRef, file);
-        // obtener url
-        const url = await getDownloadURL(storageRef);
-        // guardar en firestore
-        await updateDoc(
-        doc(db,"pedidos_tienda",id),
-        {
-        estado:"entregado",
-        comprobanteEnvio:url
-        }
-        );
-        alert("mercancia entregada y cancelada");
-        cargarPedidos();
-        }
+          try{
+            const pedidoRef =
+            doc(db,"pedidos_tienda",id);
+            const snap =
+            await getDoc(pedidoRef);
+            if(!snap.exists){
+              alert("El pedido no existe.");
+              return;
+            }
+            const pedido =
+            snap.data();
+            // Solo los pedidos confirmados pueden entregarse
+            if(pedido.estado !== "confirmado"){
+              alert("Primero debes confirmar el pedido.");
+              return;
+            }
+            const input =
+            document.getElementById(`file-${id}`);
+            if(!input.files.length){
+              alert("Debes adjuntar el comprobante de la transportadora.");
+              return;
+            }
+            const file =
+            input.files[0];
+            const nombre =
+            "pedido_" + id;
+            const storageRef =
+            ref(
+              storage,
+              `transportadoras/${nombre}_${id}_${file.name}`
+            );
+            await uploadBytes(
+              storageRef,
+              file
+            );
+            const url =
+            await getDownloadURL(storageRef);
+            await updateDoc(
+              pedidoRef,
+              {
+                estado:"entregado",
+                comprobanteEnvio:url,
+                fechaEntrega:new Date()
+              }
+            );
+            console.log("📦 Pedido entregado:", id);
+            alert("Mercancía entregada correctamente.");
+            cargarPedidos();
+          }catch(error){
+            console.error(error);
+            alert("Error al entregar el pedido.");
+          }
+        };
         window.whatsappPedido = async function(id){
         const ref = doc(db,"pedidos_tienda",id);
         const snap = await getDoc(ref);

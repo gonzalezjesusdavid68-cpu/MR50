@@ -520,7 +520,6 @@ exports.finalizarYCrearNuevoSorteo = onRequest(
           error: "No hay sorteo activo",
         });
       }
-
       const sorteoDoc = snapshot.docs[0];
       const sorteoData = sorteoDoc.data();
       const sorteoId = sorteoDoc.id;
@@ -531,32 +530,25 @@ exports.finalizarYCrearNuevoSorteo = onRequest(
           error: "El sorteo no tiene fecha definida",
         });
       }
-
       const fechaSorteo = sorteoData.fechaSorteo.toDate();
-
       if (new Date() < fechaSorteo) {
         return res.status(400).json({
           success: false,
           error: "Aún no ha llegado la fecha del sorteo",
         });
       }
-
       // 🏁 Finalizar sorteo actual
       await sorteoDoc.ref.update({
         estado: "finalizado",
         fechaFinalizacion: admin.firestore.FieldValue.serverTimestamp(),
       });
-
       // 📆 Calcular siguiente mes
       const siguienteFecha = new Date(fechaSorteo);
       siguienteFecha.setMonth(siguienteFecha.getMonth() + 1);
-
       const nombreMes = siguienteFecha
         .toLocaleString("es-CO", { month: "long" })
         .toLowerCase();
-
       const anio = siguienteFecha.getFullYear();
-
       const nuevoId = `sorteo_${nombreMes}_${anio}`;
 
       // 🚀 Crear nuevo sorteo heredando la configuración anterior
@@ -565,13 +557,10 @@ exports.finalizarYCrearNuevoSorteo = onRequest(
         descripcion: sorteoData.descripcion || "",
         imagenes: sorteoData.imagenes || [],
         valor: sorteoData.valor || "",
-
         estado: "activo",
         fechaSorteo: siguienteFecha,
-
         ganadorElegido: false,
         numeroGanador: null,
-
         ganador: {
           numero: "",
           nombre: "",
@@ -580,19 +569,17 @@ exports.finalizarYCrearNuevoSorteo = onRequest(
           ciudad: "",
           fecha: ""
         },
-
         participantesVendidos: 0,
         recaudado: 0,
-
         creadoEn: admin.firestore.FieldValue.serverTimestamp(),
       });
-
       return res.json({
         success: true,
         mensaje: "Sorteo finalizado y nuevo sorteo creado",
         nuevoSorteo: nuevoId,
       });
-    } catch (err) {
+    }
+     catch (err) {
       console.error("❌ Error automatización:", err);
       return res.status(500).json({
         success: false,
