@@ -581,291 +581,660 @@ exports.finalizarYCrearNuevoSorteo = onRequest(
    REGISTRAR VENTA CON CUPÓN
    Moto Ruta 50
 ========================================================== */
-exports.registrarVentaConCupon = onDocumentUpdated(
-"pedidos_tienda/{pedidoId}",
-async (event) => {
-try{
-    const pedidoId = event.params.pedidoId;
-    const pedidoRef =
-    db.collection("pedidos_tienda")
-    .doc(pedidoId);
-    if (!event.data) {
-    console.log("Evento sin datos.");
-    return;
-}   
-     const antes = event.data.before.data();
-      const despues = event.data.after.data();
-      if (!antes || !despues) {
-          console.log("Documento inválido.");
-          return;
+      exports.registrarVentaConCupon = onDocumentUpdated(
+  "pedidos_tienda/{pedidoId}",
+  async (event) => {
+
+    try {
+
+      //--------------------------------------------------
+      // DATOS DEL EVENTO
+      //--------------------------------------------------
+
+      const pedidoId = event.params.pedidoId;
+
+      if (!event.data) {
+        console.log("Evento sin datos.");
+        return;
       }
-        if (
-            antes.estado !== "entregado" &&
-            despues.estado === "entregado"
-        ) {
-            console.log("Pedido entregado");
-        } else {
-            return;
-        }
-    await db.runTransaction(async(transaction)=>{
 
-        //--------------------------------------------------
-        // LEER PEDIDO
-        //--------------------------------------------------
-        const pedidoSnap =
-        await transaction.get(pedidoRef);
+      const antes = event.data.before.data();
+      const despues = event.data.after.data();
 
-        if(!pedidoSnap.exists){
-            console.log("Pedido no existe");
-            return;
-        }
-        const pedido = pedidoSnap.data();
-        //--------------------------------------------------
+      if (!antes || !despues) {
+        console.log("Documento inválido.");
+        return;
+      }
+      //--------------------------------------------------
+      // SOLO PROCESAR CUANDO PASA A ENTREGADO
+      //--------------------------------------------------
+      if (
+        antes.estado !== "entregado" &&
+        despues.estado === "entregado"
+      ) {
+        console.log("Pedido entregado");
+      } else {
+        return;
+      }
+      //--------------------------------------------------
+      // REFERENCIA DEL PEDIDO
+      //--------------------------------------------------
+      const pedidoRef =
+        db.collection("pedidos_tienda")
+          .doc(pedidoId);
+      //--------------------------------------------------
+      // DATOS DEL PEDIDO
+      //--------------------------------------------------
+      const pedido = despues;
+      //--------------------------------------------------
       // VALIDAR PRODUCTOS
       //--------------------------------------------------
       if (
-          !pedido.productos ||
-          pedido.productos.length === 0
-      ){
-          throw new Error(
-              "Pedido sin productos."
-          );
+        !pedido.productos ||
+        pedido.productos.length === 0
+      ) {
+        throw new Error(
+          "Pedido sin productos."
+        );
       }
-        //--------------------------------------------------
-        // EVITAR DOBLE PROCESO
-        //--------------------------------------------------
-        if (pedido.comisionProcesada) {
-            console.log("Comisión ya procesada.");
-            return;
-        }
-        //--------------------------------------------------
-        // VALIDAR CUPÓN
-        //--------------------------------------------------
-          if (!pedido.cupon || !pedido.cupon.id) {
-              console.log("Pedido sin cupón.");
-              return;
-          }
-        //--------------------------------------------------
-        // DATOS CUPÓN
-        //--------------------------------------------------
-        const cupon = pedido.cupon;
-        const vendedorId =
-        cupon.vendedorId;
+      //--------------------------------------------------
+      // EVITAR DOBLE PROCESO
+      //--------------------------------------------------
+      if (pedido.comisionProcesada === true) {
 
-        if(!vendedorId){
-            console.log("Cupón sin vendedor.");
-            return;
-        }
-        //--------------------------------------------------
-        // REFERENCIAS
-        //--------------------------------------------------
-        const vendedorRef =
+        console.log(
+          "Comisión ya procesada."
+        );
+        return;
+      }
+      //--------------------------------------------------
+      // VALIDAR CUPÓN
+      //--------------------------------------------------
+      if (
+        !pedido.cupon ||
+        !pedido.cupon.id
+      ) {
+        console.log(
+          "Pedido sin cupón."
+        );
+        return;
+      }
+      //--------------------------------------------------
+      // DATOS DEL CUPÓN
+      //--------------------------------------------------
+      const cupon =
+        pedido.cupon;
+      const vendedorId =
+        cupon.vendedorId;
+      //--------------------------------------------------
+      // REFERENCIAS
+      //--------------------------------------------------
+      const vendedorRef =
         db.collection("vendedores")
-        .doc(vendedorId);
-        const cuponRef =
+          .doc(vendedorId);
+      const cuponRef =
         db.collection("cupones")
-       .doc(cupon.id);
-        const historialRef =
+          .doc(cupon.id);
+      const historialRef =
         db.collection("historial_comisiones")
-        .doc(pedidoId);
+          .doc(pedidoId);
         //--------------------------------------------------
-        // LEER CUPÓN
+        // TRANSACCIÓN
         //--------------------------------------------------
-        const cuponSnap =
-        await transaction.get(cuponRef);
-        if(!cuponSnap.exists){
-            throw new Error("El cupón no existe.");
-        }
-        const cuponData =
-        cuponSnap.data();
-        //--------------------------------------------------
-        // VALIDAR CUPÓN ACTIVO
-        //--------------------------------------------------
-        if(cuponData.activo === false){
-            throw new Error("Cupón desactivado.");
-        }
-        //--------------------------------------------------
-        // VALIDAR LÍMITE DE USOS
-        //--------------------------------------------------
-        if (
-            Number(cuponData.usados || 0) >=
-            Number(cuponData["usos maximos"] || 0)
-        ) {
-            throw new Error("Cupón agotado.");
-        }
-        //--------------------------------------------------
-        // LEER VENDEDOR
-        //--------------------------------------------------
-        const vendedorSnap =
-        await transaction.get(vendedorRef);
-        if(!vendedorSnap.exists){
-            throw new Error("No existe vendedor.");
-        }
-        const vendedor =
-        vendedorSnap.data();
-        //--------------------------------------------------
-        // CALCULAR COMISIÓN
-        //--------------------------------------------------
-        const porcentaje =
-        Number(
-            cuponData.comision ??
-            vendedor.porcentaje ??
-            0
-        );
-        if(
-        porcentaje < 0 ||
-        porcentaje > 100
-    ){
-        throw new Error(
-            "Porcentaje de comisión inválido."
-        );
-    }
-        const subtotal =
-        Number(pedido.subtotal || 0);
-        if(subtotal <= 0){
-        throw new Error(
-            "Subtotal inválido."
-        );
-    }
-        const total =
-        Number(pedido.total || 0);
-        if(total <= 0){
-        throw new Error(
-            "Total inválido."
-        );
-    }
-        const descuento =
-        Number(pedido.descuento || 0);
-        const valorDescuento =
-        Number(pedido.valorDescuento || 0);
-        const comision =
-        Math.round(
-            subtotal *
-            (porcentaje/100)
-        );
-       console.table({
-          Pedido: pedidoId,
-          Cliente: pedido.nombre,
-          Vendedor: vendedor.nombre,
-          Cupon: cupon.codigo,
-          Subtotal: subtotal,
-          Descuento: descuento,
-          ValorDescuento: valorDescuento,
-          Total: total,
-          Comision: comision
-      });
-        //--------------------------------------------------
-        // ACTUALIZAR VENDEDOR
-        //--------------------------------------------------
-        transaction.update(
-            vendedorRef,
-            {
-                ventas:
-                FieldValue.increment(total),
-                pedidos:
-                FieldValue.increment(1),
-                descuentoEntregado:
-                FieldValue.increment(valorDescuento),
-                comisiones:
-                FieldValue.increment(comision)
+        await db.runTransaction(
+          async (transaction) => {
+            //--------------------------------------------------
+            // TODAS LAS LECTURAS PRIMERO
+            //--------------------------------------------------
+            // 1. LEER PEDIDO
+            const pedidoSnap =
+              await transaction.get(pedidoRef);
+
+            if (!pedidoSnap.exists) {
+              console.log(
+                "Pedido no encontrado:",
+                pedidoId
+              );
+              return;
             }
-        );
-        //--------------------------------------------------
-        // ACTUALIZAR CUPÓN
-        //--------------------------------------------------
-        transaction.update(
-            cuponRef,
-            {
-                usados:
-                FieldValue.increment(1),
-                total_ventas:
-                FieldValue.increment(total),
-                dinero_generado:
-                FieldValue.increment(total),
-                total_comisiones:
-                FieldValue.increment(comision)
+
+            const pedido = pedidoSnap.data();
+
+            console.log("====================================");
+            console.log("PASO A - PEDIDO LEÍDO:", pedidoId);
+            console.log("PASO B - EXISTE PEDIDO:", pedidoSnap.exists);
+            console.log(
+              "PASO C - CAMPOS DEL PEDIDO:",
+              Object.keys(pedido)
+            );
+
+            console.log(
+              "PASO D - CUPÓN DEL PEDIDO:",
+              pedido.cupon
+            );
+
+            if (!pedido.cupon) {
+              console.log("❌ PASO E - EL PEDIDO NO TIENE CUPÓN");
+              return;
             }
-        );
-        //--------------------------------------------------
-        // HISTORIAL
-        //--------------------------------------------------
-        const historialSnap =
-        await transaction.get(historialRef);
-        if (!historialSnap.exists){
-                
-        transaction.set(
-            historialRef,
-            {
-              pedidoId: pedidoId,
-                cliente:
-                pedido.nombre,
-                telefono:
-                pedido.telefono,
-                vendedor:
-                cupon.vendedor,
-                vendedorId:
-                cupon.vendedorId,
-                codigoCupon:
-                cupon.codigo,
-                subtotal:
+
+            console.log(
+              "PASO E - ID CUPÓN:",
+              pedido.cupon.id
+            );
+
+            console.log(
+              "PASO F - VENDEDOR ID:",
+              pedido.cupon.vendedorId
+            );
+            //--------------------------------------------------
+            // 2. OBTENER CUPÓN DESDE EL PEDIDO
+            //--------------------------------------------------
+            const cupon = pedido.cupon;
+            if (!cupon.id) {
+              console.log("❌ PASO G - EL CUPÓN NO TIENE ID");
+              return;
+            }
+
+            if (!cupon.vendedorId) {
+              console.log("❌ PASO H - EL CUPÓN NO TIENE vendedorId");
+              return;
+            }
+
+            const vendedorId = cupon.vendedorId;
+
+            console.log("PASO I - CONTINUANDO CON VENDEDOR:", vendedorId);
+            console.log("====================================");
+
+            //--------------------------------------------------
+            // 3. CREAR REFERENCIAS
+            //--------------------------------------------------
+
+            const vendedorRef =
+              db
+                .collection("vendedores")
+                .doc(vendedorId);
+
+            const cuponRef =
+              db
+                .collection("cupones")
+                .doc(cupon.id);
+
+            const historialRef =
+              db
+                .collection("historial_comisiones")
+                .doc(pedidoId);
+
+
+            //--------------------------------------------------
+            // 4. LEER CUPÓN
+            //--------------------------------------------------
+
+            const cuponSnap =
+              await transaction.get(cuponRef);
+
+            //--------------------------------------------------
+            // 5. LEER VENDEDOR
+            //--------------------------------------------------
+
+            const vendedorSnap =
+              await transaction.get(vendedorRef);
+
+            //--------------------------------------------------
+            // 6. LEER HISTORIAL
+            //--------------------------------------------------
+
+            const historialSnap =
+              await transaction.get(historialRef);
+
+
+            //--------------------------------------------------
+            // AQUÍ TERMINARON TODAS LAS LECTURAS
+            //--------------------------------------------------
+            // A partir de aquí NO usar transaction.get()
+            //--------------------------------------------------
+
+
+            //--------------------------------------------------
+            // VALIDAR CUPÓN
+            //--------------------------------------------------
+
+            if (!cuponSnap.exists) {
+
+              console.log(
+                "Cupón no encontrado:",
+                cupon.id
+              );
+
+              return;
+            }
+
+            const datosCupon =
+              cuponSnap.data();
+
+            console.log(
+              "Datos del cupón:",
+              datosCupon
+            );
+
+            //--------------------------------------------------
+            // VALIDAR VENDEDOR
+            //--------------------------------------------------
+
+            if (!vendedorSnap.exists) {
+
+              console.log(
+                "Vendedor no encontrado:",
+                vendedorId
+              );
+
+              return;
+            }
+
+            const datosVendedor =
+              vendedorSnap.data();
+
+            console.log(
+              "Datos del vendedor:",
+              datosVendedor
+            );
+
+            //--------------------------------------------------
+            // EVITAR DOBLE PROCESO
+            //--------------------------------------------------
+
+            if (
+              pedidoActual.comisionProcesada === true
+            ) {
+
+              console.log(
+                "Comisión ya procesada."
+              );
+
+              return;
+            }
+
+
+            //--------------------------------------------------
+            // VALIDAR CUPÓN ACTIVO
+            //--------------------------------------------------
+
+            if (
+              datosCupon.activo === false
+            ) {
+
+              throw new Error(
+                "Cupón desactivado."
+              );
+            }
+
+
+            //--------------------------------------------------
+            // VALIDAR LÍMITE DE USOS
+            //--------------------------------------------------
+
+            const usosActuales =
+              Number(
+                datosCupon.usados ?? 0
+              );
+
+            const usosMaximos =
+              Number(
+                datosCupon["usos maximos"] ??
+                datosCupon["USOS MAXIMOS"] ??
+                datosCupon.usosMaximos ??
+                0
+              );
+
+            console.log(
+              "===================================="
+            );
+
+            console.log(
+              "USOS ACTUALES DEL CUPÓN:",
+              usosActuales
+            );
+
+            console.log(
+              "USOS MÁXIMOS DEL CUPÓN:",
+              usosMaximos
+            );
+
+            console.log(
+              "CÓDIGO DEL CUPÓN:",
+              cupon.codigo || cupon.id
+            );
+
+            console.log(
+              "===================================="
+            );
+
+
+            //--------------------------------------------------
+            // SOLO AGOTAR SI EXISTE UN LÍMITE MAYOR A CERO
+            //--------------------------------------------------
+
+            if (
+              usosMaximos > 0 &&
+              usosActuales >= usosMaximos
+            ) {
+
+              throw new Error(
+                "Cupón agotado."
+              );
+            }
+
+
+            //--------------------------------------------------
+            // CALCULAR PORCENTAJE COMISIÓN
+            //--------------------------------------------------
+
+            const porcentaje =
+              Number(
+                datosCupon.comision ??
+                datosVendedor.porcentaje ??
+                0
+              );
+
+
+            if (
+              porcentaje < 0 ||
+              porcentaje > 100
+            ) {
+
+              throw new Error(
+                "Porcentaje de comisión inválido."
+              );
+            }
+
+
+            //--------------------------------------------------
+            // TOTALES
+            //--------------------------------------------------
+
+            const subtotal =
+              Number(
+                pedidoActual.subtotal || 0
+              );
+
+
+            if (subtotal <= 0) {
+
+              throw new Error(
+                "Subtotal inválido."
+              );
+            }
+
+
+            const total =
+              Number(
+                pedidoActual.total || 0
+              );
+
+
+            if (total <= 0) {
+
+              throw new Error(
+                "Total inválido."
+              );
+            }
+
+
+            const descuento =
+              Number(
+                pedidoActual.descuento || 0
+              );
+
+
+            const valorDescuento =
+              Number(
+                pedidoActual.valorDescuento || 0
+              );
+
+
+            //--------------------------------------------------
+            // CALCULAR COMISIÓN
+            //--------------------------------------------------
+
+            const comision =
+              Math.round(
+                subtotal *
+                (porcentaje / 100)
+              );
+
+
+            //--------------------------------------------------
+            // MOSTRAR INFORMACIÓN
+            //--------------------------------------------------
+
+            console.table({
+
+              Pedido:
+                pedidoId,
+
+              Cliente:
+                pedidoActual.nombre,
+
+              Vendedor:
+                datosVendedor.nombre,
+
+              Cupon:
+                cupon.codigo || cupon.id,
+
+              Subtotal:
                 subtotal,
-                descuento:
+
+              Descuento:
                 descuento,
-                valorDescuento:
+
+              ValorDescuento:
                 valorDescuento,
-                comision:
-                comision,
-                total:
+
+              Total:
                 total,
-                fecha:
-                pedido.fecha ||
-                FieldValue.serverTimestamp(),
-                estado:
-                pedido.estado,
-               procesadoEn:
-              FieldValue.serverTimestamp()
+
+              Comision:
+                comision
+
+            });
+
+
+            //--------------------------------------------------
+            // ACTUALIZAR VENDEDOR
+            //--------------------------------------------------
+
+            transaction.update(
+              vendedorRef,
+              {
+
+                ventas:
+                  FieldValue.increment(
+                    total
+                  ),
+
+                pedidos:
+                  FieldValue.increment(
+                    1
+                  ),
+
+                descuentoEntregado:
+                  FieldValue.increment(
+                    valorDescuento
+                  ),
+
+                comisiones:
+                  FieldValue.increment(
+                    comision
+                  )
+
+              }
+            );
+
+
+            //--------------------------------------------------
+            // ACTUALIZAR CUPÓN
+            //--------------------------------------------------
+
+            transaction.update(
+              cuponRef,
+              {
+
+                usados:
+                  FieldValue.increment(
+                    1
+                  ),
+
+                total_ventas:
+                  FieldValue.increment(
+                    total
+                  ),
+
+                dinero_generado:
+                  FieldValue.increment(
+                    total
+                  ),
+
+                total_comisiones:
+                  FieldValue.increment(
+                    comision
+                  )
+
+              }
+            );
+
+
+            //--------------------------------------------------
+            // CREAR HISTORIAL DE COMISIÓN
+            //--------------------------------------------------
+
+            if (!historialSnap.exists) {
+
+              transaction.set(
+                historialRef,
+                {
+
+                  pedidoId:
+                    pedidoId,
+
+                  cliente:
+                    pedidoActual.nombre,
+
+                  telefono:
+                    pedidoActual.telefono,
+
+                  vendedor:
+                    cupon.vendedor,
+
+                  vendedorId:
+                    cupon.vendedorId,
+
+                  codigoCupon:
+                    cupon.codigo,
+
+                  subtotal:
+                    subtotal,
+
+                  descuento:
+                    descuento,
+
+                  valorDescuento:
+                    valorDescuento,
+
+                  comision:
+                    comision,
+
+                  total:
+                    total,
+
+                  fecha:
+                    pedidoActual.fecha ||
+                    FieldValue.serverTimestamp(),
+
+                  estado:
+                    pedidoActual.estado,
+
+                  procesadoEn:
+                    FieldValue.serverTimestamp()
+
+                }
+              );
+
+              console.log(
+                "✅ Historial de comisión creado:",
+                pedidoId
+              );
+
+            } else {
+
+              console.log(
+                "⚠ Historial ya existe:",
+                pedidoId
+              );
+
             }
+
+
+            //--------------------------------------------------
+            // MARCAR PEDIDO COMO PROCESADO
+            //--------------------------------------------------
+
+            transaction.update(
+              pedidoRef,
+              {
+
+                comisionProcesada:
+                  true,
+
+                fechaComision:
+                  FieldValue.serverTimestamp(),
+
+                historialComision:
+                  pedidoId,
+
+                ultimaActualizacion:
+                  FieldValue.serverTimestamp()
+
+              }
+            );
+
+          }
         );
-        }  
-        //--------------------------------------------------
-        // MARCAR PEDIDO
-        //--------------------------------------------------
-        transaction.update(
-            pedidoRef,
-            {
-              comisionProcesada:true,
-              fechaComision:
-              FieldValue.serverTimestamp(),
-              historialComision: pedidoId,
-              ultimaActualizacion:
-              FieldValue.serverTimestamp()
-            }
-        );
-    });
-    console.log(
+      //--------------------------------------------------
+      // TRANSACCIÓN TERMINADA
+      //--------------------------------------------------
+
+      console.log(
+        "✅ registrarVentaConCupon FINALIZADO:",
+        pedidoId
+      );
+
+
+    } catch (error) {
+
+      //--------------------------------------------------
+      // MANEJO DE ERROR
+      //--------------------------------------------------
+
+      console.error(
         "===================================="
-    );
-    console.log(
-        "Venta registrada correctamente."
-    );
-    console.log(
+      );
+
+      console.error(
+        "❌ ERROR registrarVentaConCupon"
+      );
+
+      console.error(error);
+
+      console.error(
         "===================================="
-    );
-}
-catch(error){
-    console.error(
-        "===================================="
-    );
-    console.error(
-        "ERROR registrarVentaConCupon"
-    );
-    console.error(error);
-    console.error(
-        "===================================="
-    );
-    throw error; 
-}
-});
+      );
+
+      throw error;
+
+    }
+
+  }
+);
 /* =====================================
    HACER ADMIN
 ===================================== */
